@@ -1,0 +1,3 @@
+# <strong>3</strong> - <i class="fab fa-python"></i> Getting Started with Python
+
+In this section we will talk abou what is Python, how to install it, and how to run your first Python program...
