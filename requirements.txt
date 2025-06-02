@@ -2,4 +2,4 @@ jupyter-book
 ndv[jupyter,vispy]
 tifffile
 scikit-image
-matplotlib
+matplotlibu

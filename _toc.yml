@@ -19,6 +19,7 @@ parts:
   - file: content/4_python_basics/python_basics.md
     sections:
       - file: content/4_python_basics/python_basics_notebook
+      - file: content/4_python_basics/intro_to_python_II
 
   - file: content/5_digital_images_intro/digital_images_intro.md
     sections:
