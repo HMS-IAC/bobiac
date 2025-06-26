@@ -11,6 +11,9 @@
 "nd2" = "nd2"  # Ignore nd2 library name (don't convert to "and2")
 "nd" = "nd"    # Ignore "nd" when used in technical contexts
 
+# Code 
+"arange" = "arange" # Don't change np.arange() to np.arrange()
+
 [files]
 # You can also exclude specific files or patterns if needed
 # extend-exclude = ["*.log", "specific_file.txt"]
