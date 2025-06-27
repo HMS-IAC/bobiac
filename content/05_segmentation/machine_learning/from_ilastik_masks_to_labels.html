@@ -1,0 +1,800 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Form Ilastik Masks to Labels &#8212; BoBiAC Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/custom.css?v=01806148" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/05_segmentation/machine_learning/from_ilastik_masks_to_labels';</script>
+    <script src="../../../_static/scripts/custom.js?v=68f572f2"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Deep Learning: Cellpose" href="../deep_learning/deep_learning_with_cellpose.html" />
+    <link rel="prev" title="Ilastik for Pixel Classification" href="pixel_classification_with_ilastik.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../landing-page.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/bobiac_logos_svgexport-03.svg" class="logo__image only-light" alt="BoBiAC Book - Home"/>
+    <script>document.write(`<img src="../../../_static/bobiac_logos_svgexport-04.svg" class="logo__image only-dark" alt="BoBiAC Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../landing-page.html">
+                    <i class="fas fa-home"></i> Home
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Material</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../01_intro_bioimage_analysis/bioimage_analysis_intro.html"><strong>01</strong> - <i class="fas fa-image"></i> Introduction to Bioimage Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_getting_started_with_python/getting_started_with_python.html"><strong>02</strong> - <i class="fab fa-python"></i> Getting Started with Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../03_python_basics/python_basics.html"><strong>03</strong> - <i class="fab fa-python"></i> The Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../03_python_basics/intro_to_python_II.html">Introduction to Python II</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../04_digital_images_intro/digital_images_intro.html"><strong>04</strong> - <i class="fas fa-table-cells"></i> Introduction to Digital Images</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../04_digital_images_intro/python_for_digital_images.html">Python for Digital Images</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../segmentation_intro.html"><strong>05</strong> - <i class="fa-solid fa-disease"></i> Semantic &amp; Instance Segmentation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../classic/classic.html">Classic Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../classic/filters.html">Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../classic/thresholding.html">Thresholding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../classic/labeling.html">Labelling (Instance Segmentation)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="machine_learning_with_ilastik.html">Machine Learning: Ilastik</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pixel_classification_with_ilastik.html">Ilastik for Pixel Classification</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Form Ilastik Masks to Labels</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../deep_learning/deep_learning_with_cellpose.html">Deep Learning: Cellpose</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../deep_learning/cellpose_gui.html">Cellpose GUI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../deep_learning/cellpose_code.html">Cellpose with Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../deep_learning/cellpose_retraining.html">Retraining Cellpose on Custom Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../06_classification/classification.html"><strong>06</strong> - <i class="fas fa-shapes"></i> Object Classification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../06_classification/object_classification_with_ilastik.html">Object Classification using Ilastik</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_measurement_and_quantification/measurement_and_quantification_intro.html"><strong>07</strong> - <i class="fa-solid fa-chart-simple"></i> Measurement &amp; Quantification using Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../08_colocalization/colocalization_intro.html"><strong>08</strong> - <i class="fa-solid fa-location-crosshairs"></i> Colocalization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../08_colocalization/object_based_colocalization.html">Object-based Colocalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08_colocalization/pixel_intensity_based_colocalization.html">Pixel Intensity-based Colocalization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../09_reproducibility_and_image_ethics/reproducibility_and_image_ethics.html"><strong>09</strong> - <i class="fa-solid fa-rotate-right"></i> Reproducibility and Image Ethics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Student Working Groups</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../student_group_work/student_group_work.html"><i class="fa-solid fa-user-group"></i> Student Group Work</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../data/course_data.html"><i class="fa-solid fa-folder"></i> Course Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025">BoBiAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu">Image Analysis Collaboratory</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025/uv_instruction.html">uv Installation Instruction</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/HMS-IAC/bobiac" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Form Ilastik Masks to Labels</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description"><p class="alert alert-success">Description</p></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries"><p class="alert alert-info">Import libraries</p></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-data"><p class="alert alert-info">Explore the Data</p></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-to-binary-masks"><p class="alert alert-info">Data to Binary Masks</p></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-masks-to-labels"><p class="alert alert-info">Binary Masks to Labels</p></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-processing"><p class="alert alert-info">Batch processing</p></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-batch-masks-to-labels"><p class="alert alert-warning"> <strong>✍️ Exercise: Batch Masks to Labels</strong></p></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="form-ilastik-masks-to-labels">
+<h1>Form Ilastik Masks to Labels<a class="headerlink" href="#form-ilastik-masks-to-labels" title="Link to this heading">#</a></h1>
+<div class="custom-button-row">
+    <a 
+        class="custom-button custom-download-button" href="../../../notebooks/05_segmentation/machine_learning/from_ilastik_masks_to_labels.ipynb" download>
+        <i class="fas fa-download"></i> Download this Notebook
+    </a>
+    <a
+    class="custom-button custom-download-button" href="https://colab.research.google.com/github/HMS-IAC/bobiac/blob/gh-pages/colab_notebooks/05_segmentation/machine_learning/from_ilastik_masks_to_labels.ipynb" target="_blank">
+        <img class="button-icon" src="../../../_static/logo/icon-google-colab.svg" alt="Open in Colab">
+        Open in Colab
+    </a>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># /// script</span>
+<span class="c1"># requires-python = &quot;&gt;=3.12&quot;</span>
+<span class="c1"># dependencies = [</span>
+<span class="c1">#     &quot;matplotlib&quot;,</span>
+<span class="c1">#     &quot;ndv[jupyter,vispy]&quot;,</span>
+<span class="c1">#     &quot;scikit-image&quot;,</span>
+<span class="c1">#     &quot;scipy&quot;,</span>
+<span class="c1">#     &quot;tifffile&quot;,</span>
+<span class="c1">#     &quot;imagecodecs&quot;,</span>
+<span class="c1"># ]</span>
+<span class="c1"># ///</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="description">
+<h2><p class="alert alert-success">Description</p><a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
+<p>This notebook demonstrates how to convert the <strong>semantic segmentation</strong> generated by <strong>Ilastik</strong> (Simple Segmentation) into <strong>instance segmentation</strong>.</p>
+<div align="center"> <img src="../../../_static/images/ilastik/sem_to_inst.png" alt="Ilastik Logo" width="600"></div>
+<br>
+<p>We first explore the type of data that we generated with Ilastik in the previous section (<a class="reference internal" href="machine_learning_with_ilastik.html"><span class="std std-doc"><strong>Machine Learning: Ilastik</strong></span></a>) and we then use them to generate labels, which can be used for instance segmentation (as we did in <a class="reference internal" href="../classic/classic.html"><span class="std std-doc">classic segmentastion methods</span></a>).</p>
+<p><em><strong>TODO: UPDATE LINK TO CLASSIC SEGMENTATION METHODS SECTION</strong></em></p>
+<section id="import-libraries">
+<h3><p class="alert alert-info">Import libraries</p><a class="headerlink" href="#import-libraries" title="Link to this heading">#</a></h3>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tifffile</span>
+<span class="kn">import</span> <span class="nn">ndv</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">measure</span><span class="p">,</span> <span class="n">segmentation</span><span class="p">,</span> <span class="n">morphology</span><span class="p">,</span> <span class="n">color</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="explore-the-data">
+<h3><p class="alert alert-info">Explore the Data</p><a class="headerlink" href="#explore-the-data" title="Link to this heading">#</a></h3>
+<p>Let’s first load one of the <em>_Simple Segmentation.tif</em> files and explore the data that we generated with Ilastik. We want to know the type of data that we have before we can convert it to labels (instance segmentation).</p>
+<p>Choose one of the <em>_Simple Segmentation.tif</em> files path and store it in a variable called <code class="docutils literal notranslate"><span class="pre">seg_path</span></code>.</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the path to one of the *_Simple Segmentation.tif files</span>
+<span class="n">seg_path</span> <span class="o">=</span> <span class="s2">&quot;../../../_static/images/ilastik/ilastik_simple_seg_example.tif&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">tifffile</span></code> library to read the tif file.</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load a mask</span>
+<span class="n">seg</span> <span class="o">=</span> <span class="n">tifffile</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">seg_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">/tmp/ipykernel_3230/565119598.py</span> in <span class="ni">?</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Load a mask</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">seg</span> <span class="o">=</span> <span class="n">tifffile</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">seg_path</span><span class="p">)</span>
+
+<span class="nn">~/.local/lib/python3.12/site-packages/tifffile/tifffile.py</span> in <span class="ni">?</span><span class="nt">(files, selection, aszarr, key, series, level, squeeze, maxworkers, buffersize, mode, name, offset, size, pattern, axesorder, categories, imread, imreadargs, sort, container, chunkshape, chunkdtype, axestiled, ioworkers, chunkmode, fillvalue, zattrs, multiscales, omexml, out, out_inplace, _multifile, _useframes, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1234</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1235</span>                     <span class="kn">from</span> <span class="nn">.zarr</span> <span class="kn">import</span> <span class="n">zarr_selection</span>
+<span class="g g-Whitespace">   </span><span class="mi">1236</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1237</span>                     <span class="k">return</span> <span class="n">zarr_selection</span><span class="p">(</span><span class="n">store</span><span class="p">,</span> <span class="n">selection</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1238</span>                 <span class="k">return</span> <span class="n">tif</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1239</span>                     <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1240</span>                     <span class="n">series</span><span class="o">=</span><span class="n">series</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1241</span>                     <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span>
+
+<span class="nn">~/.local/lib/python3.12/site-packages/tifffile/tifffile.py</span> in <span class="ni">?</span><span class="nt">(self, key, series, level, squeeze, out, maxworkers, buffersize)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4538</span>         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">pages</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4539</span>             <span class="n">page0</span> <span class="o">=</span> <span class="n">pages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">4540</span>             <span class="k">if</span> <span class="n">page0</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4541</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;page is None&#39;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">4542</span>             <span class="n">result</span> <span class="o">=</span> <span class="n">page0</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">4543</span>                 <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="n">maxworkers</span><span class="o">=</span><span class="n">maxworkers</span><span class="p">,</span> <span class="n">buffersize</span><span class="o">=</span><span class="n">buffersize</span>
+<span class="g g-Whitespace">   </span><span class="mi">4544</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4545</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">~/.local/lib/python3.12/site-packages/tifffile/tifffile.py</span> in <span class="ni">?</span><span class="nt">(self, out, squeeze, lock, maxworkers, buffersize)</span>
+<span class="g g-Whitespace">   </span><span class="mi">8881</span>                     <span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">8882</span>                 <span class="c1"># except IndexError:</span>
+<span class="g g-Whitespace">   </span><span class="mi">8883</span>                 <span class="c1">#     pass  # corrupted file, for example, with too many strips</span>
+<span class="g g-Whitespace">   </span><span class="mi">8884</span> 
+<span class="ne">-&gt; </span><span class="mi">8885</span>             <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">8886</span>                 <span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">8887</span>                 <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">8888</span>                 <span class="n">maxworkers</span><span class="o">=</span><span class="n">maxworkers</span><span class="p">,</span>
+
+<span class="nn">~/.local/lib/python3.12/site-packages/tifffile/tifffile.py</span> in <span class="ni">?</span><span class="nt">(self, lock, maxworkers, func, sort, buffersize, _fullsize)</span>
+<span class="g g-Whitespace">   </span><span class="mi">8681</span>                 <span class="n">sort</span><span class="o">=</span><span class="n">sort</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">8682</span>                 <span class="n">buffersize</span><span class="o">=</span><span class="n">buffersize</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">8683</span>                 <span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">8684</span>             <span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">8685</span>                 <span class="k">yield</span> <span class="n">decode</span><span class="p">(</span><span class="n">segment</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">8686</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">8687</span>             <span class="c1"># reduce memory overhead by processing chunks of up to</span>
+<span class="g g-Whitespace">   </span><span class="mi">8688</span>             <span class="c1"># buffersize of segments because ThreadPoolExecutor.map is not</span>
+
+<span class="nn">~/.local/lib/python3.12/site-packages/tifffile/tifffile.py</span> in <span class="ni">?</span><span class="nt">(args, decodeargs, decode)</span>
+<span class="g g-Whitespace">   </span><span class="mi">8671</span>             <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">decodeargs</span><span class="o">=</span><span class="n">decodeargs</span><span class="p">,</span> <span class="n">decode</span><span class="o">=</span><span class="n">keyframe</span><span class="o">.</span><span class="n">decode</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">8672</span>                 <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">decode</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">decodeargs</span><span class="p">))</span>
+
+<span class="nn">~/.local/lib/python3.12/site-packages/tifffile/tifffile.py</span> in <span class="ni">?</span><span class="nt">(exc, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">8093</span>             <span class="k">def</span> <span class="nf">decode_raise_compression</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">8094</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: &lt;COMPRESSION.LZW: 5&gt; requires the &#39;imagecodecs&#39; package
+</pre></div>
+</div>
+</div>
+</div>
+<p>What is the data type?</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">seg</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">seg</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With can now use the <code class="docutils literal notranslate"><span class="pre">ndv</span></code> library to display the data and <strong>explore the pixel values</strong>.</p>
+<p>What are the values? Is this a [0 1] binary mask?</p>
+<div class="cell tag_skip-execution tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show the mask image</span>
+<span class="n">ndv</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">seg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>By exploring the results we can notice that all <strong>the pixels within the nuclei regions have a value of 1</strong>, while the <strong>background has a value of 2</strong>.</p>
+<p>This is because Ilastik assigns integer to classes starting from 1, based on the number and the order of the classes defined during the training phase. For instance, in our case, we defined two classes: the first class corresponds to the nuclei, and the second class corresponds to the background. As a result, the nuclei are labeled with the value 1 and the background with the value 2.</p>
+<p>Remember that in order to generate labels form the data, <strong>we need binary masks</strong> with pixel values of <strong>0 for the background</strong> and <strong>1 for our object of interest</strong>, the nuclei.</p>
+<p>How can we convert them to binary?</p>
+</section>
+<section id="data-to-binary-masks">
+<h3><p class="alert alert-info">Data to Binary Masks</p><a class="headerlink" href="#data-to-binary-masks" title="Link to this heading">#</a></h3>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert to a binary mask</span>
+<span class="c1"># The nuclei pixels have all value 1, the seg image is a numpy array.</span>
+<span class="c1"># We can create a new bunary mask by keeping only the pixels with value 1.</span>
+<span class="n">binary_mask</span> <span class="o">=</span> <span class="n">seg</span> <span class="o">==</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we explore the binary masks with ndv, we can now see that the background has a value of 0 and the nuclei have a value of 1.</p>
+<div class="cell tag_skip-execution tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ndv</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">binary_mask</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+</section>
+<section id="binary-masks-to-labels">
+<h3><p class="alert alert-info">Binary Masks to Labels</p><a class="headerlink" href="#binary-masks-to-labels" title="Link to this heading">#</a></h3>
+<p>Now that we have the binary mask, we can convert it to labels (instance segmentation) as we did in the <a class="reference internal" href="../classic/classic.html"><span class="std std-doc">classic segmentastion methods</span></a> section.</p>
+<p><em><strong>TODO: UPDATE LINK TO CLASSIC SEGMENTATION METHODS SECTION</strong></em></p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute the distance transform</span>
+<span class="n">distance</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">distance_transform_edt</span><span class="p">(</span><span class="n">binary_mask</span><span class="p">)</span>
+<span class="c1"># apply a Gaussian filter to smooth the distance transform</span>
+<span class="n">blurred_distance</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">gaussian_filter</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="c1"># find local maxima in the blurred distance transform</span>
+<span class="n">local_maxima</span> <span class="o">=</span> <span class="n">morphology</span><span class="o">.</span><span class="n">local_maxima</span><span class="p">(</span><span class="n">blurred_distance</span><span class="p">)</span>
+<span class="c1"># use the local maxima to create seeds for the watershed algorithm</span>
+<span class="n">seeds</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">local_maxima</span><span class="p">)</span>
+<span class="c1"># apply the watershed algorithm to segment the image and get labels</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">segmentation</span><span class="o">.</span><span class="n">watershed</span><span class="p">(</span><span class="o">-</span><span class="n">blurred_distance</span><span class="p">,</span> <span class="n">seeds</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">binary_mask</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now plot the labels and check the results using scikit-image’s <code class="docutils literal notranslate"><span class="pre">label2rgb</span></code> function.</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">label2rgb</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">bg_label</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also save the labels as a tif file using the <code class="docutils literal notranslate"><span class="pre">tifffile</span></code> library.</p>
+<p class="alert alert-info">
+    <strong>NOTE:</strong> The <i>dtype</i> of the labels image is important because will determine the maximum number of labels that can be stored in the image. Infact, in a label image, each object is assigned a unique integer label, and the <i>dtype</i> determines the range of integers that can be used for labeling.
+    <br>
+    For instance, if we use <i>uint8</i>, the maximum number of labels is <i>255</i>, if we use <i>uint16</i>, the maximum number of labels is <i>65535</i> and so on.
+</p><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tifffile</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s2">&quot;watershed_segmentation.tif&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;uint16&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="batch-processing">
+<h3><p class="alert alert-info">Batch processing</p><a class="headerlink" href="#batch-processing" title="Link to this heading">#</a></h3>
+<p>Since we now understand how to deal with the <code class="docutils literal notranslate"><span class="pre">Simple</span> <span class="pre">Segmentation</span></code> data from <strong>Ilastik</strong>, in order to obtain instance segmentation from all the <em>_Simple Segmentation.tif</em> files we generated, we can modify the batch script we used in the <a class="reference internal" href="../classic/classic.html"><span class="std std-doc">classic segmentation methods</span></a> section by simply adding the line of code where we select only the pixels with a value of 1 to only consider the nuclei.</p>
+<p><em><strong>TODO: UPDATE LINK TO CLASSIC SEGMENTATION METHODS SECTION</strong></em></p>
+<section id="exercise-batch-masks-to-labels">
+<h4><p class="alert alert-warning"> <strong>✍️ Exercise: Batch Masks to Labels</strong></p><a class="headerlink" href="#exercise-batch-masks-to-labels" title="Link to this heading">#</a></h4>
+<p>Write a script that will convert all the <em>_Simple Segmentation.tif</em> images generated by Ilastik into labels images (instance segmentation) and save them as tif files.</p>
+<div class="cell tag_skip-execution tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a function to create labels from a _Simple Segmentation.tif file</span>
+<span class="k">def</span> <span class="nf">ilastik_seg_to_labels</span><span class="p">(</span><span class="n">seg_image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">object_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert an ilastik simpole segmentation image to labeled image.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    seg_image : np.ndarray</span>
+<span class="sd">        The input segmentation image generated by ilastik.</span>
+<span class="sd">    object_index : int</span>
+<span class="sd">        The index of the object to segment (e.g. 1 if your objects have value 1).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># convert to a binary mask</span>
+    <span class="n">binary_mask</span> <span class="o">=</span> <span class="n">seg_image</span> <span class="o">==</span> <span class="n">object_index</span>
+    <span class="c1"># compute the distance transform</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">distance_transform_edt</span><span class="p">(</span><span class="n">binary_mask</span><span class="p">)</span>
+    <span class="c1"># apply a Gaussian filter to smooth the distance transform</span>
+    <span class="n">blurred_distance</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">gaussian_filter</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="c1"># find local maxima in the blurred distance transform</span>
+    <span class="n">local_maxima</span> <span class="o">=</span> <span class="n">morphology</span><span class="o">.</span><span class="n">local_maxima</span><span class="p">(</span><span class="n">blurred_distance</span><span class="p">)</span>
+    <span class="c1"># use the local maxima to create seeds for the watershed algorithm</span>
+    <span class="n">seeds</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">local_maxima</span><span class="p">)</span>
+    <span class="c1"># apply the watershed algorithm to segment the image and get labels</span>
+    <span class="k">return</span> <span class="n">segmentation</span><span class="o">.</span><span class="n">watershed</span><span class="p">(</span><span class="o">-</span><span class="n">blurred_distance</span><span class="p">,</span> <span class="n">seeds</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">binary_mask</span><span class="p">)</span>
+
+
+<span class="c1"># set the input directory to the path of the _Simple Segmentation.tif files</span>
+<span class="n">input_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;my_input_directory&quot;</span><span class="p">)</span>
+<span class="c1"># set the output directory to save the labels</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;my_output_directory&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">seg_file</span> <span class="ow">in</span> <span class="n">input_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*_Simple Segmentation.tif&quot;</span><span class="p">):</span>
+    <span class="n">seg_image</span> <span class="o">=</span> <span class="n">tifffile</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">seg_file</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">ilastik_seg_to_labels</span><span class="p">(</span><span class="n">seg_image</span><span class="p">,</span> <span class="n">object_index</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">output_file</span> <span class="o">=</span> <span class="n">output_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">seg_file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">_labels.tif&quot;</span>
+    <span class="n">tifffile</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;uint16&quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DONE!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DONE!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/05_segmentation/machine_learning"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pixel_classification_with_ilastik.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Ilastik for Pixel Classification</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../deep_learning/deep_learning_with_cellpose.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Deep Learning: Cellpose</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description"><p class="alert alert-success">Description</p></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries"><p class="alert alert-info">Import libraries</p></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-data"><p class="alert alert-info">Explore the Data</p></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-to-binary-masks"><p class="alert alert-info">Data to Binary Masks</p></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-masks-to-labels"><p class="alert alert-info">Binary Masks to Labels</p></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-processing"><p class="alert alert-info">Batch processing</p></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-batch-masks-to-labels"><p class="alert alert-warning"> <strong>✍️ Exercise: Batch Masks to Labels</strong></p></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Image Analysis Collaboratory @ Harvard Medical School
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+All content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>, except where noted otherwise.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

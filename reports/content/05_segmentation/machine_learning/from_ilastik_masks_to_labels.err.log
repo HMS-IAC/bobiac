@@ -1,0 +1,88 @@
+Traceback (most recent call last):
+  File "/home/runner/.local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/.local/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/.local/lib/python3.12/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/.local/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/.local/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/.local/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Load a mask
+seg = tifffile.imread(seg_path)
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mValueError[39m                                Traceback (most recent call last)
+[32m/tmp/ipykernel_3230/565119598.py[39m in [36m?[39m[34m()[39m
+[32m      1[39m [38;5;66;03m# Load a mask[39;00m
+[32m----> [39m[32m2[39m seg = tifffile.imread(seg_path)
+
+[32m~/.local/lib/python3.12/site-packages/tifffile/tifffile.py[39m in [36m?[39m[34m(files, selection, aszarr, key, series, level, squeeze, maxworkers, buffersize, mode, name, offset, size, pattern, axesorder, categories, imread, imreadargs, sort, container, chunkshape, chunkdtype, axestiled, ioworkers, chunkmode, fillvalue, zattrs, multiscales, omexml, out, out_inplace, _multifile, _useframes, **kwargs)[39m
+[32m   1234[39m 
+[32m   1235[39m                     [38;5;28;01mfrom[39;00m .zarr [38;5;28;01mimport[39;00m zarr_selection
+[32m   1236[39m 
+[32m   1237[39m                     [38;5;28;01mreturn[39;00m zarr_selection(store, selection, out=out)
+[32m-> [39m[32m1238[39m                 return tif.asarray(
+[32m   1239[39m                     key=key,
+[32m   1240[39m                     series=series,
+[32m   1241[39m                     level=level,
+
+[32m~/.local/lib/python3.12/site-packages/tifffile/tifffile.py[39m in [36m?[39m[34m(self, key, series, level, squeeze, out, maxworkers, buffersize)[39m
+[32m   4538[39m         [38;5;28;01melif[39;00m len(pages) == [32m1[39m:
+[32m   4539[39m             page0 = pages[[32m0[39m]
+[32m   4540[39m             [38;5;28;01mif[39;00m page0 [38;5;28;01mis[39;00m [38;5;28;01mNone[39;00m:
+[32m   4541[39m                 [38;5;28;01mraise[39;00m ValueError([33m'page is None'[39m)
+[32m-> [39m[32m4542[39m             result = page0.asarray(
+[32m   4543[39m                 out=out, maxworkers=maxworkers, buffersize=buffersize
+[32m   4544[39m             )
+[32m   4545[39m         [38;5;28;01melse[39;00m:
+
+[32m~/.local/lib/python3.12/site-packages/tifffile/tifffile.py[39m in [36m?[39m[34m(self, out, squeeze, lock, maxworkers, buffersize)[39m
+[32m   8881[39m                     ]
+[32m   8882[39m                 [38;5;66;03m# except IndexError:[39;00m
+[32m   8883[39m                 [38;5;66;03m#     pass  # corrupted file, for example, with too many strips[39;00m
+[32m   8884[39m 
+[32m-> [39m[32m8885[39m             for _ in self.segments(
+[32m   8886[39m                 func=func,
+[32m   8887[39m                 lock=lock,
+[32m   8888[39m                 maxworkers=maxworkers,
+
+[32m~/.local/lib/python3.12/site-packages/tifffile/tifffile.py[39m in [36m?[39m[34m(self, lock, maxworkers, func, sort, buffersize, _fullsize)[39m
+[32m   8681[39m                 sort=sort,
+[32m   8682[39m                 buffersize=buffersize,
+[32m   8683[39m                 flat=[38;5;28;01mTrue[39;00m,
+[32m   8684[39m             ):
+[32m-> [39m[32m8685[39m                 [38;5;28;01myield[39;00m decode(segment)
+[32m   8686[39m         [38;5;28;01melse[39;00m:
+[32m   8687[39m             [38;5;66;03m# reduce memory overhead by processing chunks of up to[39;00m
+[32m   8688[39m             [38;5;66;03m# buffersize of segments because ThreadPoolExecutor.map is not[39;00m
+
+[32m~/.local/lib/python3.12/site-packages/tifffile/tifffile.py[39m in [36m?[39m[34m(args, decodeargs, decode)[39m
+[32m   8671[39m             [38;5;28;01mdef[39;00m decode(args, decodeargs=decodeargs, decode=keyframe.decode):
+[32m-> [39m[32m8672[39m                 [38;5;28;01mreturn[39;00m func(decode(*args, **decodeargs))
+
+[32m~/.local/lib/python3.12/site-packages/tifffile/tifffile.py[39m in [36m?[39m[34m(exc, *args, **kwargs)[39m
+[32m   8093[39m             [38;5;28;01mdef[39;00m decode_raise_compression(*args, exc=str(exc)[[32m1[39m:-[32m1[39m], **kwargs):
+[32m-> [39m[32m8094[39m                 [38;5;28;01mraise[39;00m ValueError(f'{exc}')
+
+[31mValueError[39m: <COMPRESSION.LZW: 5> requires the 'imagecodecs' package
+
