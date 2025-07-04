@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+
+<html data-content_root="../../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Ilastik for Pixel Classification — BoBiAC Book</title>
+<script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+<!-- Loaded before other Sphinx assets -->
+<link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" rel="preload" type="font/woff2"/>
+<link href="../../../_static/pygments.css?v=03e43079" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/togglebutton.css?v=13237357" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/sphinx-thebe.css?v=4fa983c6" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/styles/custom.css?v=9f06da9a" rel="stylesheet" type="text/css"/>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" rel="preload"/>
+<link as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" rel="preload"/>
+<script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+<script src="../../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+<script src="../../../_static/copybutton.js?v=f281be69"></script>
+<script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+<script>let toggleHintShow = 'Click to show';</script>
+<script>let toggleHintHide = 'Click to hide';</script>
+<script>let toggleOpenOnPrint = 'true';</script>
+<script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script>DOCUMENTATION_OPTIONS.pagename = 'content/05_segmentation/machine_learning/pixel_classification_with_ilastik';</script>
+<script src="../../../_static/scripts/custom.js?v=68f572f2"></script>
+<link href="../../../genindex.html" rel="index" title="Index"/>
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="from_ilastik_masks_to_labels.html" rel="next" title="From Ilastik Masks to Labels"/>
+<link href="machine_learning_with_ilastik.html" rel="prev" title="Machine Learning: Ilastik"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+</head>
+<body data-bs-root-margin="0px 0px -60%" data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-default-mode="" data-offset="180">
+<div class="skip-link d-print-none" id="pst-skip-link"><a href="#main-content">Skip to main content</a></div>
+<div id="pst-scroll-pixel-helper"></div>
+<button class="btn rounded-pill" id="pst-back-to-top" type="button">
+<i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<input class="sidebar-toggle" id="pst-primary-sidebar-checkbox" type="checkbox"/>
+<label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+<input class="sidebar-toggle" id="pst-secondary-sidebar-checkbox" type="checkbox"/>
+<label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+<div class="search-button__wrapper">
+<div class="search-button__overlay"></div>
+<div class="search-button__search-container">
+<form action="../../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search this book..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+</div>
+<div class="pst-async-banner-revealer d-none">
+<aside aria-label="Version warning" class="d-none d-print-none" id="bd-header-version-warning"></aside>
+</div>
+<header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+</header>
+<div class="bd-container">
+<div class="bd-container__inner bd-page-width">
+<div class="bd-sidebar-primary bd-sidebar">
+<div class="sidebar-header-items sidebar-primary__section">
+</div>
+<div class="sidebar-primary-items__start sidebar-primary__section">
+<div class="sidebar-primary-item">
+<a class="navbar-brand logo" href="../../../landing-page.html">
+<img alt="BoBiAC Book - Home" class="logo__image only-light" src="../../../_static/bobiac_logos_svgexport-03.svg"/>
+<script>document.write(`<img src="../../../_static/bobiac_logos_svgexport-04.svg" class="logo__image only-dark" alt="BoBiAC Book - Home"/>`);</script>
+</a></div>
+<div class="sidebar-primary-item">
+<script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+<div class="sidebar-primary-item"><nav aria-label="Main" class="bd-links bd-docs-nav">
+<div class="bd-toc-item navbar-nav active">
+<ul class="nav bd-sidenav bd-sidenav__home-link">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../landing-page.html">
+<i class="fas fa-home"></i> Home
+                </a>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Material</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../01_intro_bioimage_analysis/bioimage_analysis_intro.html">01 - <i class="fas fa-image"></i> Introduction to Bioimage Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_getting_started_with_python/getting_started_with_python.html">02 - <i class="fab fa-python"></i> Getting Started with Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../03_python_basics/python_basics.html">03 - <i class="fab fa-python"></i> The Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../03_python_basics/python_basics_notebook.html">The Python Basics Notebook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../04_digital_images_intro/digital_images_intro.html">04 - <i class="fas fa-table-cells"></i> Introduction to Digital Images</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../04_digital_images_intro/python_for_digital_images.html">Python for Digital Images</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../segmentation_intro.html">05 - <i class="fa-solid fa-disease"></i> Semantic &amp; Instance Segmentation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../classic/classic.html">Classic Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../classic/filters.html">Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../classic/thresholding.html">Thresholding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../classic/labeling.html">Labelling (Instance Segmentation)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="machine_learning_with_ilastik.html">Machine Learning: Ilastik</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Ilastik for Pixel Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from_ilastik_masks_to_labels.html">From Ilastik Masks to Labels</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../deep_learning/deep_learning_with_cellpose.html">Deep Learning: Cellpose</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../deep_learning/cellpose_gui.html">Cellpose GUI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../deep_learning/cellpose_code.html">Cellpose with Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../deep_learning/cellpose_retraining.html">Retraining Cellpose on Custom Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../06_object_classification/object_classification.html">06 - <i class="fa-solid fa-shapes"></i> Object Classification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../06_object_classification/object_classification_with_ilastik.html">Ilastik for Object Classification</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07_measurement_and_quantification/measurement_and_quantification_intro.html">07 - <i class="fa-solid fa-chart-simple"></i> Measurement &amp; Quantification using Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../08_colocalization/colocalization_intro.html">08 - <i class="fa-solid fa-location-crosshairs"></i> Colocalization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../08_colocalization/pixel_intensity_based_colocalization_pearsons.html">Pearson’s correlation coefficient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08_colocalization/pixel_intensity_based_colocalization_manders.html">Mander’s Correlation Coefficients</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../09_reproducibility_and_image_ethics/reproducibility_and_image_ethics.html">09 - <i class="fa-solid fa-rotate-right"></i> Reproducibility and Image Ethics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Student Working Groups</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../student_group_work/student_group_work.html"><i class="fa-solid fa-user-group"></i> Student Group Work</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../data/course_data.html"><i class="fa-solid fa-folder"></i> Course Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025">BoBiAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu">Image Analysis Collaboratory</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025/uv_instruction.html">uv Installation Instruction</a></li>
+</ul>
+</div>
+</nav></div>
+</div>
+<div class="sidebar-primary-items__end sidebar-primary__section">
+</div>
+<div id="rtd-footer-container"></div>
+</div>
+<main class="bd-main" id="main-content" role="main">
+<div class="sbt-scroll-pixel-helper"></div>
+<div class="bd-content">
+<div class="bd-article-container">
+<div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+<div class="header-article-items__start">
+<div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle primary sidebar">
+<span class="fa-solid fa-bars"></span>
+</button></div>
+</div>
+<div class="header-article-items__end">
+<div class="header-article-item">
+<div class="article-header-buttons">
+<a class="btn btn-sm btn-source-repository-button" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://github.com/HMS-IAC/bobiac" target="_blank" title="Source repository">
+<span class="btn__icon-container">
+<i class="fab fa-github"></i>
+</span>
+</a>
+<button class="btn btn-sm btn-fullscreen-button" data-bs-placement="bottom" data-bs-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode">
+<span class="btn__icon-container">
+<i class="fas fa-expand"></i>
+</span>
+</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle secondary sidebar">
+<span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+</div>
+</div>
+</div>
+<div class="onlyprint" id="jb-print-docs-body">
+<h1>Ilastik for Pixel Classification</h1>
+<!-- Table of contents -->
+<div id="print-main-content">
+<div id="jb-print-toc">
+<div>
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;"> Contents </h2>
+</div>
+<nav aria-label="Page">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-pixel-classification">What is Pixel Classification?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ilastik-pixel-classification-workflow">Ilastik Pixel Classification Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-workflow">1. Select the Workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-image-data">2. Load the Image Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-features">3. Select the Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-the-classifier">4. Train the Classifier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-the-results">5. Export the Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-processing">6. Batch Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-next">7. What’s Next?</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div id="searchbox"></div>
+<article class="bd-article">
+<section class="tex2jax_ignore mathjax_ignore" id="ilastik-for-pixel-classification">
+<h1>Ilastik for Pixel Classification<a class="headerlink" href="#ilastik-for-pixel-classification" title="Link to this heading">#</a></h1>
+<p>In this section, we will explore how to use <strong>Ilastik</strong> for <strong>semantic segmentation</strong> through <a class="reference external" href="https://www.ilastik.org/documentation/pixelclassification/pixelclassification"><strong>pixel classification</strong></a>. This process involves training a machine learning model to classify pixels in an image based on user-defined labels.</p>
+<p>In this exercise, we will use the <a download="" href="../../../_static/data/05_segmentation_ilastik.zip"> <i class="fas fa-download"></i> pixel classification dataset</a> of nuclei images, and the goal is to train a classifier to distinguish between <strong>nuclei</strong> and <strong>background</strong>.</p>
+<div class="alert alert-info">
+<strong>NOTE:</strong> Ilastik supports a variety of <a href="https://www.ilastik.org/documentation/basics/dataselection#formats" target="_blank">data formats</a>. For simplicity and ease of use during this course, we will use images saved as <strong>.tif</strong> files. However, Ilastik recommends using files saved as <strong>.h5</strong> for [optimal performance](https://www.ilastik.org/documentation/basics/performance_tips). If you wish to use your own dataset and need to convert your files to <strong>.h5</strong>, Ilastik provides tools such as a <a href="https://www.ilastik.org/documentation/fiji_export/plugin" target="_blank">Fiji plugin</a> or a <a href="https://github.com/ilastik/ilastik/tree/main/notebooks/h5convert" target="_blank">Jupyter Notebook</a> with instructions.
+</div>
+<section id="what-is-pixel-classification">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">What is Pixel Classification?<a class="headerlink" href="#what-is-pixel-classification" title="Link to this heading">#</a></h2>
+<p><strong>Pixel classification</strong> is a fundamental image analysis technique that involves <strong>assigning a specific category or class to each pixel</strong> in an image based on its unique features, such as color, intensity, or texture. This approach is particularly valuable in tasks like <strong>semantic segmentation</strong>, where the objective is to <strong>divide an image into meaningful regions</strong> by categorizing pixels into predefined classes, such as background, foreground, or distinct objects.</p>
+</section>
+<section id="ilastik-pixel-classification-workflow">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Ilastik Pixel Classification Workflow<a class="headerlink" href="#ilastik-pixel-classification-workflow" title="Link to this heading">#</a></h2>
+<p>For a detailed workflow instruction, you can refer to the <a class="reference external" href="https://www.ilastik.org/documentation/pixelclassification/pixelclassification">Ilastik Pixel Classification Documentation</a>.</p>
+<section id="select-the-workflow">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">1. Select the Workflow<a class="headerlink" href="#select-the-workflow" title="Link to this heading">#</a></h3>
+<p>When you open <strong>Ilastik</strong>, you will see the <a class="reference external" href="https://www.ilastik.org/documentation/basics/startup">Startup Screen</a> with various workflows. Select the <em><strong>Pixel Classification</strong></em> workflow by clicking on it. You will be automatically brought to the <strong>Input Data</strong> step.</p>
+<div align="center"> <img alt="Ilastik" src="../../../_static/images/ilastik/1a.png" width="800"/> </div>
+<div class="alert alert-info">
+<strong>NOTE:</strong> Remember to save your project regularly using <strong>Cmd+S</strong> (macOS) or <strong>Ctrl+S</strong> (Windows), or via <strong>Project → Save Project</strong>.
+</div>
+</section>
+<section id="load-the-image-data">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">2. Load the Image Data<a class="headerlink" href="#load-the-image-data" title="Link to this heading">#</a></h3>
+<p>Next, you will need to <a class="reference external" href="https://www.ilastik.org/documentation/basics/dataselection">load the image data</a> you want to use to train the classifier. Select the <em><strong>Raw Data</strong></em> tab and either <em>Drag and drop</em> your image files into the <em><strong>Add New…</strong></em> field of the data table or click on it to select your images. To create a robust classifier, you should load multiple images from the dataset. For this exercise, you can load 3 random images from the <a download="" href="../../../_static/data/05_segmentation_ilastik.zip"> <i class="fas fa-download"></i> pixel classification dataset</a>.</p>
+<div align="center"> <img alt="Ilastik" src="../../../_static/images/ilastik/1b.png" width="800"/> </div>
+<p>Once loaded, you can view the images by clicking on the image name in the data table. The corresponding image will be displayed in the window viewer.</p>
+<div align="center"> <img alt="Ilastik" src="../../../_static/images/ilastik/1d.png" width="800"/> </div>
+</section>
+<section id="select-the-features">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">3. Select the Features<a class="headerlink" href="#select-the-features" title="Link to this heading">#</a></h3>
+<p>To continue, click on the <em><strong>Feature Selection</strong></em> step (on the left side of the GUI) and then on the <em><strong>Select Features…</strong></em> button. Here, you can select the <a class="reference external" href="https://www.ilastik.org/documentation/pixelclassification/pixelclassification#selecting-good-features">features</a> and their scales (how much) that will be used to discriminate between the different classes of pixels.</p>
+<p>For pixel classification, <strong>Ilastik</strong> provides a list of features types, divided by <em><strong>Color/Intensity</strong></em>, <em><strong>Edge</strong></em>, and <em><strong>Texture</strong></em>:</p>
+<ul class="simple">
+<li><p><em><strong>Color/Intensity</strong></em>: these features should be selected if the color or brightness can be used to discern objects</p></li>
+<li><p><em><strong>Edge</strong></em>: should be selected if brightness or color gradients can be used to discern objects.</p></li>
+<li><p><em><strong>Texture</strong></em>: this might be an important feature if the objects in the image have a special textural appearance.</p></li>
+</ul>
+<div align="center"> <img alt="Ilastik" src="../../../_static/images/ilastik/2a.png" width="730"/> </div>
+<br/>
+<p>For each of the feature you can also choose the <em><strong>scale</strong></em>. The scales correspond to the <em>sigma of the Gaussian</em> which is used to smooth the image before application of the filter. Filters with larger sigmas can thus pull in information from larger neighborhoods, but average out the fine details.</p>
+<div align="center"> <img alt="Ilastik" src="../../../_static/images/ilastik/2b.png" width="730"/> </div>
+<br/>
+<p>After clicking on <em><strong>Ok</strong></em>, you can <strong>visualize the effect of the selected features</strong> by clicking on one of the options in the <strong>Features</strong> list in the bottom left part of the GUI. This will help you understand if the selected features are suitable for your dataset. You can always go back to the <em><strong>Feature Selection</strong></em> step to change the features and their scales.</p>
+<div class="alert alert-info">
+<strong>NOTE:</strong> In the next step, you will be able to also use the <a href="https://www.ilastik.org/documentation/pixelclassification/pixelclassification#suggest" target="_blank"><strong><i>Suggest Features</i></strong></a> functionality that could help you to select the most suitable features for your dataset.
+</div>
+<div align="center"> <img alt="Ilastik" src="../../../_static/images/ilastik/2c.png" width="800"/> </div>
+</section>
+<section id="train-the-classifier">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">4. Train the Classifier<a class="headerlink" href="#train-the-classifier" title="Link to this heading">#</a></h3>
+<p>The next step is to <a class="reference external" href="https://www.ilastik.org/documentation/pixelclassification/pixelclassification#training-the-classifier">train the classifier</a> based on the features you selected. This is an interactive process where you will need to <strong>label a few pixels</strong> in the image to provide the classifier with examples of the different classes.</p>
+<p>In the <em><strong>Training</strong></em> step (on the left side of the GUI) you can <strong>add</strong>, <strong>remove</strong> or <strong>edit</strong> the classes (labels) that you want to use for the classification. For this exercise, we will use two classes: <em><strong>nuclei</strong></em> and <em><strong>background</strong></em>. To rename the default classes, <em>Label 1</em> and <em>Label 2</em>, double-click on each class and type the new name (You can also change the class color by double-clicking on the color box next to the class name).</p>
+<p>Now you can start by choosing few pixels in the image that correspond to the <em><strong>nuclei</strong></em> class; select the <em><strong>nuclei</strong></em> class, select the <em>Brush</em> tool (should be the default) and draw a short line over some pixel inside one nucleus. Next repeat the process for the <em><strong>background</strong></em> class, selecting some pixels that correspond to the background.</p>
+<div class="alert alert-info">
+<strong>TIPS:</strong>
+<ul>
+<li>Use <strong>Cmd+Z</strong> (macOS) or <strong>Ctrl+Z</strong> (Windows) to <strong>undo</strong> the last action.</li>
+<li>Use the <strong>Erase</strong> tool to <strong>remove</strong> the annotations.</li>
+<li>If required, increase the <strong>Brush Size</strong> using the <strong>Size</strong> control.</li>
+<li>To navigate the image viewer, <strong>zoom in and out</strong> using the <strong>mouse wheel</strong> (or trackpad) together <strong>with</strong> the <strong>Cmd (macOS) or Ctrl (Windows) key</strong>, and <strong>pan</strong> the image with the <strong>left mouse button</strong> while holding the <strong>Shift</strong> key.</li>
+<li>To control brightness and contrast, <em>right-click</em> on <strong><em>Raw Input</em></strong> in the <strong><em>Group Visibility</em></strong> section (bottom left) and select <strong><em>Adjust thresholds</em></strong> to set the minimum and maximum display range.</li>
+</ul>
+<div align="center">
+<img alt="Ilastik" src="../../../_static/images/ilastik/range.png" width="650"/>
+</div>
+</div>
+<div align="center"> <img alt="Ilastik" src="../../../_static/images/ilastik/3a.png" width="800"/> </div>
+<p>To train the classifier and see the predictions, press the <em><strong>Live Update</strong></em> button. This will update the predictions in real-time as you label more pixels.
+<br/>
+The predictions will be displayed as an overlay on the image and colored according to the class colors you defined. <strong>Prediction overlay</strong> can be <strong>toggled on and off</strong> by pressing the <strong>p</strong> key on your keyboard.</p>
+<div align="center"> <img alt="Ilastik" src="../../../_static/images/ilastik/3b.png" width="800"/> </div>
+<p>In a similar way, you can visualize and toggle on and off the resulting <strong>semantic segmentation</strong> by pressing the <strong>s</strong> key on your keyboard.</p>
+<div align="center"> <img alt="Ilastik" src="../../../_static/images/ilastik/3c.png" width="800"/> </div>
+<p>Examine the results for errors and add (or remove) annotations to correct.</p>
+<div align="center"> <img alt="Ilastik" src="../../../_static/images/ilastik/4a.png" width="800"/> </div>
+<p>Once you are satisfied with the results, you now need to check if the classifier is robust enough to be applied to the rest of the images that you loaded at the beginning. To do this, you can switch to another image by clicking on the <em><strong>Current View</strong></em> drop-down menu on the left side of the GUI. Now activate again the <em><strong>Live Update</strong></em> to see the predictions for the new image. If the results are not satisfactory, you can keep <em><strong>Training</strong></em> the classifier add more annotations.</p>
+<div align="center"> <img alt="Ilastik" src="../../../_static/images/ilastik/4b.png" width="800"/> </div>
+</section>
+<section id="export-the-results">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">5. Export the Results<a class="headerlink" href="#export-the-results" title="Link to this heading">#</a></h3>
+<p>Once the trained model works well with all the training images, you can either <a class="reference external" href="https://www.ilastik.org/documentation/basics/export"><strong>export the results</strong></a> (e.g. probability maps, semantic segmentation, …) for the training images or run the classifier in <a class="reference external" href="https://www.ilastik.org/documentation/basics/batch"><strong>batch mode</strong></a> to process many images at once.</p>
+<p>Either way, the first step is to select what you want to export by choosing an option in the <em><strong>Source</strong></em> drop-down menu in the <em><strong>Prediction Export</strong></em> step (on the left side of the GUI). Since in the next sections of the course we will use the <strong>semantic segmentation</strong> results, select <em><strong>Simple Segmentation</strong></em>. This option will export the semantic segmentation of the nuclei in the images, where each pixel is classified as either <strong>nuclei</strong> or <strong>background</strong>.</p>
+<div align="center"> <img alt="Ilastik" src="../../../_static/images/ilastik/5a.png" width="800"/> </div>
+<p>The second step is to select how we want to export the results. By clicking on the <em><strong>Choose Export Image Settings…</strong></em> button, a new window will open where you can select different options including the export format and the output folder where to save the result. Select “tif” as format and leave as default the output file path since it automatically is set to save the results in the same folder as the input images with the suffix appropriately changing depending on the option you select in the <em><strong>Source</strong></em> drop-down menu (e.g. <em>_Simple Segmentation</em>). Leave the other options untouched since we do not need to change them for this exercise.</p>
+<div align="center"> <img alt="Ilastik" src="../../../_static/images/ilastik/5b.png" width="800"/> </div>
+<p>Click on the <em><strong>Export All</strong></em> button to start exporting the predictions for all the training images. If you look in the folder where your training images are stored, you will find the exported results with the suffix <em>_Simple Segmentation</em>.</p>
+<div align="center"> <img alt="Ilastik" class="image-border" src="../../../_static/images/ilastik/7a.png" width="700"/> </div>
+</section>
+<section id="batch-processing">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">6. Batch Processing<a class="headerlink" href="#batch-processing" title="Link to this heading">#</a></h3>
+<p>Since we will need to analyze more images for future sections of the course, we now want to <strong>run the classifier on all the images in the dataset</strong>. To do this, we need to select the <em><strong>Batch Processing</strong></em> step (on the left side of the GUI) and simply <em>Drag and drop</em> all the files in the dataset folder on the white area of the GUI.</p>
+<div align="center"> <img alt="Ilastik" src="../../../_static/images/ilastik/6b.png" width="800"/> </div>
+<p>By clicking on the <em><strong>Process all files</strong></em> button, the classifier will be run on all the images in the dataset.
+Depending on the option you select in the previous <em><strong>Prediction Export</strong></em>, the results will be saved in the same folder as the input images with the corresponding suffix, in our case <em>_Simple Segmentation.tif</em>.</p>
+</section>
+<section id="what-s-next">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">7. What’s Next?<a class="headerlink" href="#what-s-next" title="Link to this heading">#</a></h3>
+<p>From this <strong>Ilastik</strong> pipeline we managed to extract the <strong>semantic segmentation</strong> of the nuclei in all the images. In the next sections of the course, we will first use the <strong>semantic segmentation</strong> and <a class="reference internal" href="from_ilastik_masks_to_labels.html"><span class="std std-doc">convert it into <strong>instance segmentation</strong></span></a> (as in the <a class="reference internal" href="../classic/classic.html"><span class="std std-doc">classic segmentastion methods</span></a> section). And then we will use these labelled images to classify the nuclei into different classes based on their cell cycle stage using the <strong>Ilastik</strong> <a class="reference internal" href="#../../06_classification/object_classification_with_ilastik.md"><span class="xref myst"><strong>Object Classification</strong> workflow</span></a>.</p>
+<p><em><strong>TODO: UPDATE LINK TO CLASSIC SEGMENTATION METHODS SECTION and OBJECT CLASSIFICATION SECTION ONCE THEY ARE READY</strong></em></p>
+</section>
+</section>
+</section>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/05_segmentation/machine_learning"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
+</article>
+<footer class="prev-next-footer d-print-none">
+<div class="prev-next-area">
+<a class="left-prev" href="machine_learning_with_ilastik.html" title="previous page">
+<i class="fa-solid fa-angle-left"></i>
+<div class="prev-next-info">
+<p class="prev-next-subtitle">previous</p>
+<p class="prev-next-title">Machine Learning: Ilastik</p>
+</div>
+</a>
+<a class="right-next" href="from_ilastik_masks_to_labels.html" title="next page">
+<div class="prev-next-info">
+<p class="prev-next-subtitle">next</p>
+<p class="prev-next-title">From Ilastik Masks to Labels</p>
+</div>
+<i class="fa-solid fa-angle-right"></i>
+</a>
+</div>
+</footer>
+</div>
+<div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+<div class="sidebar-secondary-item">
+<div class="page-toc tocsection onthispage">
+<i class="fa-solid fa-list"></i> Contents
+  </div>
+<nav class="bd-toc-nav page-toc">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-pixel-classification">What is Pixel Classification?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ilastik-pixel-classification-workflow">Ilastik Pixel Classification Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-workflow">1. Select the Workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-image-data">2. Load the Image Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-features">3. Select the Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-the-classifier">4. Train the Classifier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-the-results">5. Export the Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-processing">6. Batch Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-next">7. What’s Next?</a></li>
+</ul>
+</li>
+</ul>
+</nav></div>
+</div></div>
+</div>
+<footer class="bd-footer-content">
+<div class="bd-footer-content__inner container">
+<div class="footer-item">
+<p class="component-author">
+By Image Analysis Collaboratory @ Harvard Medical School
+</p>
+</div>
+<div class="footer-item">
+<p class="copyright">
+    
+      © Copyright 2025.
+      <br>
+</br></p>
+</div>
+<div class="footer-item">
+</div>
+<div class="footer-item">
+<div class="extra_footer">
+<p>
+All content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>, except where noted otherwise.
+</p>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="bd-footer">
+</footer>
+</body>
+</html>
