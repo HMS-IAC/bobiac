@@ -34,7 +34,11 @@ parts:
           - file: content/05_segmentation/machine_learning/from_ilastik_masks_to_labels
       - file: content/05_segmentation/deep_learning/deep_learning.md
         sections:
+          - file: content/05_segmentation/deep_learning/intro_dl.md
+          - file: content/05_segmentation/deep_learning/dl_timeline.md
           - file: content/05_segmentation/deep_learning/intro_to_cellpose.md
+          - file: content/05_segmentation/deep_learning/cellpose_notebook
+          - file: content/05_segmentation/deep_learning/cellpose_retraining_notebook
 
   - file: content/06_object_classification/object_classification.md
     sections:

@@ -4,8 +4,19 @@ from pathlib import Path
 
 import nbformat
 
+EXCLUDE = [
+    "cellpose_notebook.ipynb",
+    "cellpose_retraining_notebook.ipynb",
+]
+
 
 def convert_to_colab_notebook(input_path: str | Path, output_path: str | Path) -> None:
+    # Check if the file should be excluded
+    input_filename = Path(input_path).name
+    if input_filename in EXCLUDE:
+        print(f"Skipping excluded file: {input_filename}")
+        return
+
     nb = nbformat.read(input_path, as_version=4)
     new_cells = []
     use_ndv: bool = False
@@ -14,7 +25,12 @@ def convert_to_colab_notebook(input_path: str | Path, output_path: str | Path) -
         tags = cell.get("metadata", {}).get("tags", [])
 
         # remove buttons from the first cell and keep only the title
-        if i == 0 and cell.cell_type == "markdown":
+        # (only if buttons are present)
+        if (
+            i == 0
+            and cell.cell_type == "markdown"
+            and "custom-button-row" in cell.source
+        ):
             lines = cell.source.strip().splitlines()
             if lines and lines[0].startswith("# "):
                 cell.source = lines[0]

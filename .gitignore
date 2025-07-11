@@ -4,3 +4,5 @@
 # prevent from adding the _build directory
 _build
 uv.lock
+
+_static/data

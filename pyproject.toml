@@ -37,6 +37,7 @@ dependencies = [
     "pre-commit",
     "tqdm",
     "pandas",
+    "cellpose"
 ]
 
 [tool.hatch.build.targets.wheel]

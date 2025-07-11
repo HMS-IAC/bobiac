@@ -16,6 +16,9 @@ During the course we will explore different approaches to semantic and instance 
 
 <div align="center"> <img src="../../_static/images/seg_methods.png" alt="Ilastik Logo" width="700"> </div>
 
+This figure illustrates the evolution of image analysis methods, highlighting the shift from manual processes to fully automated systems. Initially, in the **Classic Method**, both feature selection and decision-making were performed manually by human experts, relying heavily on domain knowledge and predefined rules. With the advent of the **Machine Learning (ML) Method**, the process became partially automated—while experts still manually selected relevant features *(feature engineering)* from the image, the decision rules were learned by algorithms using training data *(such as decision tree, logistic regression etc.)*. The most recent advancement, the **Deep Learning (DL) Method**, represents a fully automated approach. Here, the model learns both the features and decision rules directly from the raw image data, requiring minimal human intervention. This evolution reflects a step towards more general and robust methods which reduces human subjectivity and bias, however, the data requirement ha also increased.
+
+
 ## Table of Contents
 
 - [Classical Segmentation](./classic/classic.md)
