@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Ilastik for Object Classification — BoBiAC Book</title>
+<script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+<!-- Loaded before other Sphinx assets -->
+<link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" rel="preload" type="font/woff2"/>
+<link href="../../_static/pygments.css?v=03e43079" rel="stylesheet" type="text/css"/>
+<link href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" rel="stylesheet" type="text/css"/>
+<link href="../../_static/togglebutton.css?v=13237357" rel="stylesheet" type="text/css"/>
+<link href="../../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
+<link href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-thebe.css?v=4fa983c6" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<link href="../../_static/styles/custom.css?v=9f06da9a" rel="stylesheet" type="text/css"/>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" rel="preload"/>
+<link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" rel="preload"/>
+<script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+<script src="../../_static/copybutton.js?v=f281be69"></script>
+<script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+<script>let toggleHintShow = 'Click to show';</script>
+<script>let toggleHintHide = 'Click to hide';</script>
+<script>let toggleOpenOnPrint = 'true';</script>
+<script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script src="../../_static/design-tabs.js?v=f930bc37"></script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script>DOCUMENTATION_OPTIONS.pagename = 'content/06_object_classification/object_classification_with_ilastik';</script>
+<script src="../../_static/scripts/custom.js?v=fcbf76a5"></script>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../07_measurement_and_quantification/measurement_and_quantification_intro.html" rel="next" title="07 - Measurement &amp; Quantification"/>
+<link href="object_classification.html" rel="prev" title="06 - Object Classification"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+</head>
+<body data-bs-root-margin="0px 0px -60%" data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-default-mode="" data-offset="180">
+<div class="skip-link d-print-none" id="pst-skip-link"><a href="#main-content">Skip to main content</a></div>
+<div id="pst-scroll-pixel-helper"></div>
+<button class="btn rounded-pill" id="pst-back-to-top" type="button">
+<i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<input class="sidebar-toggle" id="pst-primary-sidebar-checkbox" type="checkbox"/>
+<label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+<input class="sidebar-toggle" id="pst-secondary-sidebar-checkbox" type="checkbox"/>
+<label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+<div class="search-button__wrapper">
+<div class="search-button__overlay"></div>
+<div class="search-button__search-container">
+<form action="../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search this book..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+</div>
+<div class="pst-async-banner-revealer d-none">
+<aside aria-label="Version warning" class="d-none d-print-none" id="bd-header-version-warning"></aside>
+</div>
+<header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+</header>
+<div class="bd-container">
+<div class="bd-container__inner bd-page-width">
+<div class="bd-sidebar-primary bd-sidebar">
+<div class="sidebar-header-items sidebar-primary__section">
+</div>
+<div class="sidebar-primary-items__start sidebar-primary__section">
+<div class="sidebar-primary-item">
+<a class="navbar-brand logo" href="../../landing-page.html">
+<img alt="BoBiAC Book - Home" class="logo__image only-light" src="../../_static/bobiac_logos_svgexport-03.svg"/>
+<script>document.write(`<img src="../../_static/bobiac_logos_svgexport-04.svg" class="logo__image only-dark" alt="BoBiAC Book - Home"/>`);</script>
+</a></div>
+<div class="sidebar-primary-item">
+<script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+<div class="sidebar-primary-item"><nav aria-label="Main" class="bd-links bd-docs-nav">
+<div class="bd-toc-item navbar-nav active">
+<ul class="nav bd-sidenav bd-sidenav__home-link">
+<li class="toctree-l1">
+<a class="reference internal" href="../../landing-page.html">
+<i class="fas fa-home"></i> Home
+                </a>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Material</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_intro_bioimage_analysis/bioimage_analysis_intro.html">01 - <i class="fas fa-image"></i> Introduction to Bioimage Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_getting_started_with_python/getting_started_with_python.html">02 - <i class="fab fa-python"></i> Getting Started with Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03_python_basics/python_basics.html">03 - <i class="fab fa-python"></i> Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_python_basics/python_basics_notebook.html">The Python Basics Notebook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04_digital_images_intro/digital_images_intro.html">04 - <i class="fas fa-table-cells"></i> Introduction to Digital Images</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04_digital_images_intro/python_for_bioimage_analysis.html">Python for bioimage analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05_segmentation/segmentation_intro.html">05 - <i class="fa-solid fa-disease"></i> Semantic &amp; Instance Segmentation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../05_segmentation/classic/classic.html">Introduction to Classical Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../05_segmentation/machine_learning/machine_learning.html">Machine Learning Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../05_segmentation/machine_learning/intro_to_ilastik.html">Introduction to Ilastik</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05_segmentation/machine_learning/pixel_classification_with_ilastik.html">Ilastik for Pixel Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05_segmentation/machine_learning/from_ilastik_masks_to_labels.html">From Ilastik Masks to Labels</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../05_segmentation/deep_learning/deep_learning.html">Deep Learning Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../05_segmentation/deep_learning/intro_to_cellpose.html">Introduction to Cellpose</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="object_classification.html">06 - <i class="fa-solid fa-shapes"></i> Object Classification</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Ilastik for Object Classification</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07_measurement_and_quantification/measurement_and_quantification_intro.html">07 - <i class="fa-solid fa-chart-simple"></i> Measurement &amp; Quantification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07_measurement_and_quantification/measurement_and_quantification_notebook.html">Measurements &amp; Quantification Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_measurement_and_quantification/background_correction_notebook.html">Background Correction Notebook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08_colocalization/colocalization_intro.html">08 - <i class="fa-solid fa-location-crosshairs"></i> Colocalization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08_colocalization/pixel_intensity_based_colocalization_pearsons.html">Pearson’s correlation coefficient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_colocalization/pixel_intensity_based_colocalization_manders.html">Manders’ Correlation Coefficients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_colocalization/object_based_colocalization.html">Object-based colocalization analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../09_reproducibility_and_image_ethics/reproducibility_and_image_ethics.html">09 - <i class="fa-solid fa-rotate-right"></i> Reproducibility and Image Ethics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Student Working Groups</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../student_group_work/student_group_work.html"><i class="fa-solid fa-user-group"></i> Student Group Work</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials Downloads</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../data/course_downloads.html"><i class="fa-solid fa-folder"></i> Downloads</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025">BoBiAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu">Image Analysis Collaboratory</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025/uv_instruction.html">uv Installation Instruction</a></li>
+</ul>
+</div>
+</nav></div>
+</div>
+<div class="sidebar-primary-items__end sidebar-primary__section">
+</div>
+<div id="rtd-footer-container"></div>
+</div>
+<main class="bd-main" id="main-content" role="main">
+<div class="sbt-scroll-pixel-helper"></div>
+<div class="bd-content">
+<div class="bd-article-container">
+<div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+<div class="header-article-items__start">
+<div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle primary sidebar">
+<span class="fa-solid fa-bars"></span>
+</button></div>
+</div>
+<div class="header-article-items__end">
+<div class="header-article-item">
+<div class="article-header-buttons">
+<a class="btn btn-sm btn-source-repository-button" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://github.com/HMS-IAC/bobiac" target="_blank" title="Source repository">
+<span class="btn__icon-container">
+<i class="fab fa-github"></i>
+</span>
+</a>
+<button class="btn btn-sm btn-fullscreen-button" data-bs-placement="bottom" data-bs-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode">
+<span class="btn__icon-container">
+<i class="fas fa-expand"></i>
+</span>
+</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle secondary sidebar">
+<span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+</div>
+</div>
+</div>
+<div class="onlyprint" id="jb-print-docs-body">
+<h1>Ilastik for Object Classification</h1>
+<!-- Table of contents -->
+<div id="print-main-content">
+<div id="jb-print-toc">
+<div>
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;"> Contents </h2>
+</div>
+<nav aria-label="Page">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ilastik-object-classification-workflow">Ilastik Object Classification Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-workflow">1. Select the Workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-image-data">2. Load the Image Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-features">3. Select the Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-the-classifier">4. Train the Classifier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-the-results">5. Export the Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-processing">6. Batch Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-next">7. What’s Next?</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div id="searchbox"></div>
+<article class="bd-article">
+<section class="tex2jax_ignore mathjax_ignore" id="ilastik-for-object-classification">
+<h1>Ilastik for Object Classification<a class="headerlink" href="#ilastik-for-object-classification" title="Link to this heading">#</a></h1>
+<p>In this section, we will explore how to use <strong>Ilastik</strong> for <a class="reference external" href="https://www.ilastik.org/documentation/objects/objects"><strong>object classification</strong></a>. This process is very similar to what we have done in the <a class="reference internal" href="../05_segmentation/machine_learning/pixel_classification_with_ilastik.html"><span class="std std-doc"><strong>pixel classification</strong></span></a> section and still involves training a machine learning model. However, instead of classifying pixels, we will <strong>classify entire objects</strong> based on <strong>instance segmentation</strong> images.</p>
+<p>In this exercise, we will use the <strong>instance segmentation</strong> data from the nuclei dataset that we generated from the <a class="reference internal" href="../05_segmentation/machine_learning/from_ilastik_masks_to_labels.html"><span class="std std-doc"><em>From Ilastik Masks to Labels</em></span></a> exercise and train a model to separate cells into <em>mitotic</em> vs <em>non-mitotic</em> states.</p>
+<div class="alert alert-info">
+<strong>NOTE:</strong> Ilastik supports a variety of <a href="https://www.ilastik.org/documentation/basics/dataselection#formats" target="_blank">data formats</a>. For simplicity and ease of use during this course, we will use images saved as <strong>.tif</strong> files. However, Ilastik recommends using files saved as <strong>.h5</strong> for [optimal performance](https://www.ilastik.org/documentation/basics/performance_tips). If you wish to use your own dataset and need to convert your files to <strong>.h5</strong>, Ilastik provides tools such as a <a href="https://www.ilastik.org/documentation/fiji_export/plugin" target="_blank">Fiji plugin</a> or a <a href="https://github.com/ilastik/ilastik/tree/main/notebooks/h5convert" target="_blank">Jupyter Notebook</a> with instructions.
+</div>
+<section id="ilastik-object-classification-workflow">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Ilastik Object Classification Workflow<a class="headerlink" href="#ilastik-object-classification-workflow" title="Link to this heading">#</a></h2>
+<p>For detailed workflow instructions, you can refer to the <a class="reference external" href="https://www.ilastik.org/documentation/objects/objects">Ilastik Object Classification Documentation</a>.</p>
+<section id="select-the-workflow">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">1. Select the Workflow<a class="headerlink" href="#select-the-workflow" title="Link to this heading">#</a></h3>
+<p>When you open <strong>Ilastik</strong>, you will see the <a class="reference external" href="https://www.ilastik.org/documentation/basics/startup">Startup Screen</a> with various workflows.</p>
+<p>There are two options for the <strong>Object Classification</strong> workflow:</p>
+<ul class="simple">
+<li><p><strong>Start from Pixel Predictions Map</strong>: You can use the <em>probability maps</em> generated with the <a class="reference internal" href="../05_segmentation/machine_learning/pixel_classification_with_ilastik.html"><span class="std std-doc">Pixel Classification</span></a> workflow, as Ilastik has a built-in way of converting <em>probability</em> map images to instance segmentation images.</p></li>
+<li><p><strong>Start from Segmentation</strong>: You can directly load pre-existing <em>semantic</em> or <em>instance segmentation</em> images.</p></li>
+</ul>
+<p>For this exercise, we will use the <em>Instance Segmentation</em> images that we generated in the previous <a class="reference internal" href="../05_segmentation/machine_learning/from_ilastik_masks_to_labels.html"><span class="std std-doc">From Ilastik Masks to Labels</span></a> exercise. Note that Ilastik’s <em>object classification</em> workflow can be used with segmentation results from any source, including Deep Learning approaches that we will explore later in this course.</p>
+<div class="alert alert-info">
+<strong>NOTE:</strong> If you want to use semantic segmentation images, make sure that all objects you are considering are clearly separated. With semantic segmentation, touching or overlapping objects cannot be distinguished as individual entities, which can affect the classification accuracy. For better results, especially when dealing with touching objects, it is recommended to use instance segmentation images where each object is already individually labeled and separated.
+</div>
+<p>Select the <em><strong>Object Classification [Inputs: Raw Data, Segmentation]</strong></em> workflow by clicking on it. You will be automatically brought to the <strong>Input Data</strong> step.</p>
+<div align="center"> <img alt="Ilastik" src="../../_static/images/ilastik_obj_classification/1a.png" width="800"/> </div>
+<div class="alert alert-info">
+<strong>NOTE:</strong> Remember to save your project regularly using <strong>Cmd+S</strong> (macOS) or <strong>Ctrl+S</strong> (Windows), or via <strong>Project → Save Project</strong>.
+</div>
+</section>
+<section id="load-the-image-data">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">2. Load the Image Data<a class="headerlink" href="#load-the-image-data" title="Link to this heading">#</a></h3>
+<p>The data loading step is similar to the one in the <a class="reference internal" href="../05_segmentation/machine_learning/pixel_classification_with_ilastik.html"><span class="std std-doc">Pixel Classification</span></a> workflow (<em>Drag and drop</em> your image files into the <em><strong>Add New…</strong></em> field). However, in this case, we will need to load not only the <em>raw data</em> in the <em><strong>Raw Data</strong></em> tab, but also the <em>instance segmentation</em> images in the <em><strong>Segmentation Image</strong></em> tab. To create a robust classifier, you should load multiple images from the dataset.</p>
+<p>It is important that the <strong>order of the images in both tabs matches</strong>, as Ilastik will use the <em>instance segmentation</em> images to identify and classify the objects in the corresponding <em>raw data</em> images.
+By clicking on the <em><strong>Summary</strong></em> tab, you can verify that the images are correctly paired.</p>
+<div align="center"> <img alt="Ilastik" src="../../_static/images/ilastik_obj_classification/2a.png" width="800"/> </div>
+</section>
+<section id="select-the-features">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">3. Select the Features<a class="headerlink" href="#select-the-features" title="Link to this heading">#</a></h3>
+<p>To continue, click on the <em><strong>Object Feature Selection</strong></em> step (on the left side of the GUI) and then on the <em><strong>Select Features</strong></em> button. Here, you can select the <a class="reference external" href="https://www.ilastik.org/documentation/objects/objects#from-segmentation-to-object-descriptions---object-feature-selection-applet">object features</a> that will be used to discriminate between the different object classes.</p>
+<div class="alert alert-info">
+<strong>NOTE:</strong> Once selected, all of the features are immediately computed at once for all the images loaded. Therefore, Ilastik suggest to select all features you think will be needed for the training at this step (you will be able to change the selection also in the next step if needed).
+</div>
+<div align="center"> <img alt="Ilastik" src="../../_static/images/ilastik_obj_classification/3a.png" width="800"/> </div>
+<p>The goal of this exercise is to classify cells into <em>mitotic</em> vs <em>non-mitotic</em> states. By looking at the raw images, try to think about which features might be useful for this classification and select them accordingly. For example, you might want to select features related to the <em>shape</em>, <em>intensity</em>, and <em>texture</em>. By hovering over each feature, you can see a brief description of what it measures.</p>
+<p>For a detailed feature overview, refer to <a class="reference external" href="https://www.ilastik.org/documentation/objects/objectfeatures">this Ilastik documentation</a>.</p>
+</section>
+<section id="train-the-classifier">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">4. Train the Classifier<a class="headerlink" href="#train-the-classifier" title="Link to this heading">#</a></h3>
+<p>The next step is to <a class="reference external" href="https://www.ilastik.org/documentation/pixelclassification/pixelclassification#training-the-classifier">train the classifier</a>. Similarly to the pixel classification workflow, this is an interactive process where you will need to <strong>label a few objects</strong> in the image with annotations to provide the classifier with examples of the different classes.</p>
+<p>In the <em><strong>Training</strong></em> step (on the left side of the GUI) you can <strong>add</strong>, <strong>remove</strong> or <strong>edit</strong> the classes (labels) that you want to use for the classification. For this exercise, we will use two classes: <em><strong>mitotic</strong></em> and <em><strong>non-mitotic</strong></em>. To rename the default classes, <em>Label 1</em> and <em>Label 2</em>, double-click on each class and type the new name (You can also change the class color by double-clicking on the color box next to the class name).</p>
+<p>Now you can start by choosing a few objects in the image that correspond to the <em><strong>mitotic</strong></em> class: select the <em><strong>mitotic</strong></em> class, then select the <em>Brush</em> tool (should be the default) and click on one of the segmented nuclei that is in the <em>mitotic</em> state.
+To <strong>toggle the visibility on and off</strong> of <strong>the segmentation image</strong>, thus visualizing the raw data to correctly label the objects, you can press the <em><strong>i</strong></em> key on your keyboard.
+Next, repeat the process for the <em><strong>non-mitotic</strong></em> class, selecting some objects that correspond to the <em>non-mitotic</em> state.</p>
+<div class="alert alert-info">
+<strong>TIPS:</strong>
+<ul>
+<li>Use <strong>Cmd+Z</strong> (macOS) or <strong>Ctrl+Z</strong> (Windows) to <strong>undo</strong> the last action.</li>
+<li>Use the <strong>Erase</strong> tool to <strong>remove</strong> annotations.</li>
+<li>To navigate the image viewer, <strong>zoom in and out</strong> using the <strong>mouse wheel</strong> (or trackpad) together <strong>with</strong> the <strong>Cmd (macOS) or Ctrl (Windows) key</strong>, and <strong>pan</strong> the image with the <strong>left mouse button</strong> while holding down the <strong>Shift</strong> key.</li>
+<li>To control brightness and contrast, <em>right-click</em> on <strong><em>Raw Input</em></strong> in the <strong><em>Group Visibility</em></strong> section (bottom left) and select <strong><em>Adjust thresholds</em></strong> to set the minimum and maximum display range.</li>
+</ul>
+<div align="center">
+<img alt="Ilastik" src="../../_static/images/ilastik/range.png" width="650"/>
+</div>
+</div>
+<div align="center"> <img alt="Ilastik" src="../../_static/images/ilastik_obj_classification/4a.png" width="800"/> </div>
+<p>To train the classifier and see the predictions, press the <em><strong>Live Update</strong></em> button. This will update the predictions in real-time as you label more pixels.</p>
+<p>The predictions will be displayed as an overlay on top of the image and colored according to the class colors you defined.</p>
+<p>Examine the results for errors and add (or remove) annotations to correct.</p>
+<p>Repeat the process of labeling objects (if necessary) and checking the predictions on all the images you loaded (you can switch between images using the <em><strong>Current View</strong></em> drop-down menu on the left side of the GUI).</p>
+<p>Once you are satisfied with the results, you can proceed to the next step of exporting the results and batch processing the images.</p>
+</section>
+<section id="export-the-results">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">5. Export the Results<a class="headerlink" href="#export-the-results" title="Link to this heading">#</a></h3>
+<p>Once the trained model works well with all the training images, you can either <a class="reference external" href="https://www.ilastik.org/documentation/objects/objects#export"><strong>export the results</strong></a> for the training images, or run the classifier in <a class="reference external" href="https://www.ilastik.org/documentation/objects/objects#processing-new-images-in-batch-mode"><strong>batch mode</strong></a> to process many images at once.</p>
+<p>Either way, the first step is to select what you want to export by choosing an option in the <em><strong>Source</strong></em> drop-down menu in the <em><strong>Export Settings</strong></em> step (on the left side of the GUI). Different options are available, but for this exercise we want to export the <strong>Object Predictions</strong>. This will export new images where each object is assigned a value depending on the class it belongs to. In our case, all objects in the <em>mitotic</em> class will be assigned a value of 1, while all objects in the <em>non-mitotic</em> class will be assigned a value of 2 (because class 1 was assigned to <em>mitotic</em> and class 2 to <em>non-mitotic</em>).</p>
+<div align="center"> <img alt="Ilastik" src="../../_static/images/ilastik_obj_classification/5a.png" width="800"/> </div>
+<p>The second step is to select how we want to export the results. By clicking on the <em><strong>Choose Export Image Settings…</strong></em> button, a new window will open where you can select different options including the export format and the output folder to save the result. Select “tif” as the format and leave as default the output file path, since it automatically is set to save the results in the same folder as the input images. The files will also be saved with a suffix appropriately changing depending on the option you select in the <em><strong>Source</strong></em> drop-down menu (e.g. <em>_Object Predictions</em>). Leave the other options untouched since we do not need to change them for this exercise.</p>
+<div align="center"> <img alt="Ilastik" src="../../_static/images/ilastik_obj_classification/5b.png" width="800"/> </div>
+<p>The third step is to select which features to include in the exported data table. This table will contain detailed measurements and feature values for each classified object. To do so, click on the <em><strong>Choose Feature Table Export</strong></em> button. A new window will open, where you can select where to save the table and which features to include. For this exercise, we will focus on the image outputs, but you can optionally export specific features if you want to explore the quantitative data.</p>
+<div align="center"> <img alt="Ilastik" src="../../_static/images/ilastik_obj_classification/5c.png" width="800"/> </div>
+<p>Click on the <em><strong>Export All</strong></em> button to start exporting the object predictions for all the training images. If you look in the folder where your training images are stored, you will find the exported results with the suffix <em>_Object Predictions.tif</em>. In the folder where you had the instance segmentation images, you will find the generated table.</p>
+<div align="center"> <img alt="Ilastik" src="../../_static/images/ilastik_obj_classification/8a.png" width="700"/> </div>
+</section>
+<section id="batch-processing">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">6. Batch Processing<a class="headerlink" href="#batch-processing" title="Link to this heading">#</a></h3>
+<p>To process many images at once and <strong>run the classifier on all the images in the dataset</strong> you can select the <em><strong>Batch Processing</strong></em> step (on the left side of the GUI) and simply <em>Drag and drop</em> all the files in the dataset folder on the white area of the GUI. Remember to load the <em>raw data</em> in the <em><strong>Raw Data</strong></em> tab and the corresponding <em>instance segmentation</em> images in the <em><strong>Segmentation Image</strong></em> tab (it is important that the <strong>order of the images in both tabs matches</strong>).</p>
+<div align="center"> <img alt="Ilastik" src="../../_static/images/ilastik_obj_classification/7a.png" width="800"/> </div>
+<div align="center"> <img alt="Ilastik" src="../../_static/images/ilastik_obj_classification/7b.png" width="800"/> </div>
+<p>By clicking on the <em><strong>Process all files</strong></em> button, the classifier will be run on all the images in the dataset and all the nuclei will be classified as <em>mitotic</em> or <em>non-mitotic</em>.</p>
+</section>
+<section id="what-s-next">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">7. What’s Next?<a class="headerlink" href="#what-s-next" title="Link to this heading">#</a></h3>
+<p>The output of this classifier is very similar to the one we obtained in the <a class="reference internal" href="../05_segmentation/machine_learning/pixel_classification_with_ilastik.html"><span class="std std-doc">Pixel Classification</span></a> section. However, instead of pixel-wise predictions, we have object-wise predictions. In these images, each nucleus that has been classified as <em>mitotic</em> will have a value of 1, while each nucleus that has been classified as <em>non-mitotic</em> will have a value of 2. You could use this information to then analyze cells based on the cell cycle stage.</p>
+</section>
+</section>
+</section>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/06_object_classification"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
+</article>
+<footer class="prev-next-footer d-print-none">
+<div class="prev-next-area">
+<a class="left-prev" href="object_classification.html" title="previous page">
+<i class="fa-solid fa-angle-left"></i>
+<div class="prev-next-info">
+<p class="prev-next-subtitle">previous</p>
+<p class="prev-next-title">06 - <i class="fa-solid fa-shapes"></i> Object Classification</p>
+</div>
+</a>
+<a class="right-next" href="../07_measurement_and_quantification/measurement_and_quantification_intro.html" title="next page">
+<div class="prev-next-info">
+<p class="prev-next-subtitle">next</p>
+<p class="prev-next-title">07 - <i class="fa-solid fa-chart-simple"></i> Measurement &amp; Quantification</p>
+</div>
+<i class="fa-solid fa-angle-right"></i>
+</a>
+</div>
+</footer>
+</div>
+<div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+<div class="sidebar-secondary-item">
+<div class="page-toc tocsection onthispage">
+<i class="fa-solid fa-list"></i> Contents
+  </div>
+<nav class="bd-toc-nav page-toc">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ilastik-object-classification-workflow">Ilastik Object Classification Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-workflow">1. Select the Workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-image-data">2. Load the Image Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-the-features">3. Select the Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-the-classifier">4. Train the Classifier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-the-results">5. Export the Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-processing">6. Batch Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-next">7. What’s Next?</a></li>
+</ul>
+</li>
+</ul>
+</nav></div>
+</div></div>
+</div>
+<footer class="bd-footer-content">
+<div class="bd-footer-content__inner container">
+<div class="footer-item">
+<p class="component-author">
+By Image Analysis Collaboratory @ Harvard Medical School
+</p>
+</div>
+<div class="footer-item">
+<p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+</p>
+</div>
+<div class="footer-item">
+</div>
+<div class="footer-item">
+<div class="extra_footer">
+<p>
+All content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>, except where noted otherwise.
+</p>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="bd-footer">
+</footer>
+</body>
+</html>

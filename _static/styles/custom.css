@@ -1,0 +1,89 @@
+:root {
+  --bobiac-green: rgb(116, 184, 104);
+  --bobiac-yellow: rgb(255, 193, 9);
+  --bobiac-darkgrey: rgb(49, 49, 49);
+  --pst-color-secondary: var(--bobiac-yellow) !important;
+}
+
+/* Light theme overrides */
+html[data-theme="light"] {
+  --pst-color-primary: var(--bobiac-green);
+  --pst-color-link-hover: var(--bobiac-yellow);
+  --pst-color-accent: var(--bobiac-green);
+}
+
+/* Dark theme overrides */
+html[data-theme="dark"] {
+  --pst-color-primary: var(--bobiac-green);
+  --pst-color-link-hover: var(--bobiac-yellow);
+  --pst-color-accent: var(--bobiac-green);
+}
+
+/* Shared styling for all logos */
+.landing-logo {
+  width: 80%;
+  background: transparent !important;
+  /* margin: 0 auto; */
+}
+
+/* Hide both by default */
+.logo-light,
+.logo-dark {
+  display: none;
+}
+
+/* Show light logo in light theme */
+html[data-theme="light"] .logo-light {
+  display: flex;
+}
+
+/* Show dark logo in dark theme */
+html[data-theme="dark"] .logo-dark {
+  display: flex;
+}
+
+/* Custom download button styling */
+.custom-button {
+  padding: 0.1em 0.2em;
+  margin-bottom: 0.5em;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.custom-download-button {
+  background-color: var(--bobiac-green) !important;
+  color: var(--bobiac-darkgrey) !important;
+}
+
+.custom-download-button:hover {
+  background-color: var(--bobiac-darkgrey) !important;
+  color: var(--bobiac-yellow) !important;
+}
+
+/* if the button has an img */
+.button-icon {
+  height: 20px;
+  vertical-align: middle;
+}
+
+.custom-button-row {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.custom-pdf-frame {
+  width: 100%;
+  height: 420px;
+  border: 2px solid var(--bobiac-green);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.5em;
+}
+
+.image-border {
+  border: 2px solid black;
+}

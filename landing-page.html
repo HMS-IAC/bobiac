@@ -1,0 +1,595 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Home &#8212; BoBiAC Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/custom.css?v=9f06da9a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'landing-page';</script>
+    <script src="_static/scripts/custom.js?v=fcbf76a5"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="01 - Introduction to Bioimage Analysis" href="content/01_intro_bioimage_analysis/bioimage_analysis_intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/bobiac_logos_svgexport-03.svg" class="logo__image only-light" alt="BoBiAC Book - Home"/>
+    <script>document.write(`<img src="_static/bobiac_logos_svgexport-04.svg" class="logo__image only-dark" alt="BoBiAC Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    <i class="fas fa-home"></i> Home
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Material</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="content/01_intro_bioimage_analysis/bioimage_analysis_intro.html">01 - <i class="fas fa-image"></i> Introduction to Bioimage Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/02_getting_started_with_python/getting_started_with_python.html">02 - <i class="fab fa-python"></i> Getting Started with Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="content/03_python_basics/python_basics.html">03 - <i class="fab fa-python"></i> Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/03_python_basics/python_basics_notebook.html">The Python Basics Notebook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="content/04_digital_images_intro/digital_images_intro.html">04 - <i class="fas fa-table-cells"></i> Introduction to Digital Images</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/04_digital_images_intro/python_for_bioimage_analysis.html">Python for bioimage analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="content/05_segmentation/segmentation_intro.html">05 - <i class="fa-solid fa-disease"></i> Semantic &amp; Instance Segmentation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="content/05_segmentation/classic/classic.html">Introduction to Classical Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="content/05_segmentation/machine_learning/machine_learning.html">Machine Learning Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="content/05_segmentation/machine_learning/intro_to_ilastik.html">Introduction to Ilastik</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/05_segmentation/machine_learning/pixel_classification_with_ilastik.html">Ilastik for Pixel Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content/05_segmentation/machine_learning/from_ilastik_masks_to_labels.html">From Ilastik Masks to Labels</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="content/05_segmentation/deep_learning/deep_learning.html">Deep Learning Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="content/05_segmentation/deep_learning/intro_to_cellpose.html">Introduction to Cellpose</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="content/06_object_classification/object_classification.html">06 - <i class="fa-solid fa-shapes"></i> Object Classification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/06_object_classification/object_classification_with_ilastik.html">Ilastik for Object Classification</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="content/07_measurement_and_quantification/measurement_and_quantification_intro.html">07 - <i class="fa-solid fa-chart-simple"></i> Measurement &amp; Quantification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/07_measurement_and_quantification/measurement_and_quantification_notebook.html">Measurements &amp; Quantification Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/07_measurement_and_quantification/background_correction_notebook.html">Background Correction Notebook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="content/08_colocalization/colocalization_intro.html">08 - <i class="fa-solid fa-location-crosshairs"></i> Colocalization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/08_colocalization/pixel_intensity_based_colocalization_pearsons.html">Pearson’s correlation coefficient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/08_colocalization/pixel_intensity_based_colocalization_manders.html">Manders’ Correlation Coefficients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/08_colocalization/object_based_colocalization.html">Object-based colocalization analysis</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="content/09_reproducibility_and_image_ethics/reproducibility_and_image_ethics.html">09 - <i class="fa-solid fa-rotate-right"></i> Reproducibility and Image Ethics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Student Working Groups</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="student_group_work/student_group_work.html"><i class="fa-solid fa-user-group"></i> Student Group Work</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials Downloads</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data/course_downloads.html"><i class="fa-solid fa-folder"></i> Downloads</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025">BoBiAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu">Image Analysis Collaboratory</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025/uv_instruction.html">uv Installation Instruction</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/HMS-IAC/bobiac" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><i class="fas fa-home"></i> Home</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#welcome-to-the-bobiac-book">Welcome to the BoBiAC Book</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-slides">Lecture Slides</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks">Jupyter Notebooks</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-the-notebooks">How to run the Notebooks</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#course-datasets">Course Datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="home">
+<h1><i class="fas fa-home"></i> Home<a class="headerlink" href="#home" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://jupyterbook.org"><img alt="Made with Jupyter Book" src="https://img.shields.io/badge/Made%20with-Jupyter%20Book-orange?logo=jupyter" /></a>
+<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/License-CC_BY_4.0-blue.svg" /></a></p>
+<!-- using both but only one at a time will be shown depending on the dark or light mode -->
+<img src="./_static/logo/bobiac_logos_svgexport-03.svg" alt="BoBiAC Logo" class="landing-logo logo-light"/>
+<img src="./_static/logo/bobiac_logos_svgexport-04.svg" alt="BoBiAC Logo" class="landing-logo logo-dark"/>
+<section id="welcome-to-the-bobiac-book">
+<h2>Welcome to the BoBiAC Book<a class="headerlink" href="#welcome-to-the-bobiac-book" title="Link to this heading">#</a></h2>
+<p>Welcome to the <a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025/">BoBiAC</a> Book — your resource for the <a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025/">Boston BioImage Analysis Course (BoBiAC)</a>.
+<br>
+This book is designed for <strong>beginners</strong> and provides a <strong>hands-on introduction to image analysis using Python</strong>. Inside, you’ll find everything you need to follow the course: lecture slides, Jupyter notebooks, datasets, and step-by-step guidance through the material.</p>
+<section id="lecture-slides">
+<h3>Lecture Slides<a class="headerlink" href="#lecture-slides" title="Link to this heading">#</a></h3>
+<p>All <code class="docutils literal notranslate"><span class="pre">Lecture</span> <span class="pre">Slides</span></code> within the book are available for download as PDFs.
+<br>
+You can download the complete slide decks from the <a class="reference internal" href="data/course_downloads.html"><span class="std std-doc">Course Materials Downloads</span></a> section of this book.
+<br>
+Additionally, each individual page that contains lecture slides has a <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">Slides</span></code> button at the top for convenient access to slides for that specific topic.</p>
+</section>
+<section id="jupyter-notebooks">
+<h3>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Link to this heading">#</a></h3>
+<p>All the <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Notebooks</span></code> within the book are available to download.
+<br>
+You can download the complete list of notebooks from the <a class="reference internal" href="data/course_downloads.html"><span class="std std-doc">Course Materials Downloads</span></a> section of this book.
+<br>
+Additionally, each individual page that contains Jupyter Notebooks has a <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">Notebook</span></code> button at the top for convenient access to that specific notebook. All the notebooks can also be opened with <code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">Colab</span></code> using the <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">in</span> <span class="pre">Colab</span></code> button at the top of each notebook page.</p>
+<section id="how-to-run-the-notebooks">
+<h4>How to run the Notebooks<a class="headerlink" href="#how-to-run-the-notebooks" title="Link to this heading">#</a></h4>
+<p>All the Notebooks are designed to be used with <a class="reference external" href="https://docs.astral.sh/uv/getting-started/installation/">uv</a> and <a class="reference external" href="https://github.com/manzt/juv">juv</a> to avoid the need to deal with Python environments.</p>
+<p>After installing <code class="docutils literal notranslate"><span class="pre">uv</span></code> you can run the following commands in your terminal to open the notebooks with Jupyter Lab in your browser:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uvx<span class="w"> </span>juv<span class="w"> </span>run<span class="w"> </span>path/to/your/notebook.ipynb
+</pre></div>
+</div>
+<p>If you already ran <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">tool</span> <span class="pre">install</span> <span class="pre">juv</span></code>, you can simply run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>juv<span class="w"> </span>run<span class="w"> </span>path/to/your/notebook.ipynb
+</pre></div>
+</div>
+</section>
+</section>
+<section id="course-datasets">
+<h3>Course Datasets<a class="headerlink" href="#course-datasets" title="Link to this heading">#</a></h3>
+<p>All the datasets used in this book are available to download from the <a class="reference internal" href="data/course_downloads.html"><span class="std std-doc">Course Materials Downloads</span></a> section.</p>
+</section>
+<section id="table-of-contents">
+<h3>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h3>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Material</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/01_intro_bioimage_analysis/bioimage_analysis_intro.html">01 - <i class="fas fa-image"></i> Introduction to Bioimage Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/02_getting_started_with_python/getting_started_with_python.html">02 - <i class="fab fa-python"></i> Getting Started with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/03_python_basics/python_basics.html">03 - <i class="fab fa-python"></i> Python Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/04_digital_images_intro/digital_images_intro.html">04 - <i class="fas fa-table-cells"></i> Introduction to Digital Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/05_segmentation/segmentation_intro.html">05 - <i class="fa-solid fa-disease"></i> Semantic &amp; Instance Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/06_object_classification/object_classification.html">06 - <i class="fa-solid fa-shapes"></i> Object Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/07_measurement_and_quantification/measurement_and_quantification_intro.html">07 - <i class="fa-solid fa-chart-simple"></i> Measurement &amp; Quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/08_colocalization/colocalization_intro.html">08 - <i class="fa-solid fa-location-crosshairs"></i> Colocalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/09_reproducibility_and_image_ethics/reproducibility_and_image_ethics.html">09 - <i class="fa-solid fa-rotate-right"></i> Reproducibility and Image Ethics</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Student Working Groups</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="student_group_work/student_group_work.html"><i class="fa-solid fa-user-group"></i> Student Group Work</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials Downloads</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="data/course_downloads.html"><i class="fa-solid fa-folder"></i> Downloads</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025">BoBiAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu">Image Analysis Collaboratory</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025/uv_instruction.html">uv Installation Instruction</a></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="content/01_intro_bioimage_analysis/bioimage_analysis_intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">01 - <i class="fas fa-image"></i> Introduction to Bioimage Analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#welcome-to-the-bobiac-book">Welcome to the BoBiAC Book</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-slides">Lecture Slides</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks">Jupyter Notebooks</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-the-notebooks">How to run the Notebooks</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#course-datasets">Course Datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Image Analysis Collaboratory @ Harvard Medical School
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+All content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>, except where noted otherwise.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

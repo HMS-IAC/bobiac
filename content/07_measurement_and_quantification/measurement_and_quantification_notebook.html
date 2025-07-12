@@ -1,0 +1,1224 @@
+
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Measurements &amp; Quantification Notebook — BoBiAC Book</title>
+<script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+<!-- Loaded before other Sphinx assets -->
+<link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" rel="preload" type="font/woff2"/>
+<link href="../../_static/pygments.css?v=03e43079" rel="stylesheet" type="text/css"/>
+<link href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" rel="stylesheet" type="text/css"/>
+<link href="../../_static/togglebutton.css?v=13237357" rel="stylesheet" type="text/css"/>
+<link href="../../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
+<link href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-thebe.css?v=4fa983c6" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<link href="../../_static/styles/custom.css?v=9f06da9a" rel="stylesheet" type="text/css"/>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" rel="preload"/>
+<link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" rel="preload"/>
+<script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+<script src="../../_static/copybutton.js?v=f281be69"></script>
+<script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+<script>let toggleHintShow = 'Click to show';</script>
+<script>let toggleHintHide = 'Click to hide';</script>
+<script>let toggleOpenOnPrint = 'true';</script>
+<script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script src="../../_static/design-tabs.js?v=f930bc37"></script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script>DOCUMENTATION_OPTIONS.pagename = 'content/07_measurement_and_quantification/measurement_and_quantification_notebook';</script>
+<script src="../../_static/scripts/custom.js?v=fcbf76a5"></script>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="background_correction_notebook.html" rel="next" title="Background Correction Notebook"/>
+<link href="measurement_and_quantification_intro.html" rel="prev" title="07 - Measurement &amp; Quantification"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+</head>
+<body data-bs-root-margin="0px 0px -60%" data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-default-mode="" data-offset="180">
+<div class="skip-link d-print-none" id="pst-skip-link"><a href="#main-content">Skip to main content</a></div>
+<div id="pst-scroll-pixel-helper"></div>
+<button class="btn rounded-pill" id="pst-back-to-top" type="button">
+<i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<input class="sidebar-toggle" id="pst-primary-sidebar-checkbox" type="checkbox"/>
+<label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+<input class="sidebar-toggle" id="pst-secondary-sidebar-checkbox" type="checkbox"/>
+<label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+<div class="search-button__wrapper">
+<div class="search-button__overlay"></div>
+<div class="search-button__search-container">
+<form action="../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search this book..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+</div>
+<div class="pst-async-banner-revealer d-none">
+<aside aria-label="Version warning" class="d-none d-print-none" id="bd-header-version-warning"></aside>
+</div>
+<header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+</header>
+<div class="bd-container">
+<div class="bd-container__inner bd-page-width">
+<div class="bd-sidebar-primary bd-sidebar">
+<div class="sidebar-header-items sidebar-primary__section">
+</div>
+<div class="sidebar-primary-items__start sidebar-primary__section">
+<div class="sidebar-primary-item">
+<a class="navbar-brand logo" href="../../landing-page.html">
+<img alt="BoBiAC Book - Home" class="logo__image only-light" src="../../_static/bobiac_logos_svgexport-03.svg"/>
+<script>document.write(`<img src="../../_static/bobiac_logos_svgexport-04.svg" class="logo__image only-dark" alt="BoBiAC Book - Home"/>`);</script>
+</a></div>
+<div class="sidebar-primary-item">
+<script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+<div class="sidebar-primary-item"><nav aria-label="Main" class="bd-links bd-docs-nav">
+<div class="bd-toc-item navbar-nav active">
+<ul class="nav bd-sidenav bd-sidenav__home-link">
+<li class="toctree-l1">
+<a class="reference internal" href="../../landing-page.html">
+<i class="fas fa-home"></i> Home
+                </a>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Material</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_intro_bioimage_analysis/bioimage_analysis_intro.html">01 - <i class="fas fa-image"></i> Introduction to Bioimage Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_getting_started_with_python/getting_started_with_python.html">02 - <i class="fab fa-python"></i> Getting Started with Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03_python_basics/python_basics.html">03 - <i class="fab fa-python"></i> Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_python_basics/python_basics_notebook.html">The Python Basics Notebook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04_digital_images_intro/digital_images_intro.html">04 - <i class="fas fa-table-cells"></i> Introduction to Digital Images</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04_digital_images_intro/python_for_bioimage_analysis.html">Python for bioimage analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05_segmentation/segmentation_intro.html">05 - <i class="fa-solid fa-disease"></i> Semantic &amp; Instance Segmentation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../05_segmentation/classic/classic.html">Introduction to Classical Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../05_segmentation/machine_learning/machine_learning.html">Machine Learning Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../05_segmentation/machine_learning/intro_to_ilastik.html">Introduction to Ilastik</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05_segmentation/machine_learning/pixel_classification_with_ilastik.html">Ilastik for Pixel Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05_segmentation/machine_learning/from_ilastik_masks_to_labels.html">From Ilastik Masks to Labels</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../05_segmentation/deep_learning/deep_learning.html">Deep Learning Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../05_segmentation/deep_learning/intro_to_cellpose.html">Introduction to Cellpose</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06_object_classification/object_classification.html">06 - <i class="fa-solid fa-shapes"></i> Object Classification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_object_classification/object_classification_with_ilastik.html">Ilastik for Object Classification</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="measurement_and_quantification_intro.html">07 - <i class="fa-solid fa-chart-simple"></i> Measurement &amp; Quantification</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Measurements &amp; Quantification Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="background_correction_notebook.html">Background Correction Notebook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08_colocalization/colocalization_intro.html">08 - <i class="fa-solid fa-location-crosshairs"></i> Colocalization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08_colocalization/pixel_intensity_based_colocalization_pearsons.html">Pearson’s correlation coefficient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_colocalization/pixel_intensity_based_colocalization_manders.html">Manders’ Correlation Coefficients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_colocalization/object_based_colocalization.html">Object-based colocalization analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../09_reproducibility_and_image_ethics/reproducibility_and_image_ethics.html">09 - <i class="fa-solid fa-rotate-right"></i> Reproducibility and Image Ethics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Student Working Groups</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../student_group_work/student_group_work.html"><i class="fa-solid fa-user-group"></i> Student Group Work</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials Downloads</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../data/course_downloads.html"><i class="fa-solid fa-folder"></i> Downloads</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025">BoBiAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu">Image Analysis Collaboratory</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025/uv_instruction.html">uv Installation Instruction</a></li>
+</ul>
+</div>
+</nav></div>
+</div>
+<div class="sidebar-primary-items__end sidebar-primary__section">
+</div>
+<div id="rtd-footer-container"></div>
+</div>
+<main class="bd-main" id="main-content" role="main">
+<div class="sbt-scroll-pixel-helper"></div>
+<div class="bd-content">
+<div class="bd-article-container">
+<div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+<div class="header-article-items__start">
+<div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle primary sidebar">
+<span class="fa-solid fa-bars"></span>
+</button></div>
+</div>
+<div class="header-article-items__end">
+<div class="header-article-item">
+<div class="article-header-buttons">
+<a class="btn btn-sm btn-source-repository-button" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://github.com/HMS-IAC/bobiac" target="_blank" title="Source repository">
+<span class="btn__icon-container">
+<i class="fab fa-github"></i>
+</span>
+</a>
+<button class="btn btn-sm btn-fullscreen-button" data-bs-placement="bottom" data-bs-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode">
+<span class="btn__icon-container">
+<i class="fas fa-expand"></i>
+</span>
+</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle secondary sidebar">
+<span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+</div>
+</div>
+</div>
+<div class="onlyprint" id="jb-print-docs-body">
+<h1>Measurements &amp; Quantification Notebook</h1>
+<!-- Table of contents -->
+<div id="print-main-content">
+<div id="jb-print-toc">
+<div>
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;"> Contents </h2>
+</div>
+<nav aria-label="Page">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries">Importing libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-display-images">Load and Display Images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-single-objects-in-the-labeled-image">Accessing single objects in the labeled image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-extraction-of-properties">Manual Extraction of Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-extraction-of-properties">Automated Extraction of Properties</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-plot-dapi-nuclear-integrated-density-distribution-from-the-entire-dataset">✍️ Exercise: Plot DAPI Nuclear Integrated Density Distribution from the Entire Dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-properties-to-tables">From Properties to Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-tables-as-dataframes">Manipulating tables as dataframes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-dataframes-to-csv">Saving dataframes to CSV</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div id="searchbox"></div>
+<article class="bd-article">
+<section class="tex2jax_ignore mathjax_ignore" id="measurements-quantification-notebook">
+<h1>Measurements &amp; Quantification Notebook<a class="headerlink" href="#measurements-quantification-notebook" title="Link to this heading">#</a></h1>
+<div class="custom-button-row">
+<a class="custom-button custom-download-button" download="" href="../../notebooks/07_measurement_and_quantification/measurement_and_quantification_notebook.ipynb">
+<i class="fas fa-download"></i> Download this Notebook
+    </a>
+<a class="custom-button custom-download-button" href="https://colab.research.google.com/github/HMS-IAC/bobiac/blob/gh-pages/colab_notebooks/07_measurement_and_quantification/measurement_and_quantification_notebook.ipynb" target="_blank">
+<img alt="Open in Colab" class="button-icon" src="../../_static/logo/icon-google-colab.svg"/>
+        Open in Colab
+    </a>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># /// script</span>
+<span class="c1"># requires-python = "&gt;=3.10"</span>
+<span class="c1"># dependencies = [</span>
+<span class="c1">#     "matplotlib",</span>
+<span class="c1">#     "numpy",</span>
+<span class="c1">#     "scikit-image",</span>
+<span class="c1">#     "scipy",</span>
+<span class="c1">#     "tifffile",</span>
+<span class="c1">#     "imagecodecs",</span>
+<span class="c1">#     "pandas",</span>
+<span class="c1"># ]</span>
+<span class="c1"># ///</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="overview">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In this notebook, we will explore one possible approach to <strong>extracting</strong>, <strong>measuring</strong>, and <strong>quantifying</strong> information from <strong>fluorescence microscopy images</strong>, or, in other words, how to <strong>go from images, to numbers, to plots</strong>.</p>
+<p>While fluorescence images can contain a wide range of information, in this notebook, as an example, we will focus on extracting <strong>quantitative information</strong> about the <strong>intensity</strong> of the fluorescence signal and the <strong>morphology</strong> of the objects in the image, mainly using the <a class="reference external" href="https://scikit-image.org/docs/stable/"><strong>scikit-image</strong></a> library.</p>
+<p>In addition, we will learn how to save the extracted information as a <strong>.csv file</strong> using the <a class="reference external" href="https://pandas.pydata.org/docs/"><strong>pandas</strong></a> library.</p>
+<p>The images we will use for this section can be downloaded from the <a download="" href=""> <i class="fas fa-download"></i> Classic Segmentation Dataset</a>. We will also need the <strong>labelled images</strong> that we created in the <a class="reference internal" href="../05_segmentation/classic/classic.html"><span class="std std-doc">Classic Segmentation</span></a> section.</p>
+<p class="alert alert-info">
+<strong>Note:</strong> The images from <strong>Classic Segmentation Dataset</strong> have been pre-processed to remove the background and correct for illumination variations (flat-field correction) and are therefore of type <strong>float32</strong>.
+</p>
+<p><strong>TODO: UPDATE THE LINK TO THE DATASET AND TO THE CLASSIC SEGMENTATION</strong>
+<strong>THE DATASET IS TOO BIG TO BE STORED ON GITHUB</strong></p>
+</section>
+<section id="importing-libraries">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Importing libraries<a class="headerlink" href="#importing-libraries" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">skimage</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tifffile</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-and-display-images">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Load and Display Images<a class="headerlink" href="#load-and-display-images" title="Link to this heading">#</a></h2>
+<p>Let’s load and display with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> our raw and segmented images (labeled images):</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># raw image and labeled mask</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">tifffile</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"../../_static/images/quant/DAPI_wf_10.tif"</span><span class="p">)</span>
+<span class="n">labeled_mask</span> <span class="o">=</span> <span class="n">tifffile</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"../../_static/images/quant/DAPI_wf_10_labels.tif"</span><span class="p">)</span>
+
+<span class="c1"># Display results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Original"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">labeled_mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"nipy_spectral"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Labeled Mask"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3fdbbdca936d8679ee01064a71dd01bdd8f6e7f423e425f8b225d5ec93cc529b.png" src="../../_images/3fdbbdca936d8679ee01064a71dd01bdd8f6e7f423e425f8b225d5ec93cc529b.png">
+</img></div>
+</div>
+</section>
+<section id="accessing-single-objects-in-the-labeled-image">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Accessing single objects in the labeled image<a class="headerlink" href="#accessing-single-objects-in-the-labeled-image" title="Link to this heading">#</a></h2>
+<p>Remember that a <strong>labeled image</strong> is an image where each pixel is assigned a <strong>unique value</strong> (or label) that corresponds to a specific object or region in the image, in our case, nuclei. This means that each nucleus in the image is represented by a unique integer value, and all pixels that belong to the same nucleus share the same value.</p>
+<p>For example, let’s try to create a new image that contains only the pixels of the first nucleus in the labeled image:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create an image that contains only the pixels of the first nucleus in the labeled image</span>
+<span class="n">nucleus_1</span> <span class="o">=</span> <span class="n">labeled_mask</span> <span class="o">==</span> <span class="mi">1</span>
+
+<span class="c1"># Plot the extracted nucleus image</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">nucleus_1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Nucleus 1"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ce376a8a5a91ec6e69b4f765fbb3b5e43433a00b2e25dfb715aa7ab977d8110a.png" src="../../_images/ce376a8a5a91ec6e69b4f765fbb3b5e43433a00b2e25dfb715aa7ab977d8110a.png"/>
+</div>
+</div>
+<p>This new image we obtained is a <strong>boolean binary mask</strong> with value <code class="docutils literal notranslate"><span class="pre">False</span></code> for background and <code class="docutils literal notranslate"><span class="pre">True</span></code> for the nucleus number 1.</p>
+<p>To verify that this is indeed a binary mask, we can query for the minimum and maximum value using the <code class="docutils literal notranslate"><span class="pre">np.min()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.max()</span></code> functions:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">nucleus_1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">nucleus_1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="manual-extraction-of-properties">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Manual Extraction of Properties<a class="headerlink" href="#manual-extraction-of-properties" title="Link to this heading">#</a></h2>
+<p>Now we can for example use this mask to extract and print the intensity values of the pixels that belong to this nucleus from the original image.</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the intensity values of the pixels that belong to this nucleus from the original image</span>
+<span class="n">nucleus_1_intensity</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="n">nucleus_1</span><span class="p">]</span>
+<span class="c1"># Print the intensity values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nucleus_1_intensity</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.14724375 0.16933577 0.20225072 ... 0.14086601 0.09265734 0.16034997]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now calculate and print for example the <strong>mean intensity</strong> using the <code class="docutils literal notranslate"><span class="pre">np.mean()</span></code> function:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nucleus_1_mean_intensity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">nucleus_1_intensity</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Mean intensity of nucleus 1: </span><span class="si">{</span><span class="n">nucleus_1_mean_intensity</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean intensity of nucleus 1: 0.2542710304260254
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or we can measure and print the area in pixels of the nucleus 1, which simply corresponds to the total number of pixels that have the value <code class="docutils literal notranslate"><span class="pre">True</span></code> in the binary mask. We can do this by using the <code class="docutils literal notranslate"><span class="pre">np.sum()</span></code> function:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nucleus_1_area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">nucleus_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Area of nucleus 1: </span><span class="si">{</span><span class="n">nucleus_1_area</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Area of nucleus 1: 1312
+</pre></div>
+</div>
+</div>
+</div>
+<p>To convert the area to a more meaningful unit, such as micrometers squared, we need to know the pixel size of the image.</p>
+<p>If we assume a pixel size of 0.325 micrometers, we can convert the area from pixels to square micrometers by multiplying by the square of the pixel size:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pixel_size</span> <span class="o">=</span> <span class="mf">0.325</span>  <span class="c1"># µm</span>
+<span class="n">nucleus_1_area_um2</span> <span class="o">=</span> <span class="n">nucleus_1_area</span> <span class="o">*</span> <span class="p">(</span><span class="n">pixel_size</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Area of nucleus 1: </span><span class="si">{</span><span class="n">nucleus_1_area_um2</span><span class="si">}</span><span class="s2"> um^2"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Area of nucleus 1: 138.58 um^2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="automated-extraction-of-properties">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Automated Extraction of Properties<a class="headerlink" href="#automated-extraction-of-properties" title="Link to this heading">#</a></h2>
+<p>We could definitely implement a function that would automate the extraction of intensity values or the area for all nuclei in the labeled image, as well as implement more complex measurements but luckily, we don’t have to do it ourselves, as there are libraries that can help us with this task and more in a very efficient way.</p>
+<p>The <a class="reference external" href="https://scikit-image.org/docs/stable/api/skimage.measure.html"><code class="docutils literal notranslate"><span class="pre">skimage.measure</span></code></a> module from the <strong>scikit-image</strong> package provides several tools to measure properties of image regions. It is especially powerful when working with <strong>labeled segmentation masks</strong>, where each object in an image is assigned a unique integer label.</p>
+<p>This module is a foundational tool for extracting morphological and intensity-based features from binary or labeled images.</p>
+<p>A useful function in <code class="docutils literal notranslate"><span class="pre">skimage.measure</span></code> is <a class="reference external" href="https://scikit-image.org/docs/stable/api/skimage.measure.html#skimage.measure.regionprops"><code class="docutils literal notranslate"><span class="pre">regionprops</span></code></a>:</p>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">label_image</span></code> — A 2D or 3D array where <strong>each unique non-zero integer</strong> corresponds to a labeled object (typically from <code class="docutils literal notranslate"><span class="pre">skimage.measure.label</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">intensity_image</span></code> <em>(optional)</em> — The raw grayscale image associated with the label mask, used to compute intensity features like mean or standard deviation.</p></li>
+</ul>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">skimage</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">regionprops</span><span class="p">(</span><span class="n">label_image</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Returns:</strong></p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">list</span></code> of <code class="docutils literal notranslate"><span class="pre">RegionProperties</span></code> objects — one for each labeled object. <strong>Each object contains attributes describing shape, position, and optionally intensity</strong> and can be accessed with dot notation (e.g., <code class="docutils literal notranslate"><span class="pre">RegionProperties.area</span></code> or <code class="docutils literal notranslate"><span class="pre">RegionProperties.mean_intensity</span></code>).</p></li>
+</ul>
+<p>In the table below, we summarize some of the common features that can be extracted using this function:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Measurement</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>area</p></td>
+<td><p>Measures the number of pixels in the object (size)</p></td>
+</tr>
+<tr class="row-odd"><td><p>perimeter</p></td>
+<td><p>Approximates the length around the object</p></td>
+</tr>
+<tr class="row-even"><td><p>eccentricity</p></td>
+<td><p>Quantifies elongation—how stretched the shape is</p></td>
+</tr>
+<tr class="row-odd"><td><p>solidity</p></td>
+<td><p>Indicates shape irregularity by comparing area to convex area</p></td>
+</tr>
+<tr class="row-even"><td><p>extent</p></td>
+<td><p>Compares object area to its bounding box area</p></td>
+</tr>
+<tr class="row-odd"><td><p>orientation</p></td>
+<td><p>Measures the angle of the major axis of the object</p></td>
+</tr>
+<tr class="row-even"><td><p>mean_intensity</p></td>
+<td><p>Averages pixel values inside the region (if intensity image is given)</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_intensity</p></td>
+<td><p>Finds the brightest pixel value inside the object</p></td>
+</tr>
+<tr class="row-even"><td><p>intensity_image</p></td>
+<td><p>Extracts the raw intensity image cropped to the object</p></td>
+</tr>
+<tr class="row-odd"><td><p>centroid</p></td>
+<td><p>Finds the object’s center of mass (position in the image)</p></td>
+</tr>
+<tr class="row-even"><td><p>bbox</p></td>
+<td><p>Gives the bounding box coordinates of the object</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Let’s create a variable named <code class="docutils literal notranslate"><span class="pre">props</span></code> to store the result of the <code class="docutils literal notranslate"><span class="pre">skimage.measure.regionprops</span></code> function using the <code class="docutils literal notranslate"><span class="pre">labeled_mask</span></code> and the original <code class="docutils literal notranslate"><span class="pre">image</span></code> as inputs:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">props</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">regionprops</span><span class="p">(</span><span class="n">labeled_mask</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since the <code class="docutils literal notranslate"><span class="pre">props</span></code> variable is a <code class="docutils literal notranslate"><span class="pre">list</span></code> of <code class="docutils literal notranslate"><span class="pre">RegionProperties</span></code>, we can access the properties of each object using indexing. For example, to access the properties of the first object (or the first nucleus), we can use <code class="docutils literal notranslate"><span class="pre">props[0]</span></code>.</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">props</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;skimage.measure._regionprops.RegionProperties at 0x7febe0067bf0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the <a class="reference external" href="https://scikit-image.org/docs/stable/api/skimage.measure.html#skimage.measure.regionprops"><code class="docutils literal notranslate"><span class="pre">regionprops</span></code></a> documentation (and as mentioned above), we can see that we can access a lot of properties for each <code class="docutils literal notranslate"><span class="pre">RegionProperties</span></code> in the list. For example, to get the <strong>mean intensity</strong> of the first region (nucleus), we can use <code class="docutils literal notranslate"><span class="pre">props[0].mean_intensity</span></code>:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">props</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean_intensity</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float32(0.25427103)
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, is the same value we obtained manually before.</p>
+<p class="alert alert-info">
+<strong>Note:</strong> To see all the available properties for <em>RegionProperties</em> use the <em>dir()</em> function which will list all the attributes and methods of the object: <em>dir(props[0])</em>. Ignore all the methods that start with <em>__</em> (double underscore) as they are special methods in Python.
+</p>
+<p>Let’s now extract the <strong>mean intensity</strong> of all nuclei and plot it using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> in an histogram:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract mean intensity of all regions</span>
+<span class="n">mean_intensities</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">props</span><span class="p">:</span>
+    <span class="n">mean_intensities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">mean_intensity</span><span class="p">)</span>
+<span class="c1"># NOTE: this for loop can also be written as a list comprehension:</span>
+<span class="c1"># mean_intensities = [prop.mean_intensity for prop in props]</span>
+
+<span class="c1"># plot the mean intensities in a histogram</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">mean_intensities</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Mean Intensities of Nuclei"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Mean Intensity"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Frequency"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/561fa83b899223d3f5b1cefe359af0034ae2611771faffef0947d721885a5901.png" src="../../_images/561fa83b899223d3f5b1cefe359af0034ae2611771faffef0947d721885a5901.png"/>
+</div>
+</div>
+<p>If you remember from the <a class="reference internal" href="../05_segmentation/classic/classic.html"><span class="std std-doc">Classic Segmentation</span></a> section, the dataset we are using contains images of <strong>HeLa cells</strong> stained with <strong>DAPI</strong>, a fluorescent dye that binds to DNA.</p>
+<p>We know that:</p>
+<ul class="simple">
+<li><p>In normal condition, mammalian cells in the <strong>G1</strong> phase of the cell cycle are <strong>diploid</strong> and thus have two sets of chromosomes (<strong>2n</strong>).</p></li>
+<li><p>Cells in the <strong>G2</strong> phase and are <strong>tetraploid</strong> (<strong>4n</strong>).</p></li>
+<li><p>During <strong>S</strong> phase (DNA doubling), cells have a DNA content ranging between <strong>2n</strong> and <strong>4n</strong>.</p></li>
+</ul>
+<p>Therefore, by looking at the DNA content (2n vs 4n) in a cell nucleus, it should be possible to discriminate between the cell cycle phases.</p>
+<p>Since DAPI labels the DNA depending on the DNA content, by <strong>measuring</strong> the <strong>total DAPI nuclear intensity (integrated density)</strong>, we might be able to <strong>plot the cell cycle phase</strong> distribution of the entire population of cells.</p>
+<p>The total intensity, also known as <strong>integrated density</strong>, is defined as the <strong>sum of the pixel intensities within a region of interest</strong>, which in our case is the nucleus. To calculate it we can use the <code class="docutils literal notranslate"><span class="pre">image_intensity</span></code> attribute of the <code class="docutils literal notranslate"><span class="pre">RegionProperties</span></code> object, which contains the values of all the pixels in the region of interest (the nucleus) and sum them up using the <code class="docutils literal notranslate"><span class="pre">np.sum()</span></code> function.</p>
+<p>For example:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">props</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">image_intensity</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float32(333.60358)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-plot-dapi-nuclear-integrated-density-distribution-from-the-entire-dataset">
+<h3 style="color: black; background-color: rgb(252,185,118); padding: 3px; border-radius: 5px;">✍️ Exercise: Plot DAPI Nuclear Integrated Density Distribution from the Entire Dataset<a class="headerlink" href="#exercise-plot-dapi-nuclear-integrated-density-distribution-from-the-entire-dataset" title="Link to this heading">#</a></h3>
+<p>In this exercise, let’s try to:</p>
+<ul class="simple">
+<li><p>create a <code class="docutils literal notranslate"><span class="pre">dataset_integrated_density_list</span></code> list variable</p></li>
+<li><p>write a <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code> that will iterate over (load) all pairs of images (raw and labeled) in the dataset</p>
+<ul>
+<li><p>extract the total integrated density of each nucleus in each image</p></li>
+<li><p>store the results in a list named <code class="docutils literal notranslate"><span class="pre">dataset_integrated_density_list</span></code></p></li>
+</ul>
+</li>
+<li><p>plot the distribution of the integrated density values using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and a histogram (bin size of 250)</p></li>
+</ul>
+<div class="cell tag_skip-execution tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw_image_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"/Users/raw_images_folder"</span><span class="p">)</span>
+<span class="n">labels_image_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"/Users/labels_images_folder"</span><span class="p">)</span>
+
+<span class="c1"># Create a list to store the integrated density values for all nuclei in the dataset</span>
+<span class="n">integrated_density_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">raw_image_file</span> <span class="ow">in</span> <span class="n">raw_image_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"*.tif"</span><span class="p">):</span>
+    <span class="c1"># Load the raw image</span>
+    <span class="n">raw_image</span> <span class="o">=</span> <span class="n">tifffile</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">raw_image_file</span><span class="p">)</span>
+    <span class="c1"># Get image name without extension</span>
+    <span class="n">image_name</span> <span class="o">=</span> <span class="n">raw_image_file</span><span class="o">.</span><span class="n">stem</span>
+    <span class="c1"># Load the corresponding labeled image</span>
+    <span class="n">labels_image_file</span> <span class="o">=</span> <span class="n">labels_image_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">image_name</span><span class="si">}</span><span class="s2">_labels.tif"</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">labels_image_file</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Labels file for </span><span class="si">{</span><span class="n">image_name</span><span class="si">}</span><span class="s2"> not found. Skipping..."</span><span class="p">)</span>
+        <span class="k">continue</span>
+    <span class="n">labeled_mask</span> <span class="o">=</span> <span class="n">tifffile</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">labels_image_file</span><span class="p">)</span>
+    <span class="c1"># Get region properties</span>
+    <span class="n">props</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">regionprops</span><span class="p">(</span><span class="n">labeled_mask</span><span class="p">,</span> <span class="n">intensity_image</span><span class="o">=</span><span class="n">raw_image</span><span class="p">)</span>
+    <span class="c1"># Calculate total integrated density for each nucleus</span>
+    <span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">props</span><span class="p">:</span>
+        <span class="n">integrated_density</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">image_intensity</span><span class="p">)</span>
+        <span class="n">integrated_density_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">integrated_density</span><span class="p">)</span>
+    <span class="c1"># same as:</span>
+    <span class="c1"># integrated_density_list.extend([np.sum(prop.image_intensity) for prop in props])</span>
+
+<span class="c1"># Plot the distribution of integrated density values</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">integrated_density_list</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Integrated Density Distribution of Nuclei"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Integrated Density"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Frequency"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!-- <div align="left"> <img src="https://raw.githubusercontent.com/HMS-IAC/bobiac/main/_static/images/ilastik/sem_to_inst.png" alt="Ilastik Logo" width="700"></div> -->
+<div align="left"> <img alt="cell_hist" src="../../_static/images/quant/integrated_density_distribution.png" width="700"/></div></section>
+</section>
+<section id="from-properties-to-tables">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">From Properties to Tables<a class="headerlink" href="#from-properties-to-tables" title="Link to this heading">#</a></h2>
+<p>There is another useful function in the <code class="docutils literal notranslate"><span class="pre">skimage.measure</span></code> module called <a class="reference external" href="https://scikit-image.org/docs/stable/api/skimage.measure.html#skimage.measure.regionprops_table"><code class="docutils literal notranslate"><span class="pre">regionprops_table</span></code></a> that allows us to create a table of properties for each region in the labeled image.</p>
+<p>Looking at the <a class="reference external" href="https://scikit-image.org/docs/stable/api/skimage.measure.html#skimage.measure.regionprops_table">documentation</a>, we can see that this function, instead of a <code class="docutils literal notranslate"><span class="pre">list</span></code>, returns a <code class="docutils literal notranslate"><span class="pre">dict</span></code> object (dictionary type as we’ve seen in <a class="reference internal" href="../03_python_basics/python_basics_notebook.html"><span class="std std-doc">Data Structures: Dictionaries</span></a>) where each property is a <code class="docutils literal notranslate"><span class="pre">key</span></code> and the <code class="docutils literal notranslate"><span class="pre">values</span></code> are arrays containing the property values for each region in the labeled image.</p>
+<p>The main attribute of this function are:</p>
+<ul class="simple">
+<li><p><strong>label_image</strong>: The labeled image where each unique integer corresponds to a labeled object.</p></li>
+<li><p><strong>intensity_image</strong> <em>(optional)</em>: The raw grayscale image associated with the label mask (used to compute intensity features).</p></li>
+<li><p><strong>properties</strong> <em>(optional)</em>: A list of properties to include in the table. If not specified, all properties will be included.</p></li>
+</ul>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">props_dict</span> <span class="o">=</span> <span class="n">regionprops_table</span><span class="p">(</span><span class="n">label_image</span><span class="p">,</span> <span class="n">raw_image</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="s1">'area'</span><span class="p">,</span> <span class="s1">'perimeter'</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Let’s see how we can use this in practice and create a DataFrame with the <code class="docutils literal notranslate"><span class="pre">image_intensity</span></code> and <code class="docutils literal notranslate"><span class="pre">area</span></code> properties for each nucleus in the labeled image.</p>
+<p>First we need to reload one raw image and the corresponding labeled image:x</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># raw image and labeled mask</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">tifffile</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"../../_static/images/quant/DAPI_wf_10.tif"</span><span class="p">)</span>
+<span class="n">labeled_mask</span> <span class="o">=</span> <span class="n">tifffile</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"../../_static/images/quant/DAPI_wf_10_labels.tif"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create the dictionary with the <code class="docutils literal notranslate"><span class="pre">regionprops_table</span></code> function that includes the <code class="docutils literal notranslate"><span class="pre">label</span></code>, <code class="docutils literal notranslate"><span class="pre">image_intensity</span></code>, and <code class="docutils literal notranslate"><span class="pre">area</span></code> properties, and print the keys (remember this is a <code class="docutils literal notranslate"><span class="pre">dict</span></code>) of the results:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">props_dict</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">regionprops_table</span><span class="p">(</span>
+    <span class="n">labeled_mask</span><span class="p">,</span> <span class="n">intensity_image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="s2">"label"</span><span class="p">,</span> <span class="s2">"image_intensity"</span><span class="p">,</span> <span class="s2">"area"</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">props_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys(['label', 'image_intensity', 'area'])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since <code class="docutils literal notranslate"><span class="pre">props_dict</span></code> is a dictionary, we can access the properties of each region using the keys of the dictionary. Each key corresponds to a property, and the associated value is an array containing the property values for each region.</p>
+<p>For example, to access the area of each region, we can do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">areas</span> <span class="o">=</span> <span class="n">props_dict</span><span class="p">[</span><span class="s1">'area'</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Similarly, we can access and print <code class="docutils literal notranslate"><span class="pre">image_intensity</span></code> property (print only the first three values):</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integrated_density_list</span> <span class="o">=</span> <span class="n">props_dict</span><span class="p">[</span><span class="s2">"image_intensity"</span><span class="p">]</span>
+<span class="c1"># let's print the first three values since the list can be long</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">integrated_density_list</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([[-0.,  0.,  0., ...,  0.,  0.,  0.],
+        [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+        [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+        ...,
+        [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+        [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+        [ 0.,  0.,  0., ...,  0.,  0.,  0.]], shape=(38, 45), dtype=float32)
+ array([[ 0.,  0.,  0., ...,  0.,  0.,  0.],
+        [ 0.,  0.,  0., ...,  0., -0.,  0.],
+        [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+        ...,
+        [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+        [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+        [ 0.,  0.,  0., ...,  0.,  0.,  0.]], shape=(51, 52), dtype=float32)
+ array([[ 0.,  0.,  0., ...,  0.,  0., -0.],
+        [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+        [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+        ...,
+        [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+        [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+        [ 0.,  0.,  0., ...,  0., -0.,  0.]], shape=(50, 46), dtype=float32)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is not yet an evident advantage of using <code class="docutils literal notranslate"><span class="pre">regionprops_table</span></code> over <code class="docutils literal notranslate"><span class="pre">regionprops</span></code> at this point, but this method becomes useful when we want to create a table with all the properties of each region in the labeled image as well as save it as a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file. In fact, this <code class="docutils literal notranslate"><span class="pre">props_dict</span></code> output can be used to directly create a <a class="reference external" href="https://pandas.pydata.org/docs/"><code class="docutils literal notranslate"><span class="pre">**pandas**</span></code></a> DataFrame.</p>
+<p><a class="reference external" href="https://pandas.pydata.org/docs/"><strong>pandas</strong></a> is a powerful Python library for data manipulation and analysis. It provides high-performance, easy-to-use data structures and tools for working with structured data. The main data structure in pandas is the <strong>DataFrame</strong>, which is a 2-dimensional labeled data structure with columns of potentially different types (like numbers, strings, arrays, etc.).</p>
+<p>Let’s now create a DataFrame with the <code class="docutils literal notranslate"><span class="pre">props_dict</span></code> variable and print it:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">props_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">props_dict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">props_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     label                                    image_intensity    area
+0        1  [[-0.0, 0.0, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0....  1312.0
+1        2  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  1748.0
+2        3  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  1729.0
+3        4  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  1351.0
+4        5  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  1185.0
+..     ...                                                ...     ...
+110    111  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  1622.0
+111    112  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  3556.0
+112    113  [[0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0, 0.0...  1971.0
+113    114  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  1488.0
+114    115  [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...  1339.0
+
+[115 rows x 3 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can notice that now we converted the <code class="docutils literal notranslate"><span class="pre">dict</span></code> file in a more tabular format, which is easier to work with for data analysis and manipulation tasks. The rows of the DataFrame correspond to the regions (nuclei) in the labeled image, and the columns correspond to the properties of each region.</p>
+<p>For example we can now access the <code class="docutils literal notranslate"><span class="pre">image_intensity</span></code> property by the column name as key:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_intensity</span> <span class="o">=</span> <span class="n">props_df</span><span class="p">[</span><span class="s2">"image_intensity"</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">image_intensity</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      [[-0.0, 0.0, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0....
+1      [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...
+2      [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...
+3      [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...
+4      [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...
+                             ...                        
+110    [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...
+111    [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...
+112    [[0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+113    [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...
+114    [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...
+Name: image_intensity, Length: 115, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>And if we want to get the integrated density values for the fist nucleus, we can do (similarly as before):</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integrated_density_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">image_intensity</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">integrated_density_0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>333.60358
+</pre></div>
+</div>
+</div>
+</div>
+<p>And, similarly to before, to get the integrated density values for all nuclei, we can use create a list where we sum the pixel intensities for each nucleus:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate integrated density for each nucleus</span>
+<span class="n">integrated_densities</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">intensity_array</span> <span class="ow">in</span> <span class="n">props_df</span><span class="p">[</span><span class="s2">"image_intensity"</span><span class="p">]:</span>
+    <span class="n">integrated_density</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">intensity_array</span><span class="p">)</span>
+    <span class="n">integrated_densities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">integrated_density</span><span class="p">)</span>
+<span class="c1"># same as:</span>
+<span class="c1"># integrated_densities = [np.sum(intensity_array) for intensity_array in props_df['image_intensity']]</span>
+
+<span class="c1"># Plot histogram of integrated densities</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">integrated_densities</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Integrated Density Distribution of Nuclei"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Integrated Density"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Frequency"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f26b25f3e9c57d592797d842ea52414b6e852e9216618843ab002d7d8f458732.png" src="../../_images/f26b25f3e9c57d592797d842ea52414b6e852e9216618843ab002d7d8f458732.png">
+</img></div>
+</div>
+</section>
+<section id="manipulating-tables-as-dataframes">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Manipulating tables as dataframes<a class="headerlink" href="#manipulating-tables-as-dataframes" title="Link to this heading">#</a></h2>
+<p>Now that we have converted the measurements table into a DataFrame, we can start manipulating it.</p>
+<p>For example, we can create a new column in the DataFrame with the integrated density per nucleus, and then display the first few rows of the DataFrame using the <code class="docutils literal notranslate"><span class="pre">head()</span></code> method:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add integrated density as a new column</span>
+<span class="n">props_df</span><span class="p">[</span><span class="s2">"integrated_density"</span><span class="p">]</span> <span class="o">=</span> <span class="n">integrated_densities</span>
+
+<span class="c1"># Print the first few rows of the DataFrame to verify the new column</span>
+<span class="n">props_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>label</th>
+<th>image_intensity</th>
+<th>area</th>
+<th>integrated_density</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>[[-0.0, 0.0, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0....</td>
+<td>1312.0</td>
+<td>333.603577</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
+<td>1748.0</td>
+<td>479.227600</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
+<td>1729.0</td>
+<td>493.648102</td>
+</tr>
+<tr>
+<th>3</th>
+<td>4</td>
+<td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
+<td>1351.0</td>
+<td>278.010895</td>
+</tr>
+<tr>
+<th>4</th>
+<td>5</td>
+<td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
+<td>1185.0</td>
+<td>283.689819</td>
+</tr>
+</tbody>
+</table>
+</div></div></div>
+</div>
+<p>Dataframe makes conditional filtering and selection easy. We can use the <code class="docutils literal notranslate"><span class="pre">loc[...]</span></code> method to select rows and columns <u>by their labels</u>.</p>
+<p>For example, let’s identify the percentage of nuclei that are larger than average and have high integrated density:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_area</span> <span class="o">=</span> <span class="n">props_df</span><span class="p">[</span><span class="s2">"area"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mean_density</span> <span class="o">=</span> <span class="n">props_df</span><span class="p">[</span><span class="s2">"integrated_density"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># conditional filtering</span>
+<span class="n">large_bright_nuclei</span> <span class="o">=</span> <span class="n">props_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">props_df</span><span class="p">[</span><span class="s2">"area"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">mean_area</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">props_df</span><span class="p">[</span><span class="s2">"integrated_density"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">mean_density</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"% of nuclei larger than average and brighter than average: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">large_bright_nuclei</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">props_df</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">}</span><span class="s2">%"</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>% of nuclei larger than average and brighter than average: 27.82608695652174%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-info">
+<strong>Note:</strong> Using <em>.loc[...]</em> is the recommended and idiomatic way to filter rows in a pandas DataFrame. Here's why:
+<ul>
+<li><strong>Explicit row filtering</strong>: Clearly signals that you're selecting rows based on a condition.</li>
+<li><strong>Preserves structure</strong>: Returns a full DataFrame with all metadata (index, column names), unlike <em>df[condition]</em> which may behave ambiguously.</li>
+<li><strong>Avoids chained indexing issues</strong>: Prevents bugs related to operating on a copy vs. a view.</li>
+<li><strong>Safe for assignment</strong>: Enables safe in-place updates (e.g., <em>df.loc[condition, 'col'] = value</em>).</li>
+<li><strong>Readable and standard</strong>: Immediately recognizable and understandable to other pandas users.</li>
+</ul>
+</div>
+<p>We can then extract the labels of large and bright nuclei from the DataFrame and create a binary mask showing only those selected nuclei in the original image using the <code class="docutils literal notranslate"><span class="pre">np.isin(against,</span> <span class="pre">for)</span></code> function.</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selected_labels</span> <span class="o">=</span> <span class="n">large_bright_nuclei</span><span class="p">[</span><span class="s2">"label"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">selected_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">labeled_mask</span><span class="p">,</span> <span class="n">selected_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once the nuclei of interest have been selected in the dataframe, it is possible to visualize them in the labeled image.</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">labeled_mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"nipy_spectral"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Labeled Mask"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">selected_mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"nipy_spectral"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Selected Nuclei"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8fe1d17e8632f4ef61c1c5c176227657bc3baa46ff59378f9a3f1320ab64fdc6.png" src="../../_images/8fe1d17e8632f4ef61c1c5c176227657bc3baa46ff59378f9a3f1320ab64fdc6.png"/>
+</div>
+</div>
+<p>It is also possible to select <u>by position</u> using <code class="docutils literal notranslate"><span class="pre">.iloc[...]</span></code>.</p>
+<p>For example, to select the first 10 rows of the DataFrame, we can do:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">props_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>label</th>
+<th>image_intensity</th>
+<th>area</th>
+<th>integrated_density</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>[[-0.0, 0.0, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0....</td>
+<td>1312.0</td>
+<td>333.603577</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
+<td>1748.0</td>
+<td>479.227600</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
+<td>1729.0</td>
+<td>493.648102</td>
+</tr>
+<tr>
+<th>3</th>
+<td>4</td>
+<td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
+<td>1351.0</td>
+<td>278.010895</td>
+</tr>
+<tr>
+<th>4</th>
+<td>5</td>
+<td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
+<td>1185.0</td>
+<td>283.689819</td>
+</tr>
+</tbody>
+</table>
+</div></div></div>
+</div>
+<p>To select the first 10 rows and the first 3 columns, we can do:</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">props_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>label</th>
+<th>image_intensity</th>
+<th>area</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>[[-0.0, 0.0, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, 0....</td>
+<td>1312.0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
+<td>1748.0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
+<td>1729.0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>4</td>
+<td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
+<td>1351.0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>5</td>
+<td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
+<td>1185.0</td>
+</tr>
+</tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="saving-dataframes-to-csv">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Saving dataframes to CSV<a class="headerlink" href="#saving-dataframes-to-csv" title="Link to this heading">#</a></h2>
+<p>One of the most useful features of pandas is the ability to easily save data to various file formats. Let’s save our measurements to a CSV file that can be opened in spreadsheet software like Excel:</p>
+<div class="cell tag_skip-execution tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">props_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"nucleus_measurements.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The other way around, CSV files can then be loaded back into a pandas DataFrame using the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> method:</p>
+<div class="cell tag_skip-execution tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">props_df_loaded</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"nucleus_measurements.csv"</span><span class="p">)</span>
+<span class="c1"># check the data</span>
+<span class="n">props_df_loaded</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/07_measurement_and_quantification"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
+</article>
+<footer class="prev-next-footer d-print-none">
+<div class="prev-next-area">
+<a class="left-prev" href="measurement_and_quantification_intro.html" title="previous page">
+<i class="fa-solid fa-angle-left"></i>
+<div class="prev-next-info">
+<p class="prev-next-subtitle">previous</p>
+<p class="prev-next-title">07 - <i class="fa-solid fa-chart-simple"></i> Measurement &amp; Quantification</p>
+</div>
+</a>
+<a class="right-next" href="background_correction_notebook.html" title="next page">
+<div class="prev-next-info">
+<p class="prev-next-subtitle">next</p>
+<p class="prev-next-title">Background Correction Notebook</p>
+</div>
+<i class="fa-solid fa-angle-right"></i>
+</a>
+</div>
+</footer>
+</div>
+<div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+<div class="sidebar-secondary-item">
+<div class="page-toc tocsection onthispage">
+<i class="fa-solid fa-list"></i> Contents
+  </div>
+<nav class="bd-toc-nav page-toc">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries">Importing libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-display-images">Load and Display Images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-single-objects-in-the-labeled-image">Accessing single objects in the labeled image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-extraction-of-properties">Manual Extraction of Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-extraction-of-properties">Automated Extraction of Properties</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-plot-dapi-nuclear-integrated-density-distribution-from-the-entire-dataset">✍️ Exercise: Plot DAPI Nuclear Integrated Density Distribution from the Entire Dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-properties-to-tables">From Properties to Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-tables-as-dataframes">Manipulating tables as dataframes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-dataframes-to-csv">Saving dataframes to CSV</a></li>
+</ul>
+</nav></div>
+</div></div>
+</div>
+<footer class="bd-footer-content">
+<div class="bd-footer-content__inner container">
+<div class="footer-item">
+<p class="component-author">
+By Image Analysis Collaboratory @ Harvard Medical School
+</p>
+</div>
+<div class="footer-item">
+<p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+</p>
+</div>
+<div class="footer-item">
+</div>
+<div class="footer-item">
+<div class="extra_footer">
+<p>
+All content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>, except where noted otherwise.
+</p>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="bd-footer">
+</footer>
+</body>
+</html>
