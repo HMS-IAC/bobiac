@@ -1,0 +1,896 @@
+
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Errors Everywhere — BoBiAC Book</title>
+<script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+<!-- Loaded before other Sphinx assets -->
+<link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" rel="preload" type="font/woff2"/>
+<link href="../../_static/pygments.css?v=03e43079" rel="stylesheet" type="text/css"/>
+<link href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" rel="stylesheet" type="text/css"/>
+<link href="../../_static/togglebutton.css?v=13237357" rel="stylesheet" type="text/css"/>
+<link href="../../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
+<link href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-thebe.css?v=4fa983c6" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<link href="../../_static/styles/custom.css?v=dd2a99f2" rel="stylesheet" type="text/css"/>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" rel="preload"/>
+<link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" rel="preload"/>
+<script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+<script src="../../_static/copybutton.js?v=f281be69"></script>
+<script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+<script>let toggleHintShow = 'Click to show';</script>
+<script>let toggleHintHide = 'Click to hide';</script>
+<script>let toggleOpenOnPrint = 'true';</script>
+<script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script src="../../_static/design-tabs.js?v=f930bc37"></script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script>DOCUMENTATION_OPTIONS.pagename = 'content/03_python_basics/error_notebook';</script>
+<script src="../../_static/scripts/custom.js?v=4332ec77"></script>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../04_digital_images_intro/digital_images_intro.html" rel="next" title="04 - Introduction to Digital Images"/>
+<link href="python_basics_notebook.html" rel="prev" title="The Python Basics Notebook"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+</head>
+<body data-bs-root-margin="0px 0px -60%" data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-default-mode="" data-offset="180">
+<div class="skip-link d-print-none" id="pst-skip-link"><a href="#main-content">Skip to main content</a></div>
+<div id="pst-scroll-pixel-helper"></div>
+<button class="btn rounded-pill" id="pst-back-to-top" type="button">
+<i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<input class="sidebar-toggle" id="pst-primary-sidebar-checkbox" type="checkbox"/>
+<label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+<input class="sidebar-toggle" id="pst-secondary-sidebar-checkbox" type="checkbox"/>
+<label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+<div class="search-button__wrapper">
+<div class="search-button__overlay"></div>
+<div class="search-button__search-container">
+<form action="../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search this book..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+</div>
+<div class="pst-async-banner-revealer d-none">
+<aside aria-label="Version warning" class="d-none d-print-none" id="bd-header-version-warning"></aside>
+</div>
+<header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+</header>
+<div class="bd-container">
+<div class="bd-container__inner bd-page-width">
+<div class="bd-sidebar-primary bd-sidebar">
+<div class="sidebar-header-items sidebar-primary__section">
+</div>
+<div class="sidebar-primary-items__start sidebar-primary__section">
+<div class="sidebar-primary-item">
+<a class="navbar-brand logo" href="../../landing-page.html">
+<img alt="BoBiAC Book - Home" class="logo__image only-light" src="../../_static/bobiac_logos_svgexport-03.svg"/>
+<script>document.write(`<img src="../../_static/bobiac_logos_svgexport-04.svg" class="logo__image only-dark" alt="BoBiAC Book - Home"/>`);</script>
+</a></div>
+<div class="sidebar-primary-item">
+<script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+<div class="sidebar-primary-item"><nav aria-label="Main" class="bd-links bd-docs-nav">
+<div class="bd-toc-item navbar-nav active">
+<ul class="nav bd-sidenav bd-sidenav__home-link">
+<li class="toctree-l1">
+<a class="reference internal" href="../../landing-page.html">
+<i class="fas fa-home"></i> Home
+                </a>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Material</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_intro_to_bobiac/bobiac_intro.html">01 - <i class="fas fa-image"></i> Introduction to BoBiAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_getting_started_with_python/getting_started_with_python.html">02 - <i class="fab fa-python"></i> Getting Started with Python and <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="python_basics.html">03 - <i class="fab fa-python"></i> Python Basics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="python_basics_notebook.html">The Python Basics Notebook</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Errors Everywhere</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04_digital_images_intro/digital_images_intro.html">04 - <i class="fas fa-table-cells"></i> Introduction to Digital Images</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04_digital_images_intro/python_for_bioimage_analysis.html">Python for bioimage analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05_segmentation/segmentation_intro.html">05 - <i class="fa-solid fa-disease"></i> Image Segmentation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../05_segmentation/classic/classic.html">Classical Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../05_segmentation/classic/classic_segmentation.html">Classical Segmentation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../05_segmentation/machine_learning/machine_learning.html">Machine Learning Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../05_segmentation/machine_learning/intro_to_ilastik.html">Introduction to Ilastik</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05_segmentation/machine_learning/pixel_classification_with_ilastik.html">Ilastik for Pixel Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05_segmentation/machine_learning/from_ilastik_masks_to_labels.html">From Ilastik Masks to Labels</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../05_segmentation/deep_learning/deep_learning.html">Deep Learning Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../05_segmentation/deep_learning/intro_to_cellpose.html">Introduction to Cellpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05_segmentation/deep_learning/cellpose_notebook.html">Cellpose in Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05_segmentation/deep_learning/cellpose_retraining_colab.html">Retraining Cellpose on Custom Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06_object_classification/object_classification.html">06 - <i class="fa-solid fa-shapes"></i> Object Classification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_object_classification/object_classification_with_ilastik.html">Ilastik for Object Classification</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07_measurement_and_quantification/measurement_and_quantification_intro.html">07 - <i class="fa-solid fa-chart-simple"></i> Measurements &amp; Quantification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07_measurement_and_quantification/measurement_and_quantification_notebook.html">Measurements &amp; Quantification Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_measurement_and_quantification/background_correction_notebook.html">Background Correction</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08_colocalization/colocalization_intro.html">08 - <i class="fa-solid fa-location-crosshairs"></i> Colocalization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08_colocalization/pixel_intensity_based_colocalization_pearsons.html">Pearson’s correlation coefficient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_colocalization/pixel_intensity_based_colocalization_manders.html">Manders’ Correlation Coefficients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_colocalization/object_based_colocalization.html">Object-based colocalization analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../09_reproducibility_and_image_ethics/reproducibility_and_image_ethics.html">09 - <i class="fa-solid fa-rotate-right"></i> Reproducibility and Image Ethics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Student Working Groups</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../student_group_work/student_group_work.html"><i class="fa-solid fa-user-group"></i> Student Group Work</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials Downloads</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../data/course_downloads.html"><i class="fa-solid fa-folder"></i> Downloads</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025">BoBiAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.astral.sh/uv/">uv</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/manzt/juv">juv</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu">Image Analysis Collaboratory (IAC)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cite.hms.harvard.edu">Core for Imaging Technology &amp; Education (CITE)</a></li>
+</ul>
+</div>
+</nav></div>
+</div>
+<div class="sidebar-primary-items__end sidebar-primary__section">
+</div>
+<div id="rtd-footer-container"></div>
+</div>
+<main class="bd-main" id="main-content" role="main">
+<div class="sbt-scroll-pixel-helper"></div>
+<div class="bd-content">
+<div class="bd-article-container">
+<div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+<div class="header-article-items__start">
+<div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle primary sidebar">
+<span class="fa-solid fa-bars"></span>
+</button></div>
+</div>
+<div class="header-article-items__end">
+<div class="header-article-item">
+<div class="article-header-buttons">
+<a class="btn btn-sm btn-source-repository-button" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://github.com/HMS-IAC/bobiac" target="_blank" title="Source repository">
+<span class="btn__icon-container">
+<i class="fab fa-github"></i>
+</span>
+</a>
+<button class="btn btn-sm btn-fullscreen-button" data-bs-placement="bottom" data-bs-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode">
+<span class="btn__icon-container">
+<i class="fas fa-expand"></i>
+</span>
+</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle secondary sidebar">
+<span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+</div>
+</div>
+</div>
+<div class="onlyprint" id="jb-print-docs-body">
+<h1>Errors Everywhere</h1>
+<!-- Table of contents -->
+<div id="print-main-content">
+<div id="jb-print-toc">
+<div>
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;"> Contents </h2>
+</div>
+<nav aria-label="Page">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-short-overview-of-error-messages-in-python">A Short Overview of Error Messages in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-types-and-tracebacks">Error Types and Tracebacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incompleteinputerror">_IncompleteInputError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntaxerror">SyntaxError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">SyntaxError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indentationerror">IndentationError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typeerror">TypeError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valueerror">ValueError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexerror">IndexError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyerror">KeyError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filenotfounderror">FileNotFoundError</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracebacks-localising-the-error">Tracebacks - localising the error</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zerodivisionerror">ZeroDivisionError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-error-yet">No error (yet)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nameerror">NameError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">NameError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">ValueError</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrapping-up">Wrapping Up</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div id="searchbox"></div>
+<article class="bd-article">
+<section class="tex2jax_ignore mathjax_ignore" id="errors-everywhere">
+<h1>Errors Everywhere<a class="headerlink" href="#errors-everywhere" title="Link to this heading">#</a></h1>
+<div class="custom-button-row">
+<a class="custom-button custom-download-button" download="" href="../../notebooks/03_python_basics/error_notebook.ipynb">
+<i class="fas fa-download"></i> Download this Notebook
+    </a>
+<a class="custom-button custom-download-button" href="https://colab.research.google.com/github/HMS-IAC/bobiac/blob/gh-pages/colab_notebooks/03_python_basics/error_notebook.ipynb" target="_blank">
+<img alt="Open in Colab" class="button-icon" src="../../_static/logo/icon-google-colab.svg"/>
+        Open in Colab
+    </a>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># /// script</span>
+<span class="c1"># requires-python = "&gt;=3.13"</span>
+<span class="c1"># dependencies = [</span>
+<span class="c1">#     "numpy",</span>
+<span class="c1">#     "matplotlib",</span>
+<span class="c1"># ]</span>
+<span class="c1"># ///</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="a-short-overview-of-error-messages-in-python">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">A Short Overview of Error Messages in Python<a class="headerlink" href="#a-short-overview-of-error-messages-in-python" title="Link to this heading">#</a></h2>
+<p>In this notebook, we explore common Python errors through short, live-coded examples. The goal is not just to recognise these errors, but to understand how Python helps you debug them.</p>
+<p>There are two key ideas to keep in mind:</p>
+<ul class="simple">
+<li><p>Error type tells you what went wrong (e.g. <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>, <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>, <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>).</p></li>
+<li><p>Traceback tells you where it went wrong — it points to the exact line and function where the problem occurred.
+Understanding these two aspects will help you fix bugs faster and read error messages more confidently. Let’s get started.</p></li>
+</ul>
+</section>
+<section id="error-types-and-tracebacks">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Error Types and Tracebacks<a class="headerlink" href="#error-types-and-tracebacks" title="Link to this heading">#</a></h2>
+<p>When Python encounters an error, it raises an exception.</p>
+<section id="incompleteinputerror">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">_IncompleteInputError<a class="headerlink" href="#incompleteinputerror" title="Link to this heading">#</a></h3>
+<p>Close parenthesis are missing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'hello'</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'hello'</span>
+                 <span class="o">^</span>
+<span class="ne">SyntaxError</span>: incomplete input
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="syntaxerror">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">SyntaxError<a class="headerlink" href="#syntaxerror" title="Link to this heading">#</a></h3>
+<p>Unterminated string. The closing quote is missing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'error)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">44</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'error)</span>
+          <span class="o">^</span>
+<span class="ne">SyntaxError</span>: unterminated string literal (detected at line 1)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">SyntaxError<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>The first line of the function definition requires a colon at the end.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cool_function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">45</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cool_function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+                           <span class="o">^</span>
+<span class="ne">SyntaxError</span>: expected ':'
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="indentationerror">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">IndentationError<a class="headerlink" href="#indentationerror" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> statement must be indented.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cool_function_final</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">46</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: expected an indented block after function definition on line 1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="typeerror">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">TypeError<a class="headerlink" href="#typeerror" title="Link to this heading">#</a></h3>
+<p>Can’t add a string and an integer without conversion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s1">'2'</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">48</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">b</span> <span class="o">=</span> <span class="s1">'2'</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> 
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for +: 'int' and 'str'
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="valueerror">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">ValueError<a class="headerlink" href="#valueerror" title="Link to this heading">#</a></h3>
+<p>‘one’ can’t be converted to an integer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s2">"one"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">50</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">int</span><span class="p">(</span><span class="s2">"one"</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: invalid literal for int() with base 10: 'one'
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="indexerror">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">IndexError<a class="headerlink" href="#indexerror" title="Link to this heading">#</a></h3>
+<p>We’re trying to access a list index that doesn’t exist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>                   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">51</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>                   
+
+<span class="ne">IndexError</span>: list index out of range
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="keyerror">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">KeyError<a class="headerlink" href="#keyerror" title="Link to this heading">#</a></h3>
+<p>The dictionary key ‘b’ doesn’t exist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"b"</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">52</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"b"</span><span class="p">])</span>
+
+<span class="ne">KeyError</span>: 'b'
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="filenotfounderror">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">FileNotFoundError<a class="headerlink" href="#filenotfounderror" title="Link to this heading">#</a></h3>
+<p>Trying to load a file that probably doesn’t exist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'data.npy'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">53</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'data.npy'</span><span class="p">)</span>
+
+<span class="nn">File ~/.cache/uv/environments-v2/juv-tmp-q5418f1c-660e5b8f23e19f4b/lib/python3.13/site-packages/numpy/lib/_npyio_impl.py:454,</span> in <span class="ni">load</span><span class="nt">(file, mmap_mode, allow_pickle, fix_imports, encoding, max_header_size)</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>     <span class="n">own_fid</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">454</span>     <span class="n">fid</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">enter_context</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">fspath</span><span class="p">(</span><span class="n">file</span><span class="p">),</span> <span class="s2">"rb"</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">455</span>     <span class="n">own_fid</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">457</span> <span class="c1"># Code to distinguish from NumPy binary files and pickles.</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: 'data.npy'
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="tracebacks-localising-the-error">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Tracebacks - localising the error<a class="headerlink" href="#tracebacks-localising-the-error" title="Link to this heading">#</a></h2>
+<p>Understanding where in the code the error was raised is as important as understanding what the error is. Every error message will tell you the exact line of code that raised the error. Here explore how to read them.</p>
+<section id="zerodivisionerror">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">ZeroDivisionError<a class="headerlink" href="#zerodivisionerror" title="Link to this heading">#</a></h3>
+<p>Division by zero is undefined. Traceback shows which line caused it; line 2. Note that line 3 would raise the same error, but we only see the error caused by line 2 since the code execution is stopped when the first error is encountered.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">0</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">0</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="no-error-yet">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">No error (yet)<a class="headerlink" href="#no-error-yet" title="Link to this heading">#</a></h3>
+<p>Function is defined, but contains a reference to an undefined variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">undeclared_variable</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="nameerror">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">NameError<a class="headerlink" href="#nameerror" title="Link to this heading">#</a></h3>
+<p>Calling the function reveals the undefined variable. Traceback shows that the error was caused by calling the <code class="docutils literal notranslate"><span class="pre">another_function</span></code>, where in the notebook that function lives (the number in square brackets), and which line in the function caused the error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">another_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">56</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">another_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nn">Cell In[55], line 2,</span> in <span class="ni">another_function</span><span class="nt">(x, y)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span><span class="w"> </span><span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span> <span class="n">undeclared_variable</span>
+
+<span class="ne">NameError</span>: name 'undeclared_variable' is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">NameError<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Typo in variable name inside nested functions. Traceback shows nested calls and leads us through this more complicated code to the error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">draw_branch</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">depth</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span> <span class="o">*</span> <span class="n">length</span>
+    <span class="n">y2</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span> <span class="o">*</span> <span class="n">length</span>
+    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(((</span><span class="n">x</span><span class="p">,</span> <span class="n">x2</span><span class="p">),</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yii</span><span class="p">)))</span>
+    <span class="n">new_length</span> <span class="o">=</span> <span class="n">length</span> <span class="o">*</span> <span class="mf">0.7</span>
+    <span class="n">draw_branch</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">angle</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">6</span><span class="p">,</span> <span class="n">new_length</span><span class="p">,</span> <span class="n">depth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
+    <span class="n">draw_branch</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">angle</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="n">new_length</span><span class="p">,</span> <span class="n">depth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_tree</span><span class="p">():</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">draw_branch</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">'k-'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">'equal'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plot_tree</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">57</span><span class="p">],</span> <span class="n">line</span> <span class="mi">23</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">'equal'</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">23</span> <span class="n">plot_tree</span><span class="p">()</span>
+
+<span class="nn">Cell In[57], line 16,</span> in <span class="ni">plot_tree</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">def</span><span class="w"> </span><span class="nf">plot_tree</span><span class="p">():</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">---&gt; </span><span class="mi">16</span>     <span class="n">draw_branch</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">'k-'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nn">Cell In[57], line 9,</span> in <span class="ni">draw_branch</span><span class="nt">(x, y, angle, length, depth, lines)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span> <span class="o">*</span> <span class="n">length</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span> <span class="o">*</span> <span class="n">length</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(((</span><span class="n">x</span><span class="p">,</span> <span class="n">x2</span><span class="p">),</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yii</span><span class="p">)))</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">new_length</span> <span class="o">=</span> <span class="n">length</span> <span class="o">*</span> <span class="mf">0.7</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">draw_branch</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">angle</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">6</span><span class="p">,</span> <span class="n">new_length</span><span class="p">,</span> <span class="n">depth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lines</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name 'yii' is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">ValueError<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Invalid colormap. Error message is very long and not very helpful, but the developers added more details and suggests valid options.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'error'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">41</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'error'</span><span class="p">)</span>
+
+<span class="nn">File ~/.cache/uv/environments-v2/juv-tmp-q5418f1c-660e5b8f23e19f4b/lib/python3.13/site-packages/matplotlib/pyplot.py:3601,</span> in <span class="ni">imshow</span><span class="nt">(X, cmap, norm, aspect, interpolation, alpha, vmin, vmax, colorizer, origin, extent, interpolation_stage, filternorm, filterrad, resample, url, data, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3579</span> <span class="nd">@_copy_docstring_and_deprecators</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">imshow</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3580</span> <span class="k">def</span><span class="w"> </span><span class="nf">imshow</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3581</span>     <span class="n">X</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">3599</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3600</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AxesImage</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3601</span>     <span class="n">__ret</span> <span class="o">=</span> <span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3602</span>         <span class="n">X</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3603</span>         <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3604</span>         <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3605</span>         <span class="n">aspect</span><span class="o">=</span><span class="n">aspect</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3606</span>         <span class="n">interpolation</span><span class="o">=</span><span class="n">interpolation</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3607</span>         <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3608</span>         <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3609</span>         <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3610</span>         <span class="n">colorizer</span><span class="o">=</span><span class="n">colorizer</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3611</span>         <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3612</span>         <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3613</span>         <span class="n">interpolation_stage</span><span class="o">=</span><span class="n">interpolation_stage</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3614</span>         <span class="n">filternorm</span><span class="o">=</span><span class="n">filternorm</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3615</span>         <span class="n">filterrad</span><span class="o">=</span><span class="n">filterrad</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3616</span>         <span class="n">resample</span><span class="o">=</span><span class="n">resample</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3617</span>         <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3618</span>         <span class="o">**</span><span class="p">({</span><span class="s2">"data"</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}),</span>
+<span class="g g-Whitespace">   </span><span class="mi">3619</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3620</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3621</span>     <span class="n">sci</span><span class="p">(</span><span class="n">__ret</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3622</span>     <span class="k">return</span> <span class="n">__ret</span>
+
+<span class="nn">File ~/.cache/uv/environments-v2/juv-tmp-q5418f1c-660e5b8f23e19f4b/lib/python3.13/site-packages/matplotlib/__init__.py:1521,</span> in <span class="ni">_preprocess_data.&lt;locals&gt;.inner</span><span class="nt">(ax, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1518</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1519</span> <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1520</span>     <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1521</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1522</span>             <span class="n">ax</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1523</span>             <span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">cbook</span><span class="o">.</span><span class="n">sanitize_sequence</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span>
+<span class="nn">   1524             **{k: cbook.sanitize_sequence(v) for k, v</span> in <span class="ni">kwargs.items</span><span class="nt">()})</span>
+<span class="g g-Whitespace">   </span><span class="mi">1526</span>     <span class="n">bound</span> <span class="o">=</span> <span class="n">new_sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1527</span>     <span class="n">auto_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">bound</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1528</span>                   <span class="ow">or</span> <span class="n">bound</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">))</span>
+
+<span class="nn">File ~/.cache/uv/environments-v2/juv-tmp-q5418f1c-660e5b8f23e19f4b/lib/python3.13/site-packages/matplotlib/axes/_axes.py:5965,</span> in <span class="ni">Axes.imshow</span><span class="nt">(self, X, cmap, norm, aspect, interpolation, alpha, vmin, vmax, colorizer, origin, extent, interpolation_stage, filternorm, filterrad, resample, url, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5747</span> <span class="nd">@_preprocess_data</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">5748</span> <span class="nd">@_docstring</span><span class="o">.</span><span class="n">interpd</span>
+<span class="g g-Whitespace">   </span><span class="mi">5749</span> <span class="k">def</span><span class="w"> </span><span class="nf">imshow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">5752</span>            <span class="n">interpolation_stage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filternorm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">filterrad</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5753</span>            <span class="n">resample</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">5754</span><span class="w">     </span><span class="sd">"""</span>
+<span class="g g-Whitespace">   </span><span class="mi">5755</span><span class="sd">     Display data as an image, i.e., on a 2D regular raster.</span>
+<span class="g g-Whitespace">   </span><span class="mi">5756</span><span class="sd"> </span>
+<span class="sd">   (...)   5963     (unassociated) alpha representation.</span>
+<span class="g g-Whitespace">   </span><span class="mi">5964</span><span class="sd">     """</span>
+<span class="ne">-&gt; </span><span class="mi">5965</span>     <span class="n">im</span> <span class="o">=</span> <span class="n">mimage</span><span class="o">.</span><span class="n">AxesImage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">colorizer</span><span class="o">=</span><span class="n">colorizer</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5966</span>                           <span class="n">interpolation</span><span class="o">=</span><span class="n">interpolation</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5967</span>                           <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span> <span class="n">filternorm</span><span class="o">=</span><span class="n">filternorm</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5968</span>                           <span class="n">filterrad</span><span class="o">=</span><span class="n">filterrad</span><span class="p">,</span> <span class="n">resample</span><span class="o">=</span><span class="n">resample</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5969</span>                           <span class="n">interpolation_stage</span><span class="o">=</span><span class="n">interpolation_stage</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5970</span>                           <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5972</span>     <span class="k">if</span> <span class="n">aspect</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">5973</span>             <span class="n">im</span><span class="o">.</span><span class="n">is_transform_set</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">5974</span>             <span class="ow">and</span> <span class="ow">not</span> <span class="n">im</span><span class="o">.</span><span class="n">get_transform</span><span class="p">()</span><span class="o">.</span><span class="n">contains_branch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transData</span><span class="p">)):</span>
+<span class="g g-Whitespace">   </span><span class="mi">5975</span>         <span class="n">aspect</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'image.aspect'</span><span class="p">]</span>
+
+<span class="nn">File ~/.cache/uv/environments-v2/juv-tmp-q5418f1c-660e5b8f23e19f4b/lib/python3.13/site-packages/matplotlib/image.py:884,</span> in <span class="ni">AxesImage.__init__</span><span class="nt">(self, ax, cmap, norm, colorizer, interpolation, origin, extent, filternorm, filterrad, resample, interpolation_stage, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">867</span> <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span>              <span class="o">*</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">869</span>              <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="mi">879</span>              <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">880</span>              <span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">882</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_extent</span> <span class="o">=</span> <span class="n">extent</span>
+<span class="ne">--&gt; </span><span class="mi">884</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">885</span>         <span class="n">ax</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">886</span>         <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">887</span>         <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">888</span>         <span class="n">colorizer</span><span class="o">=</span><span class="n">colorizer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">889</span>         <span class="n">interpolation</span><span class="o">=</span><span class="n">interpolation</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">890</span>         <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">891</span>         <span class="n">filternorm</span><span class="o">=</span><span class="n">filternorm</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">892</span>         <span class="n">filterrad</span><span class="o">=</span><span class="n">filterrad</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">893</span>         <span class="n">resample</span><span class="o">=</span><span class="n">resample</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">894</span>         <span class="n">interpolation_stage</span><span class="o">=</span><span class="n">interpolation_stage</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">895</span>         <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">896</span>     <span class="p">)</span>
+
+<span class="nn">File ~/.cache/uv/environments-v2/juv-tmp-q5418f1c-660e5b8f23e19f4b/lib/python3.13/site-packages/matplotlib/image.py:263,</span> in <span class="ni">_ImageBase.__init__</span><span class="nt">(self, ax, cmap, norm, colorizer, interpolation, origin, filternorm, filterrad, resample, interpolation_stage, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">250</span> <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">251</span>              <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">252</span>              <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="mi">261</span>              <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span>              <span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">263</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_colorizer</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">colorizer</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span>     <span class="k">if</span> <span class="n">origin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span>         <span class="n">origin</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'image.origin'</span><span class="p">]</span>
+
+<span class="nn">File ~/.cache/uv/environments-v2/juv-tmp-q5418f1c-660e5b8f23e19f4b/lib/python3.13/site-packages/matplotlib/colorizer.py:610,</span> in <span class="ni">_ScalarMappable._get_colorizer</span><span class="nt">(cmap, norm, colorizer)</span>
+<span class="g g-Whitespace">    </span><span class="mi">606</span>     <span class="n">_ScalarMappable</span><span class="o">.</span><span class="n">_check_exclusionary_keywords</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">607</span>         <span class="n">Colorizer</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">609</span>     <span class="k">return</span> <span class="n">colorizer</span>
+<span class="ne">--&gt; </span><span class="mi">610</span> <span class="k">return</span> <span class="n">Colorizer</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="p">)</span>
+
+<span class="nn">File ~/.cache/uv/environments-v2/juv-tmp-q5418f1c-660e5b8f23e19f4b/lib/python3.13/site-packages/matplotlib/colorizer.py:56,</span> in <span class="ni">Colorizer.__init__</span><span class="nt">(self, cmap, norm)</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cmap</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_set_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_id_norm</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_norm</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nn">File ~/.cache/uv/environments-v2/juv-tmp-q5418f1c-660e5b8f23e19f4b/lib/python3.13/site-packages/matplotlib/colorizer.py:237,</span> in <span class="ni">Colorizer._set_cmap</span><span class="nt">(self, cmap)</span>
+<span class="g g-Whitespace">    </span><span class="mi">235</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">cm</span>
+<span class="g g-Whitespace">    </span><span class="mi">236</span> <span class="n">in_init</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cmap</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="ne">--&gt; </span><span class="mi">237</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cmap</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">_ensure_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">238</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">in_init</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">239</span>     <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+
+<span class="nn">File ~/.cache/uv/environments-v2/juv-tmp-q5418f1c-660e5b8f23e19f4b/lib/python3.13/site-packages/matplotlib/cm.py:309,</span> in <span class="ni">_ensure_cmap</span><span class="nt">(cmap)</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span> <span class="c1"># use check_in_list to ensure type stability of the exception raised by</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span> <span class="c1"># the internal usage of this (ValueError vs KeyError)</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span> <span class="k">if</span> <span class="n">cmap_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_colormaps</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">309</span>     <span class="n">_api</span><span class="o">.</span><span class="n">check_in_list</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">_colormaps</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap_name</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span> <span class="k">return</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colormaps</span><span class="p">[</span><span class="n">cmap_name</span><span class="p">]</span>
+
+<span class="nn">File ~/.cache/uv/environments-v2/juv-tmp-q5418f1c-660e5b8f23e19f4b/lib/python3.13/site-packages/matplotlib/_api/__init__.py:130,</span> in <span class="ni">check_in_list</span><span class="nt">(values, _print_supported_values, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span> <span class="k">if</span> <span class="n">_print_supported_values</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span>     <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">"; supported values are </span><span class="si">{</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">repr</span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="p">))</span><span class="si">}</span><span class="s2">"</span>
+<span class="ne">--&gt; </span><span class="mi">130</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: 'error' is not a valid value for cmap; supported values are 'Accent', 'Accent_r', 'Blues', 'Blues_r', 'BrBG', 'BrBG_r', 'BuGn', 'BuGn_r', 'BuPu', 'BuPu_r', 'CMRmap', 'CMRmap_r', 'Dark2', 'Dark2_r', 'GnBu', 'GnBu_r', 'Grays', 'Grays_r', 'Greens', 'Greens_r', 'Greys', 'Greys_r', 'OrRd', 'OrRd_r', 'Oranges', 'Oranges_r', 'PRGn', 'PRGn_r', 'Paired', 'Paired_r', 'Pastel1', 'Pastel1_r', 'Pastel2', 'Pastel2_r', 'PiYG', 'PiYG_r', 'PuBu', 'PuBuGn', 'PuBuGn_r', 'PuBu_r', 'PuOr', 'PuOr_r', 'PuRd', 'PuRd_r', 'Purples', 'Purples_r', 'RdBu', 'RdBu_r', 'RdGy', 'RdGy_r', 'RdPu', 'RdPu_r', 'RdYlBu', 'RdYlBu_r', 'RdYlGn', 'RdYlGn_r', 'Reds', 'Reds_r', 'Set1', 'Set1_r', 'Set2', 'Set2_r', 'Set3', 'Set3_r', 'Spectral', 'Spectral_r', 'Wistia', 'Wistia_r', 'YlGn', 'YlGnBu', 'YlGnBu_r', 'YlGn_r', 'YlOrBr', 'YlOrBr_r', 'YlOrRd', 'YlOrRd_r', 'afmhot', 'afmhot_r', 'autumn', 'autumn_r', 'berlin', 'berlin_r', 'binary', 'binary_r', 'bone', 'bone_r', 'brg', 'brg_r', 'bwr', 'bwr_r', 'cividis', 'cividis_r', 'cool', 'cool_r', 'coolwarm', 'coolwarm_r', 'copper', 'copper_r', 'cubehelix', 'cubehelix_r', 'flag', 'flag_r', 'gist_earth', 'gist_earth_r', 'gist_gray', 'gist_gray_r', 'gist_grey', 'gist_grey_r', 'gist_heat', 'gist_heat_r', 'gist_ncar', 'gist_ncar_r', 'gist_rainbow', 'gist_rainbow_r', 'gist_stern', 'gist_stern_r', 'gist_yarg', 'gist_yarg_r', 'gist_yerg', 'gist_yerg_r', 'gnuplot', 'gnuplot2', 'gnuplot2_r', 'gnuplot_r', 'gray', 'gray_r', 'grey', 'grey_r', 'hot', 'hot_r', 'hsv', 'hsv_r', 'inferno', 'inferno_r', 'jet', 'jet_r', 'magma', 'magma_r', 'managua', 'managua_r', 'nipy_spectral', 'nipy_spectral_r', 'ocean', 'ocean_r', 'pink', 'pink_r', 'plasma', 'plasma_r', 'prism', 'prism_r', 'rainbow', 'rainbow_r', 'seismic', 'seismic_r', 'spring', 'spring_r', 'summer', 'summer_r', 'tab10', 'tab10_r', 'tab20', 'tab20_r', 'tab20b', 'tab20b_r', 'tab20c', 'tab20c_r', 'terrain', 'terrain_r', 'turbo', 'turbo_r', 'twilight', 'twilight_r', 'twilight_shifted', 'twilight_shifted_r', 'vanimo', 'vanimo_r', 'viridis', 'viridis_r', 'winter', 'winter_r'
+</pre></div>
+</div>
+<img alt="../../_images/b2e9b2cc56a39a304c8e8f9c2f13eec67e20044e1ae964d3c0d5b1c1f239dfdc.png" src="../../_images/b2e9b2cc56a39a304c8e8f9c2f13eec67e20044e1ae964d3c0d5b1c1f239dfdc.png">
+</img></div>
+</div>
+</section>
+</section>
+<section id="wrapping-up">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Wrapping Up<a class="headerlink" href="#wrapping-up" title="Link to this heading">#</a></h2>
+<p>Errors are not your enemy—they’re your most helpful feedback while programming. By learning to read both the type of error (what went wrong) and the traceback (where it went wrong), you gain a powerful tool for debugging and understanding your code. As you write more complex programs, especially with functions and libraries, tracebacks will guide you through layers of execution to pinpoint the real issue.</p>
+<p>Remember: every programmer sees errors. Skilled programmers just read them better.</p>
+</section>
+</section>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/03_python_basics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
+</article>
+<footer class="prev-next-footer d-print-none">
+<div class="prev-next-area">
+<a class="left-prev" href="python_basics_notebook.html" title="previous page">
+<i class="fa-solid fa-angle-left"></i>
+<div class="prev-next-info">
+<p class="prev-next-subtitle">previous</p>
+<p class="prev-next-title">The Python Basics Notebook</p>
+</div>
+</a>
+<a class="right-next" href="../04_digital_images_intro/digital_images_intro.html" title="next page">
+<div class="prev-next-info">
+<p class="prev-next-subtitle">next</p>
+<p class="prev-next-title">04 - <i class="fas fa-table-cells"></i> Introduction to Digital Images</p>
+</div>
+<i class="fa-solid fa-angle-right"></i>
+</a>
+</div>
+</footer>
+</div>
+<div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+<div class="sidebar-secondary-item">
+<div class="page-toc tocsection onthispage">
+<i class="fa-solid fa-list"></i> Contents
+  </div>
+<nav class="bd-toc-nav page-toc">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-short-overview-of-error-messages-in-python">A Short Overview of Error Messages in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-types-and-tracebacks">Error Types and Tracebacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incompleteinputerror">_IncompleteInputError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntaxerror">SyntaxError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">SyntaxError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indentationerror">IndentationError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typeerror">TypeError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valueerror">ValueError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexerror">IndexError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyerror">KeyError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filenotfounderror">FileNotFoundError</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracebacks-localising-the-error">Tracebacks - localising the error</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zerodivisionerror">ZeroDivisionError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-error-yet">No error (yet)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nameerror">NameError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">NameError</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">ValueError</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrapping-up">Wrapping Up</a></li>
+</ul>
+</nav></div>
+</div></div>
+</div>
+<footer class="bd-footer-content">
+<div class="bd-footer-content__inner container">
+<div class="footer-item">
+<p class="component-author">
+By Federico Gasparoli - federico.gasparoli@gmail.com, Image Analysis Collaboratory @ Harvard Medical School
+</p>
+</div>
+<div class="footer-item">
+<p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+</p>
+</div>
+<div class="footer-item">
+</div>
+<div class="footer-item">
+<div class="extra_footer">
+<p>
+All content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>, except where noted otherwise.
+</p>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="bd-footer">
+</footer>
+</body>
+</html>
