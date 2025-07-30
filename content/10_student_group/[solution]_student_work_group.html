@@ -1,0 +1,1190 @@
+
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Introduction: Cell Segmentation for Student Group Work — BoBiAC Book</title>
+<script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+<!-- Loaded before other Sphinx assets -->
+<link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" rel="preload" type="font/woff2"/>
+<link href="../../_static/pygments.css?v=03e43079" rel="stylesheet" type="text/css"/>
+<link href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" rel="stylesheet" type="text/css"/>
+<link href="../../_static/togglebutton.css?v=13237357" rel="stylesheet" type="text/css"/>
+<link href="../../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
+<link href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-thebe.css?v=4fa983c6" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<link href="../../_static/styles/custom.css?v=ca608692" rel="stylesheet" type="text/css"/>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" rel="preload"/>
+<link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" rel="preload"/>
+<script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+<script src="../../_static/copybutton.js?v=f281be69"></script>
+<script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+<script>let toggleHintShow = 'Click to show';</script>
+<script>let toggleHintHide = 'Click to hide';</script>
+<script>let toggleOpenOnPrint = 'true';</script>
+<script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script src="../../_static/design-tabs.js?v=f930bc37"></script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script>DOCUMENTATION_OPTIONS.pagename = 'content/10_student_group/[solution]_student_work_group';</script>
+<script src="../../_static/scripts/custom.js?v=4332ec77"></script>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+</head>
+<body data-bs-root-margin="0px 0px -60%" data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-default-mode="" data-offset="180">
+<div class="skip-link d-print-none" id="pst-skip-link"><a href="#main-content">Skip to main content</a></div>
+<div id="pst-scroll-pixel-helper"></div>
+<button class="btn rounded-pill" id="pst-back-to-top" type="button">
+<i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<input class="sidebar-toggle" id="pst-primary-sidebar-checkbox" type="checkbox"/>
+<label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+<input class="sidebar-toggle" id="pst-secondary-sidebar-checkbox" type="checkbox"/>
+<label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+<div class="search-button__wrapper">
+<div class="search-button__overlay"></div>
+<div class="search-button__search-container">
+<form action="../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search this book..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+</div>
+<div class="pst-async-banner-revealer d-none">
+<aside aria-label="Version warning" class="d-none d-print-none" id="bd-header-version-warning"></aside>
+</div>
+<header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+</header>
+<div class="bd-container">
+<div class="bd-container__inner bd-page-width">
+<div class="bd-sidebar-primary bd-sidebar">
+<div class="sidebar-header-items sidebar-primary__section">
+</div>
+<div class="sidebar-primary-items__start sidebar-primary__section">
+<div class="sidebar-primary-item">
+<a class="navbar-brand logo" href="../../landing-page.html">
+<img alt="BoBiAC Book - Home" class="logo__image only-light" src="../../_static/bobiac-landing-black.png"/>
+<script>document.write(`<img src="../../_static/bobiac-landing-white.png" class="logo__image only-dark" alt="BoBiAC Book - Home"/>`);</script>
+</a></div>
+<div class="sidebar-primary-item">
+<script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+<div class="sidebar-primary-item"><nav aria-label="Main" class="bd-links bd-docs-nav">
+<div class="bd-toc-item navbar-nav active">
+<ul class="nav bd-sidenav bd-sidenav__home-link">
+<li class="toctree-l1">
+<a class="reference internal" href="../../landing-page.html">
+<i class="fas fa-home"></i> Home
+                </a>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Material</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_intro_to_bobiac/bobiac_intro.html">01 - <i class="fas fa-image"></i> Introduction to BoBiAC</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03_python_basics/python_basics.html">03 - <i class="fab fa-python"></i> Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_python_basics/python_basics_notebook.html">The Python Basics Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_python_basics/error_notebook.html">Errors Everywhere</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Student Working Groups</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../student_group_work/student_group_work.html"><i class="fa-solid fa-user-group"></i> Student Group Work</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials Downloads</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../data/course_downloads.html"><i class="fa-solid fa-folder"></i> Downloads</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025">BoBiAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.astral.sh/uv/">uv</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/manzt/juv">juv</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu">Image Analysis Collaboratory (IAC)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cite.hms.harvard.edu">Core for Imaging Technology &amp; Education (CITE)</a></li>
+</ul>
+</div>
+</nav></div>
+</div>
+<div class="sidebar-primary-items__end sidebar-primary__section">
+</div>
+<div id="rtd-footer-container"></div>
+</div>
+<main class="bd-main" id="main-content" role="main">
+<div class="sbt-scroll-pixel-helper"></div>
+<div class="bd-content">
+<div class="bd-article-container">
+<div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+<div class="header-article-items__start">
+<div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle primary sidebar">
+<span class="fa-solid fa-bars"></span>
+</button></div>
+</div>
+<div class="header-article-items__end">
+<div class="header-article-item">
+<div class="article-header-buttons">
+<a class="btn btn-sm btn-source-repository-button" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://github.com/HMS-IAC/bobiac" target="_blank" title="Source repository">
+<span class="btn__icon-container">
+<i class="fab fa-github"></i>
+</span>
+</a>
+<button class="btn btn-sm btn-fullscreen-button" data-bs-placement="bottom" data-bs-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode">
+<span class="btn__icon-container">
+<i class="fas fa-expand"></i>
+</span>
+</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle secondary sidebar">
+<span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+</div>
+</div>
+</div>
+<div class="onlyprint" id="jb-print-docs-body">
+<h1>Introduction: Cell Segmentation for Student Group Work</h1>
+<!-- Table of contents -->
+<div id="print-main-content">
+<div id="jb-print-toc">
+<div>
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;"> Contents </h2>
+</div>
+<nav aria-label="Page">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-statement">Problem Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#our-approach">Our Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mounting-google-drive">1. Mounting Google Drive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-dependencies">2. Installing Dependencies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-gpu-runtime">3. Checking GPU Runtime</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#folder-structure-and-dataset-paths">4. Folder Structure and Dataset Paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-exploration-and-visualization">Data exploration and visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-read-and-organize-images-and-masks">Step 1: Read and Organize Images and Masks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">Why this matters:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-scan-folder-and-separate-files">Code: Scan Folder and Separate Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-read-the-files-into-arrays">Step 2: Read the Files into Arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-visualize-with-list-comprehension">Step 3: Visualize with List Comprehension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cellposesam-to-segment-cytoplasm">CellposeSAM to segment cytoplasm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#segment-cells-using-cellposesam-cytoplasm-channel-only">Segment Cells using CellposeSAM (Cytoplasm Channel Only)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-cytoplasm-channel">Why the cytoplasm channel?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-cellposesam-and-run-prediction">Load CellposeSAM and Run Prediction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-a-random-example">Visualize a Random Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-cellposesam-with-average-precision">Evaluate CellposeSAM with Average Precision</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-average-precision-ap-in-this-context">What is Average Precision (AP) in this context?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-dataset-for-retraining-cellposesam">Prepare Dataset for Retraining CellposeSAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-a-custom-model">Train a Custom Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measure-accuracy">Measure accuracy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Summary</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div id="searchbox"></div>
+<article class="bd-article">
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-cell-segmentation-for-student-group-work">
+<h1>Introduction: Cell Segmentation for Student Group Work<a class="headerlink" href="#introduction-cell-segmentation-for-student-group-work" title="Link to this heading">#</a></h1>
+<p>In this project, we tackle the task of <strong>cell instance segmentation</strong> using a limited dataset of 2D microscopy images. This is part of a group assignment designed to apply the image analysis techniques learned throughout the course—including traditional methods like smoothing, thresholding, and morphological operations, as well as modern deep learning-based segmentation models.</p>
+<hr class="docutils"/>
+<section id="problem-statement">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Problem Statement<a class="headerlink" href="#problem-statement" title="Link to this heading">#</a></h2>
+<p>You are provided with a <strong>training set of 7 grayscale microscopy images</strong> and their corresponding <strong>ground truth masks</strong>. The challenge is to build a robust segmentation pipeline that accurately detects and segments <strong>cell outlines</strong>. After development and training, the pipeline is evaluated on <strong>3 test images</strong> whose ground truth masks are hidden.</p>
+</section>
+<hr class="docutils"/>
+<section id="our-approach">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Our Approach<a class="headerlink" href="#our-approach" title="Link to this heading">#</a></h2>
+<p>To build and evaluate our segmentation pipeline, we follow these structured steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Visualize the Images</strong>
+We begin by loading and displaying the raw image data alongside their corresponding masks to understand the image structure and variability across the dataset.</p></li>
+<li><p><strong>Explore the Dataset</strong>
+Basic inspection of image shapes, channels, and characteristics helps define the input modality and preprocessing needs. We specifically use the cytoplasm channel for segmentation.</p></li>
+<li><p><strong>Apply Pretrained Cellpose Model</strong>
+We first test the performance of the <strong>CellposeSAM</strong> model—a state-of-the-art pretrained segmentation model—on the training images, and evaluate its results against the provided ground truth.</p></li>
+<li><p><strong>Prepare the Dataset for Training</strong>
+To fine-tune the model, we format the data into a training and validation split, saving images and masks in a structure compatible with Cellpose’s training pipeline.</p></li>
+<li><p><strong>Retrain the Model on Labeled Data</strong>
+We use Cellpose’s built-in training utilities to retrain a model from scratch using the 7 labeled training images, optimizing segmentation performance on our specific dataset.</p></li>
+<li><p><strong>Evaluate and Report Final Results</strong>
+We assess both the pretrained and custom-trained models on the training and validation sets using <strong>Average Precision at IoU 0.5</strong>. Finally, we apply the best-performing model to the 3 test images and save the predicted masks for submission.</p></li>
+</ol>
+<p>This workflow demonstrates how limited data, combined with transfer learning and careful evaluation, can produce high-quality instance segmentation results. It also serves as a hands-on exercise in building real-world biomedical imaging pipelines from start to finish.</p>
+</section>
+<hr class="docutils"/>
+<section id="setup">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
+<p>Before diving into data exploration and model development, we begin by setting up the environment to ensure smooth execution throughout the project. This step is essential, especially when working in <strong>Google Colab</strong> or other cloud-based platforms, where external storage access and runtime configurations need to be handled explicitly.</p>
+<section id="mounting-google-drive">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">1. Mounting Google Drive<a class="headerlink" href="#mounting-google-drive" title="Link to this heading">#</a></h3>
+<p>Since our dataset is stored on Google Drive, we first <strong>mount the drive</strong> to access the image and mask files. This allows us to load, process, and save files directly from the Drive, enabling persistent storage across sessions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mounting Google drive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">'/content/drive'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Mounting Google drive</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">drive</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">'/content/drive'</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named 'google'
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="installing-dependencies">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">2. Installing Dependencies<a class="headerlink" href="#installing-dependencies" title="Link to this heading">#</a></h3>
+<p>We install required Python packages such as:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cellpose</span></code> for deep learning-based cell segmentation,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tifffile</span></code> for reading multi-dimensional <code class="docutils literal notranslate"><span class="pre">.tiff</span></code> images,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">imagecodecs</span></code> (if needed) for efficient TIFF compression support.</p></li>
+</ul>
+<blockquote>
+<div><p>Note: In Colab, we must install these packages during runtime because the environment resets on each session.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install necessary packages</span>
+
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>cellpose<span class="w"> </span>tifffile<span class="w"> </span>imagecodecs
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting cellpose
+  Downloading cellpose-4.0.6-py3-none-any.whl.metadata (22 kB)
+Requirement already satisfied: tifffile in /usr/local/lib/python3.11/dist-packages (2025.6.11)
+Collecting imagecodecs
+  Downloading imagecodecs-2025.3.30-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (20 kB)
+Requirement already satisfied: numpy&gt;=1.20.0 in /usr/local/lib/python3.11/dist-packages (from cellpose) (2.0.2)
+Requirement already satisfied: scipy in /usr/local/lib/python3.11/dist-packages (from cellpose) (1.15.3)
+Requirement already satisfied: natsort in /usr/local/lib/python3.11/dist-packages (from cellpose) (8.4.0)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.11/dist-packages (from cellpose) (4.67.1)
+Requirement already satisfied: torch&gt;=1.6 in /usr/local/lib/python3.11/dist-packages (from cellpose) (2.6.0+cu124)
+Requirement already satisfied: torchvision in /usr/local/lib/python3.11/dist-packages (from cellpose) (0.21.0+cu124)
+Requirement already satisfied: opencv-python-headless in /usr/local/lib/python3.11/dist-packages (from cellpose) (4.12.0.88)
+Collecting fastremap (from cellpose)
+  Downloading fastremap-1.17.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
+Collecting roifile (from cellpose)
+  Downloading roifile-2025.5.10-py3-none-any.whl.metadata (5.9 kB)
+Collecting fill-voids (from cellpose)
+  Downloading fill_voids-2.1.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.0 kB)
+Collecting segment_anything (from cellpose)
+  Downloading segment_anything-1.0-py3-none-any.whl.metadata (487 bytes)
+Requirement already satisfied: filelock in /usr/local/lib/python3.11/dist-packages (from torch&gt;=1.6-&gt;cellpose) (3.18.0)
+Requirement already satisfied: typing-extensions&gt;=4.10.0 in /usr/local/lib/python3.11/dist-packages (from torch&gt;=1.6-&gt;cellpose) (4.14.1)
+Requirement already satisfied: networkx in /usr/local/lib/python3.11/dist-packages (from torch&gt;=1.6-&gt;cellpose) (3.5)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.11/dist-packages (from torch&gt;=1.6-&gt;cellpose) (3.1.6)
+Requirement already satisfied: fsspec in /usr/local/lib/python3.11/dist-packages (from torch&gt;=1.6-&gt;cellpose) (2025.3.2)
+Collecting nvidia-cuda-nvrtc-cu12==12.4.127 (from torch&gt;=1.6-&gt;cellpose)
+  Downloading nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cuda-runtime-cu12==12.4.127 (from torch&gt;=1.6-&gt;cellpose)
+  Downloading nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cuda-cupti-cu12==12.4.127 (from torch&gt;=1.6-&gt;cellpose)
+  Downloading nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cudnn-cu12==9.1.0.70 (from torch&gt;=1.6-&gt;cellpose)
+  Downloading nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cublas-cu12==12.4.5.8 (from torch&gt;=1.6-&gt;cellpose)
+  Downloading nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cufft-cu12==11.2.1.3 (from torch&gt;=1.6-&gt;cellpose)
+  Downloading nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-curand-cu12==10.3.5.147 (from torch&gt;=1.6-&gt;cellpose)
+  Downloading nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cusolver-cu12==11.6.1.9 (from torch&gt;=1.6-&gt;cellpose)
+  Downloading nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cusparse-cu12==12.3.1.170 (from torch&gt;=1.6-&gt;cellpose)
+  Downloading nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in /usr/local/lib/python3.11/dist-packages (from torch&gt;=1.6-&gt;cellpose) (0.6.2)
+Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in /usr/local/lib/python3.11/dist-packages (from torch&gt;=1.6-&gt;cellpose) (2.21.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in /usr/local/lib/python3.11/dist-packages (from torch&gt;=1.6-&gt;cellpose) (12.4.127)
+Collecting nvidia-nvjitlink-cu12==12.4.127 (from torch&gt;=1.6-&gt;cellpose)
+  Downloading nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Requirement already satisfied: triton==3.2.0 in /usr/local/lib/python3.11/dist-packages (from torch&gt;=1.6-&gt;cellpose) (3.2.0)
+Requirement already satisfied: sympy==1.13.1 in /usr/local/lib/python3.11/dist-packages (from torch&gt;=1.6-&gt;cellpose) (1.13.1)
+Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /usr/local/lib/python3.11/dist-packages (from sympy==1.13.1-&gt;torch&gt;=1.6-&gt;cellpose) (1.3.0)
+Requirement already satisfied: pillow!=8.3.*,&gt;=5.3.0 in /usr/local/lib/python3.11/dist-packages (from torchvision-&gt;cellpose) (11.2.1)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.11/dist-packages (from jinja2-&gt;torch&gt;=1.6-&gt;cellpose) (3.0.2)
+Downloading cellpose-4.0.6-py3-none-any.whl (212 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">212.3/212.3 kB</span> <span class="-Color -Color-Red">9.2 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25hDownloading imagecodecs-2025.3.30-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (45.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">45.6/45.6 MB</span> <span class="-Color -Color-Red">20.1 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25hDownloading nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl (363.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">363.4/363.4 MB</span> <span class="-Color -Color-Red">4.4 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25hDownloading nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (13.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">13.8/13.8 MB</span> <span class="-Color -Color-Red">124.8 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25hDownloading nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (24.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">24.6/24.6 MB</span> <span class="-Color -Color-Red">95.3 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25hDownloading nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (883 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">883.7/883.7 kB</span> <span class="-Color -Color-Red">63.5 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25hDownloading nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl (664.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">664.8/664.8 MB</span> <span class="-Color -Color-Red">2.4 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25hDownloading nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl (211.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">211.5/211.5 MB</span> <span class="-Color -Color-Red">5.7 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25hDownloading nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl (56.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">56.3/56.3 MB</span> <span class="-Color -Color-Red">17.6 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25hDownloading nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl (127.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">127.9/127.9 MB</span> <span class="-Color -Color-Red">7.3 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25hDownloading nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl (207.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">207.5/207.5 MB</span> <span class="-Color -Color-Red">5.4 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25hDownloading nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (21.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">21.1/21.1 MB</span> <span class="-Color -Color-Red">79.2 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25hDownloading fastremap-1.17.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (7.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">7.3/7.3 MB</span> <span class="-Color -Color-Red">90.0 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25hDownloading fill_voids-2.1.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class="-Color -Color-Green">1.5/1.5 MB</span> <span class="-Color -Color-Red">60.6 MB/s</span> eta <span class="-Color -Color-Cyan">0:00:00</span>
+?25hDownloading roifile-2025.5.10-py3-none-any.whl (17 kB)
+Downloading segment_anything-1.0-py3-none-any.whl (36 kB)
+Installing collected packages: segment_anything, roifile, nvidia-nvjitlink-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, imagecodecs, fastremap, nvidia-cusparse-cu12, nvidia-cudnn-cu12, fill-voids, nvidia-cusolver-cu12, cellpose
+  Attempting uninstall: nvidia-nvjitlink-cu12
+    Found existing installation: nvidia-nvjitlink-cu12 12.5.82
+    Uninstalling nvidia-nvjitlink-cu12-12.5.82:
+      Successfully uninstalled nvidia-nvjitlink-cu12-12.5.82
+  Attempting uninstall: nvidia-curand-cu12
+    Found existing installation: nvidia-curand-cu12 10.3.6.82
+    Uninstalling nvidia-curand-cu12-10.3.6.82:
+      Successfully uninstalled nvidia-curand-cu12-10.3.6.82
+  Attempting uninstall: nvidia-cufft-cu12
+    Found existing installation: nvidia-cufft-cu12 11.2.3.61
+    Uninstalling nvidia-cufft-cu12-11.2.3.61:
+      Successfully uninstalled nvidia-cufft-cu12-11.2.3.61
+  Attempting uninstall: nvidia-cuda-runtime-cu12
+    Found existing installation: nvidia-cuda-runtime-cu12 12.5.82
+    Uninstalling nvidia-cuda-runtime-cu12-12.5.82:
+      Successfully uninstalled nvidia-cuda-runtime-cu12-12.5.82
+  Attempting uninstall: nvidia-cuda-nvrtc-cu12
+    Found existing installation: nvidia-cuda-nvrtc-cu12 12.5.82
+    Uninstalling nvidia-cuda-nvrtc-cu12-12.5.82:
+      Successfully uninstalled nvidia-cuda-nvrtc-cu12-12.5.82
+  Attempting uninstall: nvidia-cuda-cupti-cu12
+    Found existing installation: nvidia-cuda-cupti-cu12 12.5.82
+    Uninstalling nvidia-cuda-cupti-cu12-12.5.82:
+      Successfully uninstalled nvidia-cuda-cupti-cu12-12.5.82
+  Attempting uninstall: nvidia-cublas-cu12
+    Found existing installation: nvidia-cublas-cu12 12.5.3.2
+    Uninstalling nvidia-cublas-cu12-12.5.3.2:
+      Successfully uninstalled nvidia-cublas-cu12-12.5.3.2
+  Attempting uninstall: nvidia-cusparse-cu12
+    Found existing installation: nvidia-cusparse-cu12 12.5.1.3
+    Uninstalling nvidia-cusparse-cu12-12.5.1.3:
+      Successfully uninstalled nvidia-cusparse-cu12-12.5.1.3
+  Attempting uninstall: nvidia-cudnn-cu12
+    Found existing installation: nvidia-cudnn-cu12 9.3.0.75
+    Uninstalling nvidia-cudnn-cu12-9.3.0.75:
+      Successfully uninstalled nvidia-cudnn-cu12-9.3.0.75
+  Attempting uninstall: nvidia-cusolver-cu12
+    Found existing installation: nvidia-cusolver-cu12 11.6.3.83
+    Uninstalling nvidia-cusolver-cu12-11.6.3.83:
+      Successfully uninstalled nvidia-cusolver-cu12-11.6.3.83
+Successfully installed cellpose-4.0.6 fastremap-1.17.1 fill-voids-2.1.0 imagecodecs-2025.3.30 nvidia-cublas-cu12-12.4.5.8 nvidia-cuda-cupti-cu12-12.4.127 nvidia-cuda-nvrtc-cu12-12.4.127 nvidia-cuda-runtime-cu12-12.4.127 nvidia-cudnn-cu12-9.1.0.70 nvidia-cufft-cu12-11.2.1.3 nvidia-curand-cu12-10.3.5.147 nvidia-cusolver-cu12-11.6.1.9 nvidia-cusparse-cu12-12.3.1.170 nvidia-nvjitlink-cu12-12.4.127 roifile-2025.5.10 segment_anything-1.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="checking-gpu-runtime">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">3. Checking GPU Runtime<a class="headerlink" href="#checking-gpu-runtime" title="Link to this heading">#</a></h3>
+<p>We check if a <strong>GPU</strong> is available in the current runtime. Using a GPU significantly speeds up model inference and training when using deep learning frameworks like <strong>Cellpose</strong>, especially on high-resolution images.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">logger_setup</span><span class="p">()</span>  <span class="c1"># run this to get printing of progress</span>
+
+<span class="c1"># Checking GPU</span>
+<span class="n">use_gpu</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">use_gpu</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">use_gpu</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Using GPU for Cellpose"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">"No GPU access, change your runtime as explained above."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>creating new log file
+2025-07-19 04:48:47,330 [INFO] WRITING LOG OUTPUT TO /root/.cellpose/run.log
+2025-07-19 04:48:47,331 [INFO] 
+cellpose version: 	4.0.6 
+platform:       	linux 
+python version: 	3.11.13 
+torch version:  	2.6.0+cu124
+2025-07-19 04:48:47,333 [INFO] ** TORCH CUDA version installed and working. **
+Using GPU for Cellpose
+</pre></div>
+</div>
+</div>
+</div>
+<p>If GPU support is unavailable, training and inference will still work but may be considerably slower.</p>
+</section>
+<section id="folder-structure-and-dataset-paths">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">4. Folder Structure and Dataset Paths<a class="headerlink" href="#folder-structure-and-dataset-paths" title="Link to this heading">#</a></h3>
+<p>We define and create the folder structure used throughout the project. This includes setting up root directories for:</p>
+<ul class="simple">
+<li><p>Raw images and ground truth masks</p></li>
+<li><p>Training and validation data splits</p></li>
+<li><p>Test images</p></li>
+<li><p>Model outputs and predicted masks</p></li>
+</ul>
+<p>We also verify the presence of files and prepare lists of image filenames for loading in future steps.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ROOT_FOLDER</span> <span class="o">=</span> <span class="s2">"/content/drive/MyDrive/bobiac_2025/"</span>
+<span class="n">DATA_FOLDER</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ROOT_FOLDER</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"student_work_group_new/data"</span>
+<span class="n">TRAIN_DIR</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ROOT_FOLDER</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"student_work_group_new/training"</span>
+<span class="n">VALIDATE_DIR</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ROOT_FOLDER</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"student_work_group_new/validation"</span>
+<span class="n">TEST_DIR</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ROOT_FOLDER</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"student_work_group_new/test"</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">student_group_work</span><span class="o">/</span>
+<span class="w">    </span><span class="err">├──</span><span class="w"> </span><span class="n">training</span><span class="o">/</span><span class="w">         </span><span class="err">←</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">training</span><span class="w"> </span><span class="n">images</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">masks</span>
+<span class="w">    </span><span class="err">├──</span><span class="w"> </span><span class="n">validation</span><span class="o">/</span><span class="w">       </span><span class="err">←</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">validation</span><span class="w"> </span><span class="n">images</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">masks</span>
+<span class="w">    </span><span class="err">└──</span><span class="w"> </span><span class="n">data</span><span class="o">/</span><span class="w">             </span><span class="err">←</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="n">files</span>
+</pre></div>
+</div>
+<p><em>Optional: If the dataset isn’t already available, it can be downloaded and unzipped using the following:</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget<span class="w"> </span>-P<span class="w"> </span><span class="o">{</span>ROOT_FOLDER<span class="o">}</span><span class="w"> </span>https://raw.githubusercontent.com/HMS-IAC/bobiac/main/_static/data/student_work_group_new.zip
+<span class="o">!</span><span class="nb">cd</span><span class="w"> </span><span class="o">{</span>ROOT_FOLDER<span class="o">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>unzip<span class="w"> </span>student_work_group_new.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>student_work_group_new.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-r<span class="w"> </span>__MACOSX
+<span class="o">!</span>mkdir<span class="w"> </span><span class="o">{</span>TRAIN_DIR<span class="o">}</span>
+<span class="o">!</span>mkdir<span class="w"> </span><span class="o">{</span>VALIDATE_DIR<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2025-07-19 04:15:35--  https://raw.githubusercontent.com/HMS-IAC/bobiac/main/_static/data/student_work_group_new.zip
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.108.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 892215 (871K) [application/zip]
+Saving to: ‘/content/drive/MyDrive/bobiac_2025/student_work_group_new.zip’
+
+
+          student_w   0%[                    ]       0  --.-KB/s               
+student_work_group_ 100%[===================&gt;] 871.30K  --.-KB/s    in 0.04s   
+
+2025-07-19 04:15:35 (20.8 MB/s) - ‘/content/drive/MyDrive/bobiac_2025/student_work_group_new.zip’ saved [892215/892215]
+
+Archive:  student_work_group_new.zip
+   creating: student_work_group_new/
+  inflating: student_work_group_new/.DS_Store  
+  inflating: __MACOSX/student_work_group_new/._.DS_Store  
+   creating: student_work_group_new/data/
+  inflating: student_work_group_new/data/004_masks.tif  
+  inflating: __MACOSX/student_work_group_new/data/._004_masks.tif  
+  inflating: student_work_group_new/data/002_masks.tif  
+  inflating: __MACOSX/student_work_group_new/data/._002_masks.tif  
+  inflating: student_work_group_new/data/.DS_Store  
+  inflating: __MACOSX/student_work_group_new/data/._.DS_Store  
+  inflating: student_work_group_new/data/001_img.tiff  
+  inflating: __MACOSX/student_work_group_new/data/._001_img.tiff  
+  inflating: student_work_group_new/data/000_img.tiff  
+  inflating: __MACOSX/student_work_group_new/data/._000_img.tiff  
+  inflating: student_work_group_new/data/005_masks.tif  
+  inflating: __MACOSX/student_work_group_new/data/._005_masks.tif  
+  inflating: student_work_group_new/data/006_img.tiff  
+  inflating: __MACOSX/student_work_group_new/data/._006_img.tiff  
+  inflating: student_work_group_new/data/007_img.tiff  
+  inflating: __MACOSX/student_work_group_new/data/._007_img.tiff  
+  inflating: student_work_group_new/data/003_masks.tif  
+  inflating: __MACOSX/student_work_group_new/data/._003_masks.tif  
+  inflating: student_work_group_new/data/002_img.tiff  
+  inflating: __MACOSX/student_work_group_new/data/._002_img.tiff  
+  inflating: student_work_group_new/data/003_img.tiff  
+  inflating: __MACOSX/student_work_group_new/data/._003_img.tiff  
+  inflating: student_work_group_new/data/006_masks.tif  
+  inflating: __MACOSX/student_work_group_new/data/._006_masks.tif  
+  inflating: student_work_group_new/data/000_masks.tif  
+  inflating: __MACOSX/student_work_group_new/data/._000_masks.tif  
+  inflating: student_work_group_new/data/007_masks.tif  
+  inflating: __MACOSX/student_work_group_new/data/._007_masks.tif  
+  inflating: student_work_group_new/data/005_img.tiff  
+  inflating: __MACOSX/student_work_group_new/data/._005_img.tiff  
+  inflating: student_work_group_new/data/004_img.tiff  
+  inflating: __MACOSX/student_work_group_new/data/._004_img.tiff  
+  inflating: student_work_group_new/data/001_masks.tif  
+  inflating: __MACOSX/student_work_group_new/data/._001_masks.tif  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tifffile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">cellpose</span><span class="w"> </span><span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">train</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span> <span class="n">plot</span><span class="p">,</span> <span class="n">metrics</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<p>By the end of this setup section, we will have:</p>
+<ul class="simple">
+<li><p>Access to the dataset via Google Drive</p></li>
+<li><p>A GPU-ready runtime (if available)</p></li>
+<li><p>All dependencies installed</p></li>
+<li><p>A clean and reproducible folder structure ready for experimentation</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils"/>
+<section id="data-exploration-and-visualization">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Data exploration and visualization<a class="headerlink" href="#data-exploration-and-visualization" title="Link to this heading">#</a></h2>
+<section id="step-1-read-and-organize-images-and-masks">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">Step 1: Read and Organize Images and Masks<a class="headerlink" href="#step-1-read-and-organize-images-and-masks" title="Link to this heading">#</a></h3>
+<p>Let’s begin by <strong>scanning the dataset folder</strong> and separating the files into two lists:</p>
+<ul class="simple">
+<li><p>Microscopy images (e.g., <code class="docutils literal notranslate"><span class="pre">00X_img.tiff</span></code>)</p></li>
+<li><p>Corresponding masks (e.g., <code class="docutils literal notranslate"><span class="pre">00X_masks.tif</span></code>)</p></li>
+</ul>
+</section>
+<section id="why-this-matters">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">Why this matters:<a class="headerlink" href="#why-this-matters" title="Link to this heading">#</a></h3>
+<p>The image files and masks have <strong>slightly different extensions</strong> (<code class="docutils literal notranslate"><span class="pre">.tiff</span></code> vs <code class="docutils literal notranslate"><span class="pre">.tif</span></code>), so we need to detect and split them correctly before loading. Proper organization will make further processing easier and less error-prone.</p>
+</section>
+<section id="code-scan-folder-and-separate-files">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">Code: Scan Folder and Separate Files<a class="headerlink" href="#code-scan-folder-and-separate-files" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List all files in the folder</span>
+<span class="n">all_files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">DATA_FOLDER</span><span class="p">)</span>
+
+<span class="c1"># Separate image files and mask files based on naming patterns</span>
+<span class="n">image_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">all_files</span> <span class="k">if</span> <span class="s2">"_img.tiff"</span> <span class="ow">in</span> <span class="n">f</span><span class="p">])</span>
+<span class="n">mask_files</span>  <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">all_files</span> <span class="k">if</span> <span class="s2">"_masks.tif"</span> <span class="ow">in</span> <span class="n">f</span><span class="p">])</span>
+
+<span class="c1"># Check if we correctly separated them</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Image files:"</span><span class="p">,</span> <span class="n">image_files</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Mask files:"</span><span class="p">,</span> <span class="n">mask_files</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Image files: ['000_img.tiff', '001_img.tiff', '002_img.tiff', '003_img.tiff', '004_img.tiff', '005_img.tiff', '006_img.tiff', '007_img.tiff']
+Mask files: ['000_masks.tif', '001_masks.tif', '002_masks.tif', '003_masks.tif', '004_masks.tif', '005_masks.tif', '006_masks.tif', '007_masks.tif']
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils"/>
+<section id="step-2-read-the-files-into-arrays">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">Step 2: Read the Files into Arrays<a class="headerlink" href="#step-2-read-the-files-into-arrays" title="Link to this heading">#</a></h3>
+<p>Now that we have two sorted lists—one for images and one for masks, we can use <a href="https://www.w3schools.com/python/python_lists_comprehension.asp" target="_blank"><strong>list comprehensions</strong></a> to read them using <code class="docutils literal notranslate"><span class="pre">tifffile</span></code>. Each image is multi-channel (2, H, W), so we’ll specifically extract <strong>channel 0 and channel 1</strong> separately later if needed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read image stacks into memory</span>
+<span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">tifffile</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DATA_FOLDER</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">image_files</span><span class="p">]</span>  <span class="c1"># shape: (2, H, W)</span>
+<span class="n">masks</span> <span class="o">=</span> <span class="p">[</span><span class="n">tifffile</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DATA_FOLDER</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">mask_files</span><span class="p">]</span>    <span class="c1"># shape: (H, W)</span>
+
+<span class="c1"># Check shapes</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">images</span><span class="p">)</span><span class="si">}</span><span class="s2"> images and </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span><span class="si">}</span><span class="s2"> masks."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Example image shape:"</span><span class="p">,</span> <span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Example mask shape:"</span><span class="p">,</span> <span class="n">masks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded 8 images and 8 masks.
+Example image shape: (2, 383, 512)
+Example mask shape: (383, 512)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils"/>
+<section id="step-3-visualize-with-list-comprehension">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">Step 3: Visualize with List Comprehension<a class="headerlink" href="#step-3-visualize-with-list-comprehension" title="Link to this heading">#</a></h3>
+<p>Let’s now visualize the two channels of each image alongside the corresponding mask using a compact loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loop through and visualize each sample</span>
+<span class="k">for</span> <span class="n">img</span><span class="p">,</span> <span class="n">mask</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">masks</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+    <span class="c1"># Channel 0 (e.g., nucleus)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Channel 0"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+
+    <span class="c1"># Channel 1 (e.g., cytoplasm)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Channel 1"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+
+    <span class="c1"># Corresponding ground truth mask</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Ground Truth Mask"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2833953f2574f319191246d988a00fbc5dbfdfd36aaf9f624136bdb022a68531.png" src="../../_images/2833953f2574f319191246d988a00fbc5dbfdfd36aaf9f624136bdb022a68531.png"/>
+<img alt="../../_images/28b17673085fba2d229ee84454f930da654098c4ea1af5b83dee3435a4e3b7f3.png" src="../../_images/28b17673085fba2d229ee84454f930da654098c4ea1af5b83dee3435a4e3b7f3.png"/>
+<img alt="../../_images/bfec0e8834a1d025616e98e19d2a687fccbf25fc61dea2ce02581e2bc021a94e.png" src="../../_images/bfec0e8834a1d025616e98e19d2a687fccbf25fc61dea2ce02581e2bc021a94e.png"/>
+<img alt="../../_images/a539df2d5504dd02f20b44c75a0e41cd3baaa38bccf4486d4a3ba5919a4e5575.png" src="../../_images/a539df2d5504dd02f20b44c75a0e41cd3baaa38bccf4486d4a3ba5919a4e5575.png"/>
+<img alt="../../_images/d06aa402b4053bca9ec8e2fb59e4132d2d1575fd5f0af7e2e218fde2f4926f04.png" src="../../_images/d06aa402b4053bca9ec8e2fb59e4132d2d1575fd5f0af7e2e218fde2f4926f04.png"/>
+<img alt="../../_images/a84f9cb9ee90d335c4929de8af0136d2e1cdf1d04fc49dccfb2a65151a60554b.png" src="../../_images/a84f9cb9ee90d335c4929de8af0136d2e1cdf1d04fc49dccfb2a65151a60554b.png"/>
+<img alt="../../_images/e70ea410cfdf2d140aea2617a786b8e5eb668c7a86d29eb41d1c31b90e34b100.png" src="../../_images/e70ea410cfdf2d140aea2617a786b8e5eb668c7a86d29eb41d1c31b90e34b100.png"/>
+<img alt="../../_images/9356651c0c488184f13b09411d89173e5ed02faaf6fe2b82e89d95517dfe3db1.png" src="../../_images/9356651c0c488184f13b09411d89173e5ed02faaf6fe2b82e89d95517dfe3db1.png"/>
+</div>
+</div>
+</section>
+<hr class="docutils"/>
+<section id="id1">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">Summary<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>We successfully read <strong>multi-channel <code class="docutils literal notranslate"><span class="pre">.tiff</span></code> images</strong> and <strong>mask <code class="docutils literal notranslate"><span class="pre">.tif</span></code> files</strong>.</p></li>
+<li><p>Confirmed that each image has two channels, and masks align in shape.</p></li>
+<li><p>Created a clean visualization of image + mask triplets for inspection.</p></li>
+</ul>
+<p>This ensures that all inputs are loaded correctly before we proceed to model inference using Cellpose.</p>
+</section>
+</section>
+<hr class="docutils"/>
+<section id="cellposesam-to-segment-cytoplasm">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">CellposeSAM to segment cytoplasm<a class="headerlink" href="#cellposesam-to-segment-cytoplasm" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>We’ll extract the <strong>cytoplasm channel</strong> (channel 1) from each multi-channel image.</p></li>
+<li><p>Feed these single-channel images into <strong>CellposeSAM</strong> to generate predicted masks.</p></li>
+<li><p>Then we’ll <strong>randomly visualize</strong> one image with:</p>
+<ul>
+<li><p>Cytoplasm channel,</p></li>
+<li><p>Ground truth mask,</p></li>
+<li><p>Predicted mask (from CellposeSAM).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils"/>
+<section id="segment-cells-using-cellposesam-cytoplasm-channel-only">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Segment Cells using CellposeSAM (Cytoplasm Channel Only)<a class="headerlink" href="#segment-cells-using-cellposesam-cytoplasm-channel-only" title="Link to this heading">#</a></h2>
+<p>Now that we’ve loaded and inspected the multi-channel images, it’s time to:</p>
+<ul class="simple">
+<li><p>Select <strong>only the cytoplasm channel</strong> from each image,</p></li>
+<li><p>Feed these images into the <strong>pre-trained CellposeSAM model</strong> for segmentation,</p></li>
+<li><p>Compare predicted masks with the provided ground truth.</p></li>
+</ul>
+<section id="why-the-cytoplasm-channel">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">Why the cytoplasm channel?<a class="headerlink" href="#why-the-cytoplasm-channel" title="Link to this heading">#</a></h3>
+<p>Cellpose performs instance segmentation based on cellular structures. While both nucleus (channel 0) and cytoplasm (channel 1) are informative, the <strong>cytoplasm channel is more relevant</strong> for full cell boundary segmentation in most microscopy datasets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Extract Cytoplasm Channel</span>
+
+<span class="c1"># Extract cytoplasm (channel 1) from each image</span>
+<span class="n">cytoplasm_images</span> <span class="o">=</span> <span class="p">[</span><span class="n">img</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">images</span><span class="p">]</span>  <span class="c1"># Each img has shape (2, H, W)</span>
+
+<span class="c1"># Check that shapes are preserved and 2D</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Extracted </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cytoplasm_images</span><span class="p">)</span><span class="si">}</span><span class="s2"> cytoplasm images."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Shape of one image:"</span><span class="p">,</span> <span class="n">cytoplasm_images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracted 8 cytoplasm images.
+Shape of one image: (383, 512)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils"/>
+<section id="load-cellposesam-and-run-prediction">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">Load CellposeSAM and Run Prediction<a class="headerlink" href="#load-cellposesam-and-run-prediction" title="Link to this heading">#</a></h3>
+<p>We now initialize the <strong>CellposeSAM</strong> model (pretrained variant of Cellpose) and run it on our list of cytoplasm images.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize model with GPU support (if available)</span>
+<span class="n">use_gpu</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">use_gpu</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Using GPU: </span><span class="si">{</span><span class="n">use_gpu</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># Load the CellposeSAM model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CellposeModel</span><span class="p">(</span><span class="n">gpu</span><span class="o">=</span><span class="n">use_gpu</span><span class="p">,</span> <span class="n">model_type</span><span class="o">=</span><span class="s1">'cpsam'</span><span class="p">)</span>
+
+<span class="c1"># Run the model to predict segmentation masks</span>
+<span class="n">predicted_masks</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">cytoplasm_images</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:cellpose.models:model_type argument is not used in v4.0.1+. Ignoring this argument...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using GPU: True
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1.15G/1.15G [00:04&lt;00:00, 251MB/s]
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>The <code class="docutils literal notranslate"><span class="pre">eval()</span></code> method returns:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">predicted_masks</span></code>: list of predicted instance masks,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flows</span></code> and <code class="docutils literal notranslate"><span class="pre">styles</span></code>: internal model outputs (not used here).</p></li>
+</ul>
+</div></blockquote>
+</section>
+<hr class="docutils"/>
+<section id="visualize-a-random-example">
+<h3 style="color: black; background-color: rgb(126,172,182); padding: 3px; border-radius: 5px;">Visualize a Random Example<a class="headerlink" href="#visualize-a-random-example" title="Link to this heading">#</a></h3>
+<p>Let’s now pick one random image from the dataset and visualize:</p>
+<ul class="simple">
+<li><p>The <strong>cytoplasm input</strong>,</p></li>
+<li><p>The <strong>ground truth mask</strong>, and</p></li>
+<li><p>The <strong>CellposeSAM predicted mask</strong>.</p></li>
+</ul>
+<p>This helps us qualitatively assess the model’s performance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose a random index</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cytoplasm_images</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Extract relevant elements</span>
+<span class="n">cyto_img</span> <span class="o">=</span> <span class="n">cytoplasm_images</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">true_mask</span> <span class="o">=</span> <span class="n">masks</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">pred_mask</span> <span class="o">=</span> <span class="n">predicted_masks</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+<span class="c1"># Visualize</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># Cytoplasm channel image</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cyto_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Cytoplasm Channel (Input)"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+
+<span class="c1"># Ground truth mask</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">true_mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Ground Truth Mask"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+
+<span class="c1"># Predicted mask</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">pred_mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Predicted Mask (CellposeSAM)"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f85cb02222cc9cc0647b301e84e5a08c28e839c9cd759ceeb89058829e7de4f0.png" src="../../_images/f85cb02222cc9cc0647b301e84e5a08c28e839c9cd759ceeb89058829e7de4f0.png"/>
+</div>
+</div>
+</section>
+<hr class="docutils"/>
+<section id="evaluate-cellposesam-with-average-precision">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">Evaluate CellposeSAM with Average Precision<a class="headerlink" href="#evaluate-cellposesam-with-average-precision" title="Link to this heading">#</a></h3>
+<p>Now that we’ve obtained predicted masks from the <strong>CellposeSAM</strong> model, it’s important to go beyond visual inspection and measure <strong>how accurate the segmentation is</strong>.</p>
+<p>We’ll compute the <strong>Average Precision (AP)</strong> between the predicted and ground truth masks using Cellpose’s built-in <code class="docutils literal notranslate"><span class="pre">metrics.average_precision()</span></code> function.</p>
+<section id="what-is-average-precision-ap-in-this-context">
+<h4>What is Average Precision (AP) in this context?<a class="headerlink" href="#what-is-average-precision-ap-in-this-context" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>It evaluates <strong>instance segmentation quality</strong> by checking if predicted cell regions match true ones.</p></li>
+<li><p>Uses <strong>IoU threshold (typically 0.5)</strong> to determine if a prediction counts as a correct match.</p></li>
+<li><p>The average is taken over all instances to get a single AP score.</p></li>
+<li><p><strong>Mean AP (mAP)</strong> is computed if multiple thresholds are used (we’ll use just 0.5 here).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute average precision at IoU threshold = 0.5</span>
+<span class="n">ap_result</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">average_precision</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">predicted_masks</span><span class="p">)</span>  <span class="c1"># returns a tuple</span>
+<span class="n">ap</span> <span class="o">=</span> <span class="n">ap_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># [n_images x n_thresholds] array</span>
+
+<span class="c1"># Calculate mean AP across all images at IoU=0.5 (index 0)</span>
+<span class="n">mean_ap</span> <span class="o">=</span> <span class="n">ap</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Average Precision (AP) at IoU 0.5 across </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span><span class="si">}</span><span class="s2"> images: </span><span class="si">{</span><span class="n">mean_ap</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; Average Precision (AP) at IoU 0.5 across 8 images: 0.899
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils"/>
+<section id="id2">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">Summary<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>We <strong>extracted the cytoplasm channel (channel 1)</strong> from all images to focus on full-cell segmentation.</p></li>
+<li><p>Used <strong>CellposeSAM</strong>, a powerful pretrained segmentation model, to predict instance masks.</p></li>
+<li><p>Randomly visualized one image to <strong>qualitatively compare model predictions</strong> against ground truth.</p></li>
+<li><p>Measured <em>mAP</em> to check how well the CellposeSAM segmented the images.</p></li>
+</ul>
+<p>This gives us a first look at how well a pretrained model generalizes to our dataset. Next, we’ll make this dataset <strong>training-ready</strong> and begin the process of <strong>fine-tuning Cellpose</strong> on our specific images.</p>
+</section>
+</section>
+<hr class="docutils"/>
+<section id="prepare-dataset-for-retraining-cellposesam">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Prepare Dataset for Retraining CellposeSAM<a class="headerlink" href="#prepare-dataset-for-retraining-cellposesam" title="Link to this heading">#</a></h2>
+<p>To improve segmentation performance on our dataset, we now fine-tune the <strong>Cellpose</strong> model using the provided labeled images. This involves:</p>
+<ol class="arabic simple">
+<li><p>Extracting only the <strong>cytoplasm channel (channel = 1)</strong> from each image,</p></li>
+<li><p>Saving them in the format required by Cellpose:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.tif</span></code> files for input images</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_seg.tif</span></code> files for segmentation masks</p></li>
+</ul>
+</li>
+<li><p>Splitting into <strong>training (6 images)</strong> and <strong>validation (2 images)</strong> sets.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save images and masks in appropriate folders</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">images</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>  <span class="c1"># First 6 images for training</span>
+        <span class="n">tifffile</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">TRAIN_DIR</span><span class="si">}</span><span class="s2">/00</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.tif"</span><span class="p">,</span> <span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">tifffile</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">TRAIN_DIR</span><span class="si">}</span><span class="s2">/00</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_seg.tif"</span><span class="p">,</span> <span class="n">masks</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>      <span class="c1"># Remaining 2 images for validation</span>
+        <span class="n">tifffile</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">VALIDATE_DIR</span><span class="si">}</span><span class="s2">/00</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.tif"</span><span class="p">,</span> <span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">tifffile</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">VALIDATE_DIR</span><span class="si">}</span><span class="s2">/00</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_seg.tif"</span><span class="p">,</span> <span class="n">masks</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>⚠️ Note: Cellpose accepts either <code class="docutils literal notranslate"><span class="pre">_seg.tif</span></code> or <code class="docutils literal notranslate"><span class="pre">_seg.npy</span></code> for masks. Here, we use <code class="docutils literal notranslate"><span class="pre">.tif</span></code> for consistency.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load Data Using Cellpose I/O Utility</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">cellpose</span><span class="w"> </span><span class="kn">import</span> <span class="n">io</span>
+
+<span class="c1"># Define mask suffix used for ground truth labels</span>
+<span class="n">masks_ext</span> <span class="o">=</span> <span class="s2">"_seg"</span>
+
+<span class="c1"># Load training and validation sets</span>
+<span class="n">train_data</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">validation_data</span><span class="p">,</span> <span class="n">validation_label</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">load_train_test_data</span><span class="p">(</span>
+    <span class="n">TRAIN_DIR</span><span class="p">,</span>
+    <span class="n">VALIDATE_DIR</span><span class="p">,</span>
+    <span class="n">mask_filter</span><span class="o">=</span><span class="n">masks_ext</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span><span class="si">}</span><span class="s2"> training samples and </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">validation_data</span><span class="p">)</span><span class="si">}</span><span class="s2"> validation samples."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded 6 training samples and 2 validation samples.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils"/>
+<section id="train-a-custom-model">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Train a Custom Model<a class="headerlink" href="#train-a-custom-model" title="Link to this heading">#</a></h2>
+<p>Now that the dataset is ready, we retrain a segmentation model using the Cellpose framework.</p>
+<p>We define training parameters like learning rate and weight decay and let the Cellpose <code class="docutils literal notranslate"><span class="pre">train_seg()</span></code> function handle the rest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training Parameters</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">cellpose</span><span class="w"> </span><span class="kn">import</span> <span class="n">train</span>
+
+<span class="c1"># Define model name</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ROOT_FOLDER</span><span class="si">}</span><span class="s2">/new_model"</span>
+
+<span class="c1"># Training hyperparameters</span>
+<span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-5</span>
+<span class="n">weight_decay</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="c1"># Train the model using Cellpose's built-in function</span>
+<span class="c1"># (We skip test data here to speed up training)</span>
+<span class="n">new_model_path</span><span class="p">,</span> <span class="n">train_losses</span><span class="p">,</span> <span class="n">test_losses</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">train_seg</span><span class="p">(</span>
+    <span class="n">net</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">net</span><span class="p">,</span>
+    <span class="n">train_data</span><span class="o">=</span><span class="n">train_data</span><span class="p">,</span>
+    <span class="n">train_labels</span><span class="o">=</span><span class="n">train_labels</span><span class="p">,</span>
+    <span class="n">test_data</span><span class="o">=</span><span class="n">validation_data</span><span class="p">,</span>
+    <span class="n">test_labels</span><span class="o">=</span><span class="n">validation_label</span><span class="p">,</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span>
+    <span class="n">n_epochs</span><span class="o">=</span><span class="n">n_epochs</span><span class="p">,</span>
+    <span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">,</span>
+    <span class="n">weight_decay</span><span class="o">=</span><span class="n">weight_decay</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 6/6 [00:00&lt;00:00,  9.29it/s]
+100%|██████████| 2/2 [00:00&lt;00:00, 10.74it/s]
+100%|██████████| 6/6 [00:00&lt;00:00, 942.58it/s]
+100%|██████████| 2/2 [00:00&lt;00:00, 790.26it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting the losses</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">),</span> <span class="n">train_losses</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Training Loss'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">),</span> <span class="n">test_losses</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Validation Loss'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Epoch'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Loss'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Training vs. Validation Loss Over Epochs'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0c2759fbd4a0347c1a3319bfec04a676c0e24d1d88a51d06c6a390d6059a712a.png" src="../../_images/0c2759fbd4a0347c1a3319bfec04a676c0e24d1d88a51d06c6a390d6059a712a.png"/>
+</div>
+</div>
+<section id="measure-accuracy">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">Measure accuracy<a class="headerlink" href="#measure-accuracy" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the newly trained CellposeSAM model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CellposeModel</span><span class="p">(</span><span class="n">gpu</span><span class="o">=</span><span class="n">use_gpu</span><span class="p">,</span> <span class="n">pretrained_model</span><span class="o">=</span><span class="n">new_model_path</span><span class="p">)</span>
+
+<span class="c1"># Run the model to predict segmentation masks</span>
+<span class="n">predicted_masks</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">cytoplasm_images</span><span class="p">)</span>
+
+<span class="c1"># Compute average precision at IoU threshold = 0.5</span>
+<span class="n">ap_result</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">average_precision</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">predicted_masks</span><span class="p">)</span>  <span class="c1"># returns a tuple</span>
+<span class="n">ap</span> <span class="o">=</span> <span class="n">ap_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># [n_images x n_thresholds] array</span>
+
+<span class="c1"># Calculate mean AP across all images at IoU=0.5 (index 0)</span>
+<span class="n">mean_ap</span> <span class="o">=</span> <span class="n">ap</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Average Precision (AP) at IoU 0.5 across </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span><span class="si">}</span><span class="s2"> images: </span><span class="si">{</span><span class="n">mean_ap</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; Average Precision (AP) at IoU 0.5 across 8 images: 0.909
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3 style="color: black; background-color: rgb(190,223,185); padding: 3px; border-radius: 5px;">Summary<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>What We Did</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Extracted Channel</p></td>
+<td><p>Used cytoplasm channel (1) from all multi-channel TIFF images</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dataset Split</p></td>
+<td><p>Saved 6 images for training, 2 for validation</p></td>
+</tr>
+<tr class="row-even"><td><p>File Format</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.tif</span></code> for input and <code class="docutils literal notranslate"><span class="pre">_seg.tif</span></code> for masks</p></td>
+</tr>
+<tr class="row-odd"><td><p>Training</p></td>
+<td><p>Trained Cellpose from scratch using custom parameters</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You now have a <strong>custom-trained segmentation model</strong> fine-tuned for your dataset. Next, we’ll evaluate its performance and compare it to the pretrained model.</p>
+</section>
+</section>
+</section>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/10_student_group"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
+</article>
+<footer class="prev-next-footer d-print-none">
+<div class="prev-next-area">
+</div>
+</footer>
+</div>
+<div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+<div class="sidebar-secondary-item">
+<div class="page-toc tocsection onthispage">
+<i class="fa-solid fa-list"></i> Contents
+  </div>
+<nav class="bd-toc-nav page-toc">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-statement">Problem Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#our-approach">Our Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mounting-google-drive">1. Mounting Google Drive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-dependencies">2. Installing Dependencies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-gpu-runtime">3. Checking GPU Runtime</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#folder-structure-and-dataset-paths">4. Folder Structure and Dataset Paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-exploration-and-visualization">Data exploration and visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-read-and-organize-images-and-masks">Step 1: Read and Organize Images and Masks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">Why this matters:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-scan-folder-and-separate-files">Code: Scan Folder and Separate Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-read-the-files-into-arrays">Step 2: Read the Files into Arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-visualize-with-list-comprehension">Step 3: Visualize with List Comprehension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cellposesam-to-segment-cytoplasm">CellposeSAM to segment cytoplasm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#segment-cells-using-cellposesam-cytoplasm-channel-only">Segment Cells using CellposeSAM (Cytoplasm Channel Only)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-cytoplasm-channel">Why the cytoplasm channel?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-cellposesam-and-run-prediction">Load CellposeSAM and Run Prediction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-a-random-example">Visualize a Random Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-cellposesam-with-average-precision">Evaluate CellposeSAM with Average Precision</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-average-precision-ap-in-this-context">What is Average Precision (AP) in this context?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-dataset-for-retraining-cellposesam">Prepare Dataset for Retraining CellposeSAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-a-custom-model">Train a Custom Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measure-accuracy">Measure accuracy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Summary</a></li>
+</ul>
+</li>
+</ul>
+</nav></div>
+</div></div>
+</div>
+<footer class="bd-footer-content">
+<div class="bd-footer-content__inner container">
+<div class="footer-item">
+<p class="component-author">
+By Federico Gasparoli - Image Analysis Collaboratory @ Harvard Medical School - federico.gasparoli@gmail.com
+</p>
+</div>
+<div class="footer-item">
+<p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+</p>
+</div>
+<div class="footer-item">
+</div>
+<div class="footer-item">
+<div class="extra_footer">
+<p>
+All content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>, except where noted otherwise.
+</p>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="bd-footer">
+</footer>
+</body>
+</html>
