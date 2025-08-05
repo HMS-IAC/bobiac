@@ -1,0 +1,602 @@
+
+<!DOCTYPE html>
+
+<html data-content_root="../../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Overview — BoBiAC Book</title>
+<script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+<!-- Loaded before other Sphinx assets -->
+<link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" rel="preload" type="font/woff2"/>
+<link href="../../../_static/pygments.css?v=03e43079" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/togglebutton.css?v=13237357" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/sphinx-thebe.css?v=4fa983c6" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/styles/custom.css?v=ca608692" rel="stylesheet" type="text/css"/>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" rel="preload"/>
+<link as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" rel="preload"/>
+<script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+<script src="../../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+<script src="../../../_static/copybutton.js?v=f281be69"></script>
+<script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+<script>let toggleHintShow = 'Click to show';</script>
+<script>let toggleHintHide = 'Click to hide';</script>
+<script>let toggleOpenOnPrint = 'true';</script>
+<script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script>DOCUMENTATION_OPTIONS.pagename = 'content/05_segmentation/deep_learning/cellpose_notebook_colab';</script>
+<script src="../../../_static/scripts/custom.js?v=4332ec77"></script>
+<link href="../../../genindex.html" rel="index" title="Index"/>
+<link href="../../../search.html" rel="search" title="Search"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+</head>
+<body data-bs-root-margin="0px 0px -60%" data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-default-mode="" data-offset="180">
+<div class="skip-link d-print-none" id="pst-skip-link"><a href="#main-content">Skip to main content</a></div>
+<div id="pst-scroll-pixel-helper"></div>
+<button class="btn rounded-pill" id="pst-back-to-top" type="button">
+<i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<input class="sidebar-toggle" id="pst-primary-sidebar-checkbox" type="checkbox"/>
+<label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+<input class="sidebar-toggle" id="pst-secondary-sidebar-checkbox" type="checkbox"/>
+<label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+<div class="search-button__wrapper">
+<div class="search-button__overlay"></div>
+<div class="search-button__search-container">
+<form action="../../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search this book..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+</div>
+<div class="pst-async-banner-revealer d-none">
+<aside aria-label="Version warning" class="d-none d-print-none" id="bd-header-version-warning"></aside>
+</div>
+<header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+</header>
+<div class="bd-container">
+<div class="bd-container__inner bd-page-width">
+<div class="bd-sidebar-primary bd-sidebar">
+<div class="sidebar-header-items sidebar-primary__section">
+</div>
+<div class="sidebar-primary-items__start sidebar-primary__section">
+<div class="sidebar-primary-item">
+<a class="navbar-brand logo" href="../../../landing-page.html">
+<img alt="BoBiAC Book - Home" class="logo__image only-light" src="../../../_static/bobiac-landing-black.png"/>
+<script>document.write(`<img src="../../../_static/bobiac-landing-white.png" class="logo__image only-dark" alt="BoBiAC Book - Home"/>`);</script>
+</a></div>
+<div class="sidebar-primary-item">
+<script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+<div class="sidebar-primary-item"><nav aria-label="Main" class="bd-links bd-docs-nav">
+<div class="bd-toc-item navbar-nav active">
+<ul class="nav bd-sidenav bd-sidenav__home-link">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../landing-page.html">
+<i class="fas fa-home"></i> Home
+                </a>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Material</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../01_intro_to_bobiac/bobiac_intro.html">01 - <i class="fas fa-image"></i> Introduction to BoBiAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_getting_started_with_python/getting_started_with_python.html">02 - <i class="fab fa-python"></i> Getting Started with Python and <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../03_python_basics/python_basics.html">03 - <i class="fab fa-python"></i> Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../03_python_basics/python_basics_notebook.html">The Python Basics Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03_python_basics/error_notebook.html">Errors Everywhere</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../04_digital_images_intro/digital_images_intro.html">04 - <i class="fas fa-table-cells"></i> Introduction to Digital Images</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../04_digital_images_intro/python_for_bioimage_analysis.html">Python for bioimage analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../segmentation_intro.html">05 - <i class="fa-solid fa-disease"></i> Image Segmentation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../classic/classic.html">Classical Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../classic/classic_segmentation.html">Classical Segmentation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../machine_learning/machine_learning.html">Machine Learning Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../machine_learning/intro_to_ilastik.html">Introduction to Ilastik</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../machine_learning/pixel_classification_with_ilastik.html">Ilastik for Pixel Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../machine_learning/from_ilastik_masks_to_labels.html">From Ilastik Masks to Labels</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="deep_learning.html">Deep Learning Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro_to_cellpose.html">Introduction to Cellpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cellpose_notebook.html">Cellpose in Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cellpose_retraining_colab.html">Retraining Cellpose on Custom Data</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../06_object_classification/object_classification.html">06 - <i class="fa-solid fa-shapes"></i> Object Classification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../06_object_classification/object_classification_with_ilastik.html">Ilastik for Object Classification</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../07_measurement_and_quantification/measurement_and_quantification_intro.html">07 - <i class="fa-solid fa-chart-simple"></i> Measurements &amp; Quantification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../07_measurement_and_quantification/measurement_and_quantification_notebook.html">Measurements &amp; Quantification Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07_measurement_and_quantification/background_correction_notebook.html">Background Correction</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../08_colocalization/colocalization_intro.html">08 - <i class="fa-solid fa-location-crosshairs"></i> Colocalization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../08_colocalization/pixel_intensity_based_colocalization_pearsons.html">Pearson’s correlation coefficient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08_colocalization/pixel_intensity_based_colocalization_manders.html">Manders’ Correlation Coefficients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08_colocalization/object_based_colocalization.html">Object-based colocalization analysis</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Student Working Groups</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../student_group_work/student_group_work.html"><i class="fa-solid fa-user-group"></i> Student Group Work</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Materials Downloads</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../data/course_downloads.html"><i class="fa-solid fa-folder"></i> Downloads</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu/bobiac/2025">BoBiAC</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.astral.sh/uv/">uv</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/manzt/juv">juv</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://iac.hms.harvard.edu">Image Analysis Collaboratory (IAC)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cite.hms.harvard.edu">Core for Imaging Technology &amp; Education (CITE)</a></li>
+</ul>
+</div>
+</nav></div>
+</div>
+<div class="sidebar-primary-items__end sidebar-primary__section">
+</div>
+<div id="rtd-footer-container"></div>
+</div>
+<main class="bd-main" id="main-content" role="main">
+<div class="sbt-scroll-pixel-helper"></div>
+<div class="bd-content">
+<div class="bd-article-container">
+<div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+<div class="header-article-items__start">
+<div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle primary sidebar">
+<span class="fa-solid fa-bars"></span>
+</button></div>
+</div>
+<div class="header-article-items__end">
+<div class="header-article-item">
+<div class="article-header-buttons">
+<a class="btn btn-sm btn-source-repository-button" data-bs-placement="bottom" data-bs-toggle="tooltip" href="https://github.com/HMS-IAC/bobiac" target="_blank" title="Source repository">
+<span class="btn__icon-container">
+<i class="fab fa-github"></i>
+</span>
+</a>
+<button class="btn btn-sm btn-fullscreen-button" data-bs-placement="bottom" data-bs-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode">
+<span class="btn__icon-container">
+<i class="fas fa-expand"></i>
+</span>
+</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle secondary sidebar">
+<span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+</div>
+</div>
+</div>
+<div class="onlyprint" id="jb-print-docs-body">
+<h1>Overview</h1>
+<!-- Table of contents -->
+<div id="print-main-content">
+<div id="jb-print-toc">
+<div>
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;"> Contents </h2>
+</div>
+<nav aria-label="Page">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Overview</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#make-sure-you-have-gpu-access">Make sure you have GPU access</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mount-your-google-drive">Mount your google drive</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-data">Download the Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#install-cellpose">Install Cellpose</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">Import Libraries</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#run-cellpose-on-a-sample-image">Run Cellpose on A Sample Image</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-image">Load the Image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-the-model">Initialize the Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-cellpose">Run Cellpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-the-results">Display the Results</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#run-cellpose-on-a-folder-of-images">Run Cellpose on a Folder of Images</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div id="searchbox"></div>
+<article class="bd-article">
+<section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://www.cellpose.org">Website</a> | <a class="reference external" href="https://github.com/mouseland/cellpose">GitHub</a> | <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2025.04.28.651001v1">Paper</a></p>
+<p>In this section, we’ll learn how to use <strong>Cellpose</strong>, a powerful deep learning tool for cell segmentation. Cellpose works on a wide variety of microscopy images—including both nuclei and full cells—and doesn’t require retraining for many common use cases.</p>
+<p>We’ll start by running Cellpose on a single image and then move to batch processing and visualization. Later, we’ll explore how to customize parameters and interpret Cellpose outputs like masks and flow fields.</p>
+<blockquote>
+<div><p>💡 Tip: If you’re not using a GPU (or are on a Mac with Apple Silicon), we recommend running this notebook on <strong>Google Colab</strong> for faster performance.</p>
+</div></blockquote>
+</section>
+<section id="make-sure-you-have-gpu-access">
+<h1>Make sure you have GPU access<a class="headerlink" href="#make-sure-you-have-gpu-access" title="Link to this heading">#</a></h1>
+<p>To Enable GPU:</p>
+<ol class="arabic simple">
+<li><p>navigate to <code class="docutils literal notranslate"><span class="pre">Runtime</span> <span class="pre">-&gt;</span> <span class="pre">Change</span> <span class="pre">Runtime</span> <span class="pre">Type</span></code></p></li>
+<li><p>select <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3</span></code> as <code class="docutils literal notranslate"><span class="pre">Runtime</span> <span class="pre">Type</span></code></p></li>
+<li><p>select one available GPU (e.g. <code class="docutils literal notranslate"><span class="pre">T4</span> <span class="pre">GPU</span></code>) as <code class="docutils literal notranslate"><span class="pre">Hardware</span> <span class="pre">accelerator</span></code>.</p></li>
+</ol>
+<br/>
+<div align="left"> <img alt="Ilastik Logo" src="https://raw.githubusercontent.com/HMS-IAC/bobiac/main/_static/images/cellpose/colab_runtime.png" width="400"/></div>
+</section>
+<section id="mount-your-google-drive">
+<h1>Mount your google drive<a class="headerlink" href="#mount-your-google-drive" title="Link to this heading">#</a></h1>
+<p>To access the data for the course you first need to mount your Google Drive.</p>
+<p>Run the cell below to connect your Google Drive to colab and follow the instructions to authenticate your Google account.</p>
+<p>You will need to allow access to your Google Drive so that the notebook can read and write files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">drive</span>
+
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">"/content/drive"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">drive</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">"/content/drive"</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named 'google'
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then click on <code class="docutils literal notranslate"><span class="pre">folder</span> <span class="pre">icon</span></code> on the left bar, press the <code class="docutils literal notranslate"><span class="pre">refresh</span> <span class="pre">button</span></code>. Your Google Drive folder should now be available here (e.g. MyDrive).</p>
+<div align="left"> <img alt="Ilastik Logo" src="https://raw.githubusercontent.com/HMS-IAC/bobiac/main/_static/images/cellpose/colab_folder.png" width="300"/></div></section>
+<section id="download-the-data">
+<h1>Download the Data<a class="headerlink" href="#download-the-data" title="Link to this heading">#</a></h1>
+<p>Run the cell below to download the data for this exercise and save it in you Google Drive. A new folder called <code class="docutils literal notranslate"><span class="pre">bobiac_data_cellpose</span></code> will be created in your Google Drive.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create directory</span>
+<span class="o">!</span>mkdir<span class="w"> </span>-p<span class="w"> </span>/content/bobiac_data_cellpose
+<span class="c1"># Download the data</span>
+<span class="o">!</span>wget<span class="w"> </span>https://raw.githubusercontent.com/HMS-IAC/bobiac/main/_static/data/05_segmentation_cellpose.zip<span class="w"> </span>-O<span class="w"> </span>/content/bobiac_data_cellpose/05_segmentation_cellpose.zip
+<span class="c1"># Unzip the data, remove zip file and macOS metadata files (if any)</span>
+<span class="o">!</span><span class="nb">cd</span><span class="w"> </span>/content/bobiac_data_cellpose<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>unzip<span class="w"> </span>05_segmentation_cellpose.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>05_segmentation_cellpose.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>__MACOSX
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="install-cellpose">
+<h1>Install Cellpose<a class="headerlink" href="#install-cellpose" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install cellpose</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-libraries">
+<h1>Import Libraries<a class="headerlink" href="#import-libraries" title="Link to this heading">#</a></h1>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tifffile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cellpose</span><span class="w"> </span><span class="kn">import</span> <span class="n">core</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">plot</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">logger_setup</span><span class="p">()</span>  <span class="c1"># run this to get printing of progress</span>
+
+<span class="n">use_gpu</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">use_gpu</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">use_gpu</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Using GPU for Cellpose"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">"No GPU access, change your runtime as explained above."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-cellpose-on-a-sample-image">
+<h1>Run Cellpose on A Sample Image<a class="headerlink" href="#run-cellpose-on-a-sample-image" title="Link to this heading">#</a></h1>
+<p>In this section, we’ll apply Cellpose to a single image and visualize the segmentation result.</p>
+<p>You’ll see how easy it is to segment cells using just a few lines of code. We’ll use the <code class="docutils literal notranslate"><span class="pre">model.eval()</span></code> function to make predictions, and then display:</p>
+<ul class="simple">
+<li><p>The original image</p></li>
+<li><p>The predicted segmentation mask</p></li>
+<li><p>The outlines of detected cells</p></li>
+</ul>
+<p>We’ll also look at the <code class="docutils literal notranslate"><span class="pre">flows</span></code> output, which helps Cellpose group pixels into individual objects.</p>
+<p>No model training required—just load, run, and view the results.</p>
+<section id="load-the-image">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Load the Image<a class="headerlink" href="#load-the-image" title="Link to this heading">#</a></h2>
+<p>All the data for this exercise is stored in the <code class="docutils literal notranslate"><span class="pre">bobiac_data_cellpose</span></code> folder on your Google Drive created in the previous steps. You can get the path to the files inside this folder by clicking on the <code class="docutils literal notranslate"><span class="pre">folder</span> <span class="pre">icon</span></code> on the left bar, then right-clicking on the file and selecting <code class="docutils literal notranslate"><span class="pre">Copy</span> <span class="pre">path</span></code>.</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_path</span> <span class="o">=</span> <span class="s2">"/content/bobiac_data_cellpose/05_segmentation_cellpose/cell_cellpose.tif"</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">tifffile</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="initialize-the-model">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Initialize the Model<a class="headerlink" href="#initialize-the-model" title="Link to this heading">#</a></h2>
+<p>To initialize Cellpose model we can use the <a class="reference external" href="https://cellpose.readthedocs.io/en/latest/api.html#cellposemodel"><code class="docutils literal notranslate"><span class="pre">models.CellposeModel()</span></code></a> class.</p>
+<p>Among the parameters we can set if we want to use <code class="docutils literal notranslate"><span class="pre">gpu</span></code> (if available) as well which <strong>model</strong> to use. The current default is Cellpose-SAM as <code class="docutils literal notranslate"><span class="pre">cpsam</span></code> (another example is <code class="docutils literal notranslate"><span class="pre">cyto3</span></code>, the previous U-Net-based model).</p>
+<p>If it is the first time you run this notebook, the model will be downloaded automatically. This may take a while.</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CellposeModel</span><span class="p">(</span><span class="n">gpu</span><span class="o">=</span><span class="n">use_gpu</span><span class="p">,</span> <span class="n">model_type</span><span class="o">=</span><span class="s2">"cpsam"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-cellpose">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Run Cellpose<a class="headerlink" href="#run-cellpose" title="Link to this heading">#</a></h2>
+<p>After initializing the model, we can run it on the image using the <a class="reference external" href="https://cellpose.readthedocs.io/en/latest/api.html#id0"><code class="docutils literal notranslate"><span class="pre">model.eval()</span></code></a> method.</p>
+<p>Here are some of the parameters you can change:</p>
+<ul class="simple">
+<li><p><em><strong>flow_threshold</strong></em> is  the  maximum  allowed  error  of  the  flows  for  each  mask.   The  default  is 0.4.</p>
+<ul>
+<li><p><strong>Increase</strong> this threshold if cellpose is not returning as many masks as you’d expect (or turn off completely with 0.0)</p></li>
+<li><p><strong>Decrease</strong> this threshold if cellpose is returning too many ill-shaped masks.</p></li>
+</ul>
+</li>
+<li><p><em><strong>cellprob_threshold</strong></em> determines proability that a detected object is a cell.   The  default  is 0.0.</p>
+<ul>
+<li><p><strong>Decrease</strong> this threshold if cellpose is not returning as many masks as you’d expect or if masks are too small</p></li>
+<li><p><strong>Increase</strong> this threshold if cellpose is returning too many masks esp from dull/dim areas.</p></li>
+</ul>
+</li>
+<li><p><em><strong>tile_norm_blocksize</strong></em> determines the size of blocks used for normalizing the image. The default is 0, which means the entire image is normalized together.
+You may want to change this to 100-200 pixels if you have very inhomogeneous brightness across your image.</p></li>
+</ul>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">channel</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># channel to use for cell detection, 0 cytoplasm, 1 nucleus</span>
+
+<span class="c1"># Cellpose parameters</span>
+<span class="n">flow_threshold</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">cellprob_threshold</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">tile_norm_blocksize</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">masks</span><span class="p">,</span> <span class="n">flows</span><span class="p">,</span> <span class="n">styles</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span>
+    <span class="n">image</span><span class="p">[</span><span class="n">channel</span><span class="p">],</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">flow_threshold</span><span class="o">=</span><span class="n">flow_threshold</span><span class="p">,</span>
+    <span class="n">cellprob_threshold</span><span class="o">=</span><span class="n">cellprob_threshold</span><span class="p">,</span>
+    <span class="n">normalize</span><span class="o">=</span><span class="p">{</span><span class="s2">"tile_norm_blocksize"</span><span class="p">:</span> <span class="n">tile_norm_blocksize</span><span class="p">},</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="display-the-results">
+<h2 style="color: black; background-color: rgb(127,196,125); padding: 3px; border-radius: 5px;">Display the Results<a class="headerlink" href="#display-the-results" title="Link to this heading">#</a></h2>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show_segmentation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">image</span><span class="p">[</span><span class="n">channel</span><span class="p">],</span> <span class="n">masks</span><span class="p">,</span> <span class="n">flows</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># Optional if you want to also save the figure</span>
+<span class="c1"># fname = Path(image_path).stem + "_cp_output.png"</span>
+<span class="c1"># plt.savefig(f"/content/bobiac_data_cellpose/05_segmentation_cellpose/{fname}")</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="run-cellpose-on-a-folder-of-images">
+<h1>Run Cellpose on a Folder of Images<a class="headerlink" href="#run-cellpose-on-a-folder-of-images" title="Link to this heading">#</a></h1>
+<p>Now that we’ve seen how to run Cellpose on a single image, let’s scale up and apply it to a <strong>folder of images</strong>. This is useful when you have an entire experiment or dataset that you want to segment automatically.</p>
+<p>Cellpose provides a convenient built-in function for this: <code class="docutils literal notranslate"><span class="pre">model.eval()</span></code> can be used with a folder path, and it will process all compatible image files in that folder.</p>
+<p>We’ll walk through how to:</p>
+<ul class="simple">
+<li><p>Point Cellpose to your image directory</p></li>
+<li><p>Choose the segmentation type (e.g., “nuclei” or “cyto”)</p></li>
+<li><p>Set output options like saving masks and outlines</p></li>
+<li><p>Visualize a few results to make sure everything worked</p></li>
+</ul>
+<blockquote>
+<div><p>💡 Tip: Make sure your images are in <code class="docutils literal notranslate"><span class="pre">.tif</span></code>, <code class="docutils literal notranslate"><span class="pre">.png</span></code>, or <code class="docutils literal notranslate"><span class="pre">.jpg</span></code> format.</p>
+</div></blockquote>
+<p>Let’s get started with folder-based segmentation!</p>
+<div class="cell tag_teacher docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># folder_path = Path("data/05_segmentation_cellpose")</span>
+<span class="n">folder_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"/content/bobiac_data_cellpose/05_segmentation_cellpose"</span><span class="p">)</span>
+
+<span class="c1"># Read file names</span>
+<span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">folder_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"*.tif"</span><span class="p">):</span>
+    <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="c1"># same as running: files = [f for f in folder_path.glob("*.tif")]</span>
+
+<span class="c1"># Cellpose parameters</span>
+<span class="n">flow_threshold</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">cellprob_threshold</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">tile_norm_blocksize</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Run Cellpose on all images</span>
+<span class="k">for</span> <span class="n">image_path</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">tifffile</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+    <span class="n">masks</span><span class="p">,</span> <span class="n">flows</span><span class="p">,</span> <span class="n">styles</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span>
+        <span class="n">image</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+        <span class="n">flow_threshold</span><span class="o">=</span><span class="n">flow_threshold</span><span class="p">,</span>
+        <span class="n">cellprob_threshold</span><span class="o">=</span><span class="n">cellprob_threshold</span><span class="p">,</span>
+        <span class="n">normalize</span><span class="o">=</span><span class="p">{</span><span class="s2">"tile_norm_blocksize"</span><span class="p">:</span> <span class="n">tile_norm_blocksize</span><span class="p">},</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Optional: display each image with its segmentation</span>
+    <span class="c1"># fig = plt.figure(figsize=(12, 5))</span>
+    <span class="c1"># plot.show_segmentation(fig, image, masks, flows[0])</span>
+    <span class="c1"># plt.tight_layout()</span>
+    <span class="c1"># plt.show()</span>
+
+    <span class="c1"># Save the segmentation results</span>
+    <span class="n">output_path</span> <span class="o">=</span> <span class="n">folder_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">image_path</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">_labeled_mask.tif"</span>
+    <span class="n">tifffile</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">masks</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"uint16"</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/05_segmentation/deep_learning"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
+</article>
+<footer class="prev-next-footer d-print-none">
+<div class="prev-next-area">
+</div>
+</footer>
+</div>
+<div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+<div class="sidebar-secondary-item">
+<div class="page-toc tocsection onthispage">
+<i class="fa-solid fa-list"></i> Contents
+  </div>
+<nav class="bd-toc-nav page-toc">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Overview</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#make-sure-you-have-gpu-access">Make sure you have GPU access</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mount-your-google-drive">Mount your google drive</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-data">Download the Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#install-cellpose">Install Cellpose</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">Import Libraries</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#run-cellpose-on-a-sample-image">Run Cellpose on A Sample Image</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-image">Load the Image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-the-model">Initialize the Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-cellpose">Run Cellpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-the-results">Display the Results</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#run-cellpose-on-a-folder-of-images">Run Cellpose on a Folder of Images</a></li>
+</ul>
+</nav></div>
+</div></div>
+</div>
+<footer class="bd-footer-content">
+<div class="bd-footer-content__inner container">
+<div class="footer-item">
+<p class="component-author">
+By Federico Gasparoli - Image Analysis Collaboratory @ Harvard Medical School - federico.gasparoli@gmail.com
+</p>
+</div>
+<div class="footer-item">
+<p class="copyright">
+    
+      © Copyright 2025.
+      <br>
+</br></p>
+</div>
+<div class="footer-item">
+</div>
+<div class="footer-item">
+<div class="extra_footer">
+<p>
+All content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>, except where noted otherwise.
+</p>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+<footer class="bd-footer">
+</footer>
+</body>
+</html>
