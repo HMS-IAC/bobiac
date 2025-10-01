@@ -1,58 +1,58 @@
-name: deploy-book
+# name: deploy-book
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-  workflow_dispatch:
+#   workflow_dispatch:
 
-jobs:
-  deploy-book:
-    runs-on: ubuntu-latest
+# jobs:
+#   deploy-book:
+#     runs-on: ubuntu-latest
 
-    steps:
-      # Checkout the repository
-      - name: Checkout repository
-        uses: actions/checkout@v3
+#     steps:
+#       # Checkout the repository
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
 
-      # Set up Python and uv
-      - name: Set up Python and uv
-        uses: astral-sh/setup-uv@v4
-        with:
-          python-version: "3.12"
+#       # Set up Python and uv
+#       - name: Set up Python and uv
+#         uses: astral-sh/setup-uv@v4
+#         with:
+#           python-version: "3.12"
 
-      # Install OpenGL + virtual display support. This is needed to visualize
-      # glfw, vispy, or napari-based notebooks without errors.
-      - name: Set up OpenGL and virtual display
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y xvfb libgl1-mesa-dri libglx-mesa0 libglu1-mesa mesa-utils
-          Xvfb :99 -screen 0 1920x1080x24 &
-          echo "DISPLAY=:99" >> $GITHUB_ENV
+#       # Install OpenGL + virtual display support. This is needed to visualize
+#       # glfw, vispy, or napari-based notebooks without errors.
+#       - name: Set up OpenGL and virtual display
+#         run: |
+#           sudo apt-get update
+#           sudo apt-get install -y xvfb libgl1-mesa-dri libglx-mesa0 libglu1-mesa mesa-utils
+#           Xvfb :99 -screen 0 1920x1080x24 &
+#           echo "DISPLAY=:99" >> $GITHUB_ENV
 
-      # ✅ Verify OpenGL is working
-      - name: Check OpenGL status
-        run: |
-          export DISPLAY=:99
-          glxinfo | grep "OpenGL version"
+#       # ✅ Verify OpenGL is working
+#       - name: Check OpenGL status
+#         run: |
+#           export DISPLAY=:99
+#           glxinfo | grep "OpenGL version"
 
-      # Install Python dependencies with uv
-      - name: Install dependencies
-        run: uv sync
+#       # Install Python dependencies with uv
+#       - name: Install dependencies
+#         run: uv sync
 
-      # Build the book
-      - name: Build the book
-        run: |
-          chmod +x ./build.sh
-          uv run ./build.sh
-          touch ./_build/.nojekyll
+#       # Build the book
+#       - name: Build the book
+#         run: |
+#           chmod +x ./build.sh
+#           uv run ./build.sh
+#           touch ./_build/.nojekyll
 
-      # Deploy the book
-      - name: Deploy the book
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_build/html
-          keep_files: false
-          force_orphan: true
+#       # Deploy the book
+#       - name: Deploy the book
+#         uses: peaceiris/actions-gh-pages@v4
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           publish_dir: ./_build/html
+#           keep_files: false
+#           force_orphan: true
