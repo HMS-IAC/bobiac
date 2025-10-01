@@ -2,9 +2,9 @@
 name: Redirect
 
 on:
-  # Runs on pushes targeting the default branch
+  # Runs on pushes targeting the redirect branch
   push:
-    branches: ["main"]
+    branches: ["redirect"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -29,14 +29,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout redirect branch
         uses: actions/checkout@v4
+        with:
+          ref: redirect
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
+          # Upload only the index.html and any other needed files
           path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
