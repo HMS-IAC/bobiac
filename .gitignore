@@ -1,6 +1,0 @@
-.venv
-.DS_Store
-.ipynb_checkpoints
-# prevent from adding the _build directory
-_build
-uv.lock
