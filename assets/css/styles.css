@@ -1312,9 +1312,30 @@ ul li {
 
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 440px) {
   .navbar-brand {
     font-size: 0.0rem;
+  }
+  
+  .landing-logo {
+    width: 85%;
+    max-width: 25rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .d-flex.justify-content-center.gap-3 {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  
+  .apply-btn {
+    padding: 10px 40px;
+    font-size: 1.25rem;
+    width: 100%;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
